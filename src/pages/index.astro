@@ -25,13 +25,13 @@ import tuna from '../images/photography/twc-tuna.png'
 		<header>
 			<div id="hero-comp">
 				<p id="hero-text">
-					Some text that talks about my passion for photography. Lorem ipsum dolor sit amet consectetur. Viverra mi pellentesque purus lacus morbi volutpat morbi elit sapien. Lacinia arcu varius semper purus. Est sed scelerisque morbi mauris eu aliquet suscipit →
+					My passion for photography and creating beautiful images comes from an internal desire to capture life and tell a story that others will enjoy alonside myself.
 				</p>
 				<div id="latest-work-wrap">
-					<div id="latest-work">
+					<a id="latest-work" href="#latest-work">
 						<p>Latest Work</p>
 						<Image src={downArrow} alt={'An arrow pointing down inside of a circle.'}/>
-					</div>
+					</a>
 				</div>
 			</div>
 		</header>
@@ -39,7 +39,7 @@ import tuna from '../images/photography/twc-tuna.png'
 			<Image src={photographySection} alt={'A camera on a tripod in the middle of a field.'} id={'photo-section-bg'}/>
 		</section>
 		<section>
-			<h2>Latest Work</h2>
+			<h2 id="latest-work">Latest Work</h2>
 			<div class="three-columns">
 				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
 				<PortfolioItem src={matilda} alt={'Matilda Cake'} title="Bruce, Bruce, Bruce!" client="La Postreria 77"/>
@@ -72,18 +72,8 @@ import tuna from '../images/photography/twc-tuna.png'
 		padding-bottom: var(--su3);
 	}
 
-	h2, fs2 {
-		font-size: 3rem;
-		font-weight: 500;
-	}
-
-	h3 {
-		font-size: 1.5rem;
-		font-weight: 500;
-	}
-
 	p {
-		font-size: 1.5rem;
+		font-size: clamp(1rem, 1vw + 1rem,  1.5rem);
 		line-height: 150%;
 	}
 
@@ -116,6 +106,7 @@ import tuna from '../images/photography/twc-tuna.png'
 		position: absolute;
 		inset: 0;
 		width: 100%;
+		object-fit: cover;
 	}
 
 	.three-columns {
@@ -132,5 +123,20 @@ import tuna from '../images/photography/twc-tuna.png'
 	.three-columns:hover :global(figure):not(:hover) {
 		filter: brightness(0.7);
 	}
-	
+
+	@media only screen and (max-width: 600px) {
+		.three-columns {
+			grid-template-columns: 1fr;
+		}
+
+		#hero-comp {
+			grid-template-columns: 1fr;
+		}
+
+		#latest-work-wrap {
+		display: flex;
+		justify-content: start;
+		margin-top: var(--su2);
+		}
+	}
 </style>

@@ -23,11 +23,6 @@
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
-    h1 {
-		font-size: 9rem;
-		font-weight: 500;
-		line-height: 100%;
-	}
     ul {
         list-style-type: none;
         display: flex;
@@ -38,5 +33,10 @@
         justify-content: space-between;
     }
 
+    @media only screen and (max-width: 600px) {
+		ul {
+			display: none;
+		}
+	}
 
 </style>

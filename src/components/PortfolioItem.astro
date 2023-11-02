@@ -61,4 +61,10 @@ const { src, alt, title, client, double } = Astro.props;
     .double-column {
 		grid-column: span 2;
 	}
+
+	@media only screen and (max-width: 600px) {
+		.double-column {
+			grid-column: span 1;
+		}
+	}
 </style>

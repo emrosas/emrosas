@@ -6,8 +6,18 @@ import PortfolioItem from '../components/PortfolioItem.astro'
 //Asset import
 import downArrow from '../images/icons/arrow_down_circle.svg'
 import photographySection from '../images/sections/photography.png'
+//LP77 images
 import atropellado from '../images/photography/lp77-chilaquiles.png'
+import matilda from '../images/photography/lp77-matilda.png'
+import huevos from '../images/photography/lp77-huevos.png'
 import charol from '../images/photography/lp77-charol.png'
+import eggie from '../images/photography/lp77-eggie.png'
+//The Wrap Co. images
+import boneless from '../images/photography/twc-boneless.png'
+import buffalo from '../images/photography/twc-buffalo.png'
+import bbq from '../images/photography/twc-bbq.png'
+import classic from '../images/photography/twc-classic.png'
+import tuna from '../images/photography/twc-tuna.png'
 ---
 
 <Layout title="Erick Mireles | Portfolio">
@@ -32,10 +42,16 @@ import charol from '../images/photography/lp77-charol.png'
 			<h2>Latest Work</h2>
 			<div class="three-columns">
 				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
-				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
-				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
-				<PortfolioItem src={charol} alt={'Pastel Charol'} title="Charol Focus Merge" client="La Postreria 77" double="double-column"/>
-				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
+				<PortfolioItem src={matilda} alt={'Matilda Cake'} title="Bruce, Bruce, Bruce!" client="La Postreria 77"/>
+				<PortfolioItem src={huevos} alt={'Fried Eggs'} title="Sunny Side Up" client="La Postreria 77"/>
+				<PortfolioItem src={charol} alt={'Charol Cake'} title="Charol Focus Merge" client="La Postreria 77" double="double-column"/>
+				<PortfolioItem src={eggie} alt={'Scrambled Egg Panini'} title="Eggie Sandwich" client="La Postreria 77"/>
+
+				<PortfolioItem src={boneless} alt={'Flour Tortilla Boneless Wrap'} title="Say Crispy" client="The Wrap Co."/>
+				<PortfolioItem src={buffalo} alt={'Pastel Matilda'} title="Buffalo Chicken" client="The Wrap Co."/>
+				<PortfolioItem src={bbq} alt={'Huevos estrellados'} title="BBQ" client="The Wrap Co."/>
+				<PortfolioItem src={classic} alt={'Pastel Charol'} title="Signature Wrap" client="The Wrap Co."/>
+				<PortfolioItem src={tuna} alt={'Panini de huevo revuelto'} title="Tuna Special" client="The Wrap Co." double="double-column"/>
 			</div>
 		</section>
 
@@ -99,15 +115,22 @@ import charol from '../images/photography/lp77-charol.png'
 	#photo-section-bg {
 		position: absolute;
 		inset: 0;
+		width: 100%;
 	}
 
 	.three-columns {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: var(--su1);
+		pointer-events: none;
 	}
 
-	article:nth-child(1) {
-		opacity: 20%;
+	.three-columns :global(figure) {
+		pointer-events: auto;
 	}
+
+	.three-columns:hover :global(figure):not(:hover) {
+		filter: brightness(0.7);
+	}
+	
 </style>

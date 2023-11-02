@@ -1,0 +1,59 @@
+---
+import Navigation from '../components/Navigation.astro';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="https://use.typekit.net/qzl6zaz.css">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Navigation/>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		/* Color Values */
+		--light-2:#F6E4CD;
+		--dark-1: #10003D;
+
+		/* Sizing Values */
+		--pp1: 2.5rem;
+		--su1: 1.5rem;
+		--su2: 2.5rem;
+		--su3: 5rem;
+		--su4: 10rem;
+	}
+	html {
+		font-family: itc-avant-garde-gothic-pro, sans-serif;
+		background: var(--light-2);
+		color: var(--dark-1);
+	}
+
+	* {
+		margin: unset;
+	}
+
+	h2, fs2 {
+		font-size: 3rem;
+		font-weight: 500;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+
+</style>

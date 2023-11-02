@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import PortfolioItem from '../components/PortfolioItem.astro'
+
+//Asset import
+import downArrow from '../images/icons/arrow_down_circle.svg'
+import photographySection from '../images/sections/photography.png'
+import atropellado from '../images/photography/lp77-chilaquiles.png'
+import charol from '../images/photography/lp77-charol.png'
+---
+
+<Layout title="Erick Mireles | Portfolio">
+	<main>
+		<header>
+			<div id="hero-comp">
+				<p id="hero-text">
+					Some text that talks about my passion for photography. Lorem ipsum dolor sit amet consectetur. Viverra mi pellentesque purus lacus morbi volutpat morbi elit sapien. Lacinia arcu varius semper purus. Est sed scelerisque morbi mauris eu aliquet suscipit →
+				</p>
+				<div id="latest-work-wrap">
+					<div id="latest-work">
+						<p>Latest Work</p>
+						<Image src={downArrow} alt={'An arrow pointing down inside of a circle.'}/>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section id="photo-section">
+			<Image src={photographySection} alt={'A camera on a tripod in the middle of a field.'} id={'photo-section-bg'}/>
+		</section>
+		<section>
+			<h2>Latest Work</h2>
+			<div class="three-columns">
+				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
+				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
+				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
+				<PortfolioItem src={charol} alt={'Pastel Charol'} title="Charol Focus Merge" client="La Postreria 77" double="double-column"/>
+				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
+			</div>
+		</section>
+
+	</main>
+</Layout>
+
+<style>
+	header, section {
+		padding-left: var(--pp1);
+		padding-right: var(--pp1);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--su1);
+		padding-top: var(--su3);
+		padding-bottom: var(--su3);
+	}
+
+	h2, fs2 {
+		font-size: 3rem;
+		font-weight: 500;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+
+	p {
+		font-size: 1.5rem;
+		line-height: 150%;
+	}
+
+	#hero-comp {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		padding-top: var(--su2);
+		padding-bottom: var(--su2);
+	}
+
+	#latest-work-wrap {
+		display: flex;
+		align-items: end;
+		justify-content: end;
+	}
+
+	#latest-work {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	#photo-section {
+		height: 70vh;
+		position: relative;
+		overflow: hidden;
+	}
+
+	#photo-section-bg {
+		position: absolute;
+		inset: 0;
+	}
+
+	.three-columns {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--su1);
+	}
+
+	article:nth-child(1) {
+		opacity: 20%;
+	}
+</style>

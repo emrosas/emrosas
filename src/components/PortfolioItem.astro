@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+
+const { src, alt, title, client, double } = Astro.props;
+---
+
+<figure class={double}>
+    <Image src={src} alt={alt}/>
+    <div>
+        <h3>{title}</h3>
+        <p>{client}</p>
+    </div>
+</figure>
+
+<style>
+    figure {
+		display: flex;
+		flex-direction: column;
+		gap: var(--su1);
+		transition: all 300ms ease-out;
+	}
+
+	figure:hover {
+		transform: translate(0, -1rem);
+	}
+
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	p {
+		font-weight: 300;
+		font-size: 1rem;
+	}
+    .double-column {
+		grid-column: 1 / span 2;
+	}
+</style>

@@ -113,15 +113,21 @@ import tuna from '../images/photography/twc-tuna.png'
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: var(--su1);
-		pointer-events: none;
 	}
 
-	.three-columns :global(figure) {
-		pointer-events: auto;
-	}
 
-	.three-columns:hover :global(figure):not(:hover) {
-		filter: brightness(0.7);
+	@media only screen and (min-width: 601px) {
+		.three-columns{
+			pointer-events: none;
+		}
+
+		.three-columns :global(figure) {
+			pointer-events: auto;
+		}
+
+		.three-columns:hover :global(figure):not(:hover) {
+			filter: brightness(0.7);
+		}
 	}
 
 	@media only screen and (max-width: 600px) {
@@ -137,6 +143,10 @@ import tuna from '../images/photography/twc-tuna.png'
 		display: flex;
 		justify-content: start;
 		margin-top: var(--su2);
+		}
+
+		#photo-section {
+		height: 50vh;
 		}
 	}
 </style>

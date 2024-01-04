@@ -1,156 +1,73 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import PortfolioItem from '../components/PortfolioItem.astro'
 
-//Asset import
-import downArrow from '../images/icons/arrow_down_circle.svg'
-import photographySection from '../images/sections/photography.png'
-//LP77 images
-import atropellado from '../images/photography/lp77-chilaquiles.png'
-import matilda from '../images/photography/lp77-matilda.png'
-import huevos from '../images/photography/lp77-huevos.png'
-import charol from '../images/photography/lp77-charol.png'
-import eggie from '../images/photography/lp77-eggie.png'
-//The Wrap Co. images
-import boneless from '../images/photography/twc-boneless.png'
-import buffalo from '../images/photography/twc-buffalo.png'
-import bbq from '../images/photography/twc-bbq.png'
-import classic from '../images/photography/twc-classic.png'
-import tuna from '../images/photography/twc-tuna.png'
 ---
 
 <Layout title="Erick Mireles | Portfolio">
 	<main>
-		<header>
-			<div id="hero-comp">
-				<p id="hero-text">
-					My passion for photography and creating beautiful images comes from an internal desire to capture life and tell a story that others will enjoy alonside myself.
-				</p>
-				<div id="latest-work-wrap">
-					<a id="latest-work" href="#latest-work">
-						<p>Latest Work</p>
-						<Image src={downArrow} alt={'An arrow pointing down inside of a circle.'}/>
-					</a>
-				</div>
-			</div>
-		</header>
-		<section id="photo-section">
-			<Image src={photographySection} alt={'A camera on a tripod in the middle of a field.'} id={'photo-section-bg'}/>
-		</section>
-		<section>
-			<h2 id="latest-work">Latest Work</h2>
-			<div class="three-columns">
-				<PortfolioItem src={atropellado} alt={'Chilaquiles con Atropellado'} title="Chilaquiles con Atropellado" client="La Postreria 77"/>
-				<PortfolioItem src={matilda} alt={'Matilda Cake'} title="Bruce, Bruce, Bruce!" client="La Postreria 77"/>
-				<PortfolioItem src={huevos} alt={'Fried Eggs'} title="Sunny Side Up" client="La Postreria 77"/>
-				<PortfolioItem src={charol} alt={'Charol Cake'} title="Charol Focus Merge" client="La Postreria 77" double="double-column"/>
-				<PortfolioItem src={eggie} alt={'Scrambled Egg Panini'} title="Eggie Sandwich" client="La Postreria 77"/>
-
-				<PortfolioItem src={boneless} alt={'Flour Tortilla Boneless Wrap'} title="Say Crispy" client="The Wrap Co."/>
-				<PortfolioItem src={buffalo} alt={'Pastel Matilda'} title="Buffalo Chicken" client="The Wrap Co."/>
-				<PortfolioItem src={bbq} alt={'Huevos estrellados'} title="BBQ" client="The Wrap Co."/>
-				<PortfolioItem src={classic} alt={'Pastel Charol'} title="Signature Wrap" client="The Wrap Co."/>
-				<PortfolioItem src={tuna} alt={'Panini de huevo revuelto'} title="Tuna Special" client="The Wrap Co." double="double-column"/>
-			</div>
-		</section>
+		<h1>Welcome to my portfolio</h1>
+		<p>
+			This page will become my personal portfolio where I will showcase my work and projects. I'm currently working on it, so please come back later.
+		</p>
 
 	</main>
 </Layout>
 
 <style>
-	header, section {
-		padding-left: var(--pp1);
-		padding-right: var(--pp1);
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
 	}
-
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: var(--su1);
-		padding-top: var(--su3);
-		padding-bottom: var(--su3);
-	}
-
-	p {
-		font-size: clamp(1rem, 1vw + 1rem,  1.5rem);
-		line-height: 150%;
-	}
-
-	a {
-		text-decoration: none;
-	}
-
-	#hero-comp {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		padding-top: var(--su2);
-		padding-bottom: var(--su2);
-	}
-
-	#latest-work-wrap {
-		display: flex;
-		align-items: end;
-		justify-content: end;
-	}
-
-	#latest-work {
-		display: flex;
-		gap: 0.5rem;
-		align-items: center;
-	}
-
-	#photo-section {
-		height: 70vh;
-		position: relative;
-		overflow: hidden;
-	}
-
-	#photo-section-bg {
+	.astro-a {
 		position: absolute;
-		inset: 0;
-		width: 100%;
-		object-fit: cover;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
 	}
-
-	.three-columns {
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--su1);
-	}
-
-
-	@media only screen and (min-width: 601px) {
-		.three-columns{
-			pointer-events: none;
-		}
-
-		.three-columns :global(figure) {
-			pointer-events: auto;
-		}
-
-		.three-columns:hover :global(figure):not(:hover) {
-			filter: brightness(0.7);
-		}
-	}
-
-	@media only screen and (max-width: 600px) {
-		.three-columns {
-			grid-template-columns: 1fr;
-		}
-
-		#hero-comp {
-			grid-template-columns: 1fr;
-		}
-
-		#latest-work-wrap {
-		display: flex;
-		justify-content: start;
-		margin-top: var(--su2);
-		}
-
-		#photo-section {
-		height: 50vh;
-		}
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
 	}
 </style>

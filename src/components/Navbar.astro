@@ -1,0 +1,54 @@
+---
+
+---
+<nav>
+    <div class="container">
+        <a href="/">
+            <img src="./logo.svg" alt="My name (Erick Mireles)">
+        </a>
+        <ul class="navlinks">
+            <li><a href="/"><span>1.</span>About</a></li>
+            <li><a href="/"><span>2.</span>Commercial</a></li>
+            <li><a href="/"><span>3.</span>Projects</a></li>
+            <li><a href="/"><span>4.</span>Contact</a></li>
+        </ul>
+    </div>
+</nav>
+<style>
+    nav {
+        border-bottom: 1px solid hsl(var(--light-2));
+    }
+    .container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navlinks {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    li {
+        list-style: none;
+    }
+    li:hover a {
+        color: hsl(var(--light-1));
+    }
+    a {
+        text-decoration: none;
+        color: hsl(var(--light-2));
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: color 0.2s ease-in-out;
+        font-weight: 300;
+        display: flex;
+        gap: 0.25rem;
+    }
+    span {
+        color: hsl(var(--brand-1));
+        font-weight: 700;
+        font-weight: 300;
+    }
+</style>

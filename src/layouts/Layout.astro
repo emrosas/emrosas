@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import Navbar from "../components/Navbar.astro";
 ---
 
 <!doctype html>
@@ -13,39 +14,45 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
+	<Navbar />
 	<body>
 		<slot />
 	</body>
 </html>
+
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		/* Color Palette */
+		--light-1: 240, 100%, 96%;
+		--light-2: 240, 8%, 56%;
+		--dark-1: 96, 100%, 2%;
+		--brand-1: 96, 72%, 36%;
+		--brand-2: 96, 24%, 16%;
+		/* Spacing Scale */
+		--page-padding: 4rem;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		background: hsl(var(--dark-1));
+		color: hsl(var(--light-1));
 		background-size: 224px;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	body {
+		margin: 0;
+	}
+	nav, section, footer {
+		padding-left: var(--page-padding);
+		padding-right: var(--page-padding);
+	}
+	section {
+		border-top: 1px solid hsl(var(--brand-2));
+	}
+
+	.container {
+		padding: 0 2rem;
+		border-left: 1px solid hsl(var(--brand-2));
+		border-right: 1px solid hsl(var(--brand-2));
 	}
 </style>

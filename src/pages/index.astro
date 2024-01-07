@@ -40,20 +40,7 @@ import Footer from '../components/Footer.astro';
 		<Footer />
 	</main>
 </Layout>
-
-<style>
-	header {
-		height: 95vh;
-		display: flex;
-	}
-	.hero-container {
-		display: grid;
-		grid-template-columns: 1.2fr 1fr;
-	}
-	.container {
-		padding-top: 4rem;
-		padding-bottom: 4rem;
-	}
+<style is:global>
 	.comp-wrapper {
 		display: flex;
 		flex-direction: column;
@@ -83,6 +70,22 @@ import Footer from '../components/Footer.astro';
 	.comp-element {
 		padding: 1rem;
 		border: 1px solid hsla(var(--brand-2), 0.75);
+	}
+
+</style>
+
+<style>
+	header {
+		height: 95vh;
+		display: flex;
+	}
+	.hero-container {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr;
+	}
+	.container {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
 	}
 	.work-button {
 		padding: 0.5rem;

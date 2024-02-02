@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+    text: string;
+    href: string;
+    icon?: string;
+}
+
+const { text, href, icon } = Astro.props;
+---
+<a href={href}>
+    <span>{text}</span>
+    {icon && <Icon name={icon} />}
+</a>
+
+<style>
+    a {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        font-family: var(--display-font);
+        background-color: hsla(var(--brand-1), 0.15);
+        color: hsla(var(--brand-1), 1);
+        border: 1px solid hsla(var(--brand-1), 0.5);
+        transition: all 0.2s ease-out; 
+    }
+    a:hover {
+        background-color: hsla(var(--brand-1), 0.25);
+        padding: 0.6rem 1.1rem;
+    }
+</style>

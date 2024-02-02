@@ -1,0 +1,87 @@
+---
+import Navbar from '../components/Navbar.astro';
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+// Supports weights 300-900
+import '@fontsource-variable/red-hat-display';
+// Poppins Light
+import '@fontsource/poppins/300.css';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<title>{title}</title>
+	</head>
+	<body>
+		<Navbar />
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		/* Color Variables */
+		--dark-1: 0, 0%, 8%;
+		--dark-2: 42, 6%, 31%;
+		--brand-1: 40, 100%, 48%;
+		--brand-2: 42, 100%, 90%;
+		--light-1: 42, 100%, 98%;
+		--light-2: 48, 8%, 75%;
+		/* Spacing Variables */
+		--page-padding: 2rem;
+		--nav-height: 5rem;
+		/* Font Families */
+		--display-font: 'Red Hat Display', sans-serif;
+		--body-font: 'Poppins', sans-serif;
+		/* Borders */
+		--dash-border: 1px dashed hsla(var(--light-2), 0.5)
+
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: hsla(var(--dark-1), 1);
+		color: hsla(var(--light-1), 1);
+		font-family: var(--body-font);
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--display-font);
+		margin: 0;
+	}
+	h1 {
+		font-size: 4.25rem;
+		font-weight: 500;
+	}
+	p {
+		margin: 0;
+		color: hsla(var(--light-2), 0.8);
+		font-size: 1.25rem;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	.outlined-holder {
+		border: 1px solid hsla(var(--light-2), 0.25);
+	}
+	.dashed-holder {
+		border-top: var(--dash-border);
+		border-bottom: var(--dash-border);
+		padding: 0 var(--page-padding);
+	}
+</style>

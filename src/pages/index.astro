@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Erick Mireles" description="I'm a self taught front-end developer, combining design, animation and the porwe of the web to create stunning websites.">
+	<main>
+		<header>
+			<div id="nav-spacer"/>
+			<div class="header-wrapper">
+				<div>
+					<div id="fed-tag">
+						&lt;Front End Developer/&gt;
+					</div>
+					<div class="dashed-holder">
+						<div class="header-comp outlined-holder">	
+							<h1>Building <span class="title-color">creative</span> digital experiences</h1>
+							<p>Combining design, animation and the power of the web to create stunning websites.</p>
+						</div>
+					</div>
+				</div>
+					<div class="header-outline" />
+			</div>
+		</header>
+	</main>
+</Layout>
+
+<style>
+	span.title-color {
+		color: hsla(var(--brand-1), 1);
+	}
+	main {
+		width: 100%;
+	}
+	#nav-spacer {
+		height: var(--nav-height);
+	}
+	header {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+	.header-wrapper {
+		position: relative;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		padding-bottom: var(--page-padding);
+	}
+	.header-container {
+		border: 1px solid hsla(var(--light-1), 1);
+		flex-grow: 1;
+	}
+	.header-outline {
+		border: 1px solid hsla(var(--light-1), 1);
+		position: absolute;
+		top: 0;
+		left: var(--page-padding);
+		right: var(--page-padding);
+		bottom: var(--page-padding);
+	    background-image: url('/images/header-bg.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		mix-blend-mode: color-dodge;
+	}
+	.header-outline::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url('/images/header-bg-grain.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.header-comp {
+		display: flex;
+		flex-direction: column;
+		max-width: 45%;
+		padding: 1rem;
+	}
+	#fed-tag {
+		padding-left: var(--page-padding);
+	}
+</style>

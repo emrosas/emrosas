@@ -1,0 +1,74 @@
+---
+---
+
+<nav>
+	<div id="nav-wrapper">
+			<a href="/" id="logoish">erick mireles rosas</a>
+			<div id="nav-links-holder">
+				<a href="/#footer" class="nav-contact-button">contact</a>
+				<div id="nav-menu-placeholder">
+					<div/>
+					<div/>
+				</div>
+			</div>
+			
+	</div>
+
+</nav>
+
+<style>
+	nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: var(--nav-height);
+		display: flex;
+		align-items: center;
+		padding: 0 var(--page-padding);
+		background-color: hsla(var(--dark-1), 0.5);
+		backdrop-filter: blur(6px);
+	}
+	#nav-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+	#logoish {
+		font-family: var(--display-font);
+		font-weight: 500;
+		font-size: 1.25rem;
+	}
+	#nav-links-holder {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+	.nav-contact-button {
+		padding: 0.15rem 1.15rem;
+		border-radius: 999rem;
+		border: 1px solid hsla(var(--light-1), 1);
+		background-color: hsla(var(--light-1), 0);
+		transition: all 0.2s ease-out;
+	}
+	.nav-contact-button:hover {
+		background-color: hsla(var(--light-1), 0.1);
+		transform: translateY(-0.15rem);
+	}
+	#nav-menu-placeholder {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		width: 2rem;
+		height: 2rem;
+		cursor: not-allowed;
+	}
+	#nav-menu-placeholder div {
+		width: 100%;
+		height: 0.15rem;
+		background-color: hsla(var(--light-1), 1);
+	}
+</style>

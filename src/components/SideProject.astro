@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
+
+interface Props {
+    title: string;
+    description: string;
+    image: any;
+    href: string;
+}
+
+const { title, description, image, href } = Astro.props;
+---
+
+<article class="dashed outlined-holder">
+    <Image src={image} alt={title} class='project-image' />
+    <div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+    </div>
+    <Button href={href} text='View' icon='arrow-diagonal' />
+</article>
+
+<style>
+    article {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex-grow: 1;
+    }
+    p {
+        font-size: 0.75rem;
+    }
+    .project-image {
+        width: 10rem;
+        height: 6rem;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+</style>

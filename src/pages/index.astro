@@ -5,9 +5,14 @@ import Button from '../components/Button.astro';
 import { Image } from 'astro:assets';
 //Asset imports
 import avatar from '../images/avatar.png';
+import SideProject from '../components/SideProject.astro';
+//Side project images
+import partyGameCompanion from '../images/sp-party.png';
+import jammming from '../images/sp-jammming.png';
+import redditClient from '../images/sp-reddit.png';
 ---
 
-<Layout title="Erick Mireles" description="I'm a self taught front-end developer, combining design, animation and the porwe of the web to create stunning websites.">
+<Layout title="Erick Mireles" description="I'm a self taught front-end developer, combining design, animation and the power of the web to create stunning websites.">
 	<main>
 		<header>
 			<!-- Same height as navbar for spacing -->
@@ -24,7 +29,7 @@ import avatar from '../images/avatar.png';
 									&lt;Front End Developer /&gt;
 								</div>
 							</div>
-							<div class="header-element dashed-holder">
+							<div class="header-element dashed">
 								<div class="header-comp outlined-holder">	
 									<h1>Building <span class="title-color">creative</span> digital experiences</h1>
 									<p>Combining design, animation and the power of the web to create stunning websites.</p>
@@ -32,7 +37,7 @@ import avatar from '../images/avatar.png';
 							</div>
 						</div>
 						<!-- Navigation Button -->
-							<div class="dashed-holder header-element">
+							<div class="dashed header-element">
 								<Button text='See Work' href='/' icon='arrow-down'>
 							</div>
 					</div>
@@ -44,15 +49,38 @@ import avatar from '../images/avatar.png';
 					<div class="header-outline" />
 			</div>
 		</header>
+		<!-- About section -->
+		<section>
+			<div class="grid-container">
+				<div class="about-grid">
+					<div class="about-comp outlined-holder dashed">
+						<h2>Self Taught. <span class="title-color">Proudly.</span></h2>
+						<p>I have a passion for design and photography. One day I realized that by making websites I could combine my skills and passions to create unique and compelling digital experiences.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Side Projects Section -->
+		<section>
+			<div class="grid-container">
+				<div class="side-projects-holder">
+					<div class="outlined-holder dashed side-projects-comp">
+						<h2>Side <span class="title-color">Projects</span></h2>
+						<p>These are some projects I’ve recently been working on to better hone my design and development skills.</p>
+					</div>
+					<SideProject image={partyGameCompanion} title='Party Game Companion' description='This app is designed to aid the tedious task of keeping score and provide a fun way to keep the party games going by providing a leaderboard.' href='/' />
+					<SideProject image={jammming} title='Jammming' description='This app uses the Spotify API to let the user authenticate, search by song, artist or album; and create a playlist to add to their account.' href='/' />
+					<SideProject image={redditClient} title='Reddit Client' description='This is an upcoming project that uses the Reddit API.' href='/' />
+				</div>
+			</div>
+		</section>
 	</main>
 </Layout>
 
 <style>
-	span.title-color {
-		color: hsla(var(--brand-1), 1);
-	}
 	main {
 		width: 100%;
+		overflow-x: clip;
 	}
 	#nav-spacer {
 		height: var(--nav-height);
@@ -63,7 +91,8 @@ import avatar from '../images/avatar.png';
 		flex-direction: column;
 	}
 	.header-element {
-		padding: 0 calc(var(--page-padding) * 2);	
+		padding: 0 calc(var(--page-padding) * 2);
+		display: flex;	
 	}
 	.header-wrapper {
 		position: relative;
@@ -119,6 +148,9 @@ import avatar from '../images/avatar.png';
 		max-width: 45%;
 		padding: 1rem;
 	}
+	.header-comp p {
+		font-size: 1.25rem;
+	}
 	.header-holder {
 		display: flex;
 		flex-direction: column;
@@ -148,5 +180,42 @@ import avatar from '../images/avatar.png';
 	.avatar {
 		width: 100%;
 		height: 100%;
+	}
+	section {
+		padding: 8rem 0;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		gap: 2rem;
+		padding: 0 var(--page-padding);
+	}
+	.about-grid {
+		grid-column: 3 / span 8;
+		display: grid;
+		grid-template-columns: repeat(8, 1fr);
+		gap: 2rem;
+	}
+	.about-comp {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		align-items: center;
+		text-align: center;
+		grid-column: 2 / span 6;
+	}
+	.side-projects-holder {
+		grid-column: 3 / span 8;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	.side-projects-comp {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+	.side-projects-comp h2 {
+		flex-shrink: 0;
 	}
 </style>

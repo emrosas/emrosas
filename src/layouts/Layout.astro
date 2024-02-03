@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 interface Props {
 	title: string;
 	description: string;
@@ -26,6 +27,7 @@ import '@fontsource/poppins/300.css';
 	<body>
 		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -58,19 +60,30 @@ import '@fontsource/poppins/300.css';
 		background-color: hsla(var(--dark-1), 1);
 		color: hsla(var(--light-1), 1);
 		font-family: var(--body-font);
+
 	}
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--display-font);
 		margin: 0;
+		font-weight: 500;
 	}
 	h1 {
 		font-size: 4.25rem;
-		font-weight: 500;
 	}
+	h2 {
+		font-size: 3rem;
+	}
+	h3 {
+		font-size: 1.5rem;
+	}
+	h4 {
+        font-size: 1rem;
+    }
 	p {
 		margin: 0;
 		color: hsla(var(--light-2), 0.8);
-		font-size: 1.25rem;
+		font-size: 1rem;
+		line-height: 1.5;
 	}
 	a {
 		text-decoration: none;
@@ -78,15 +91,32 @@ import '@fontsource/poppins/300.css';
 	}
 	.outlined-holder {
 		border: 1px solid hsla(var(--light-2), 0.25);
+		background-color: hsla(var(--dark-1), 0.5);
+		padding: 1rem;
 	}
-	.dashed-holder {
+	.dashed {
+		position: relative;
+	}
+	.dashed::before {
+		content: ' ';
+		position: absolute;
+		left: -100vw;
+		top: 0;
+		width: 200vw;
 		border-top: var(--dash-border);
-		border-bottom: var(--dash-border);
-		padding: 0 var(--page-padding);
-		flex-grow: 1;
-		display: flex;
+	}
+	.dashed::after {
+		content: ' ';
+		position: absolute;
+		left: -100vw;
+		bottom: 0;
+		width: 200vw;
+		border-top: var(--dash-border);
 	}
 	.void-holder {
 		border: none;
+	}
+	span.title-color {
+		color: hsla(var(--brand-1), 1);
 	}
 </style>

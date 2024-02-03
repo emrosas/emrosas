@@ -12,11 +12,11 @@ interface Props {
 const { title, description, image, href } = Astro.props;
 ---
 
-<article class="flex items-center gap-4 dashed outlined-holder">
+<li class="flex items-center gap-4 dashed outlined-holder">
     <Image src={image} alt={title} class=' w-40 h-24 object-cover rounded-2xl' />
     <div class=" flex flex-col gap-2 flex-grow">
         <h3>{title}</h3>
         <p class=" text-xs">{description}</p>
     </div>
     <Button href={href} text='View' icon='arrow-diagonal' />
-</article>
+</li>

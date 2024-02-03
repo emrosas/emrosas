@@ -9,25 +9,7 @@ interface Props {
 
 const { text, href, icon } = Astro.props;
 ---
-<a href={href}>
+<a href={href} class="flex gap-2 items-center px-4 py-2 hover:px-6 hover:py-3 bg-brand-1 bg-opacity-15 text-brand-1 transition-all border border-brand-1 hover:bg-opacity-25 duration-300">
     <span>{text}</span>
     {icon && <Icon name={icon} />}
 </a>
-
-<style>
-    a {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        padding: 0.5rem 1rem;
-        font-family: var(--display-font);
-        background-color: hsla(var(--brand-1), 0.15);
-        color: hsla(var(--brand-1), 1);
-        border: 1px solid hsla(var(--brand-1), 0.5);
-        transition: all 0.2s ease-out; 
-    }
-    a:hover {
-        background-color: hsla(var(--brand-1), 0.25);
-        padding: 0.6rem 1.1rem;
-    }
-</style>

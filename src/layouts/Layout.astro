@@ -24,7 +24,7 @@ import '@fontsource/poppins/300.css';
 		
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="font-body m-0 p-0 bg-dark-1 text-light-1">
 		<Navbar />
 		<slot />
 		<Footer />
@@ -49,26 +49,13 @@ import '@fontsource/poppins/300.css';
 		--dash-border: 1px dashed hsla(var(--light-2), 0.5)
 
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	body {
-		margin: 0;
-		padding: 0;
-		background-color: hsla(var(--dark-1), 1);
-		color: hsla(var(--light-1), 1);
-		font-family: var(--body-font);
-
-	}
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--display-font);
 		margin: 0;
 		font-weight: 500;
 	}
 	h1 {
-		font-size: 4.25rem;
+		font-size: 4rem;
 	}
 	h2 {
 		font-size: 3rem;
@@ -88,6 +75,10 @@ import '@fontsource/poppins/300.css';
 	a {
 		text-decoration: none;
 		color: inherit;
+	}
+	.page-padding {
+		padding-left: var(--page-padding);
+		padding-right: var(--page-padding);
 	}
 	.outlined-holder {
 		border: 1px solid hsla(var(--light-2), 0.25);

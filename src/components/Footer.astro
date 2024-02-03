@@ -4,83 +4,31 @@ import Button from "./Button.astro"
 import { Icon } from 'astro-icon/components'
 import profilePic from "../images/profile-pic.png"
 ---
-<footer>
-    <div class="wrapper dashed">
-        <div class="outlined-holder main-comp">
-            <div class="title-holder">
-                <div class="profile-pic-holder">
-                    <Image src={profilePic} alt="Profile Picture" class="profile-pic"/>
+<footer class="bg-black pt-20 pb-24 flex flex-col gap-8 page-padding">
+    <div class="flex justify-between dashed">
+        <div class="outlined-holder max-w-prose flex-col flex gap-2">
+            <div class="flex items-center gap-4">
+                <div class="relative w-14 h-14">
+                    <div id="profile-pic-status" class=" absolute top-0 right-0 w-3 h-3 bg-brand-1 rounded-full" />
+                    <Image src={profilePic} alt="Profile Picture" class="w-full- h-full object-cover rounded-full"/>
                 </div>
                 <h2>Let's <span class="title-color">Talk</span></h2>
             </div>
             <p>I’m currently looking for a full or part time position as a front end developer, but still open to undertake any freelance endeavor in the meantime.</p>
         </div>
-        <div>
+        <div class="flex flex-col gap-6 justify-center outlined-holder">
             <h4>Ways to contact me</h4>
-            <ul>
-                <li><Icon name={'arrow-up'} /></li>
-                <li><Icon name={'arrow-up'} /></li>
-                <li><Icon name={'arrow-up'} /></li>
+            <ul class="flex flex-col gap-2">
+                <li><a class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-all" href="/" ><Icon name={'linkedIn'} />Erick Mireles Rosas</a></li>
+                <li><a class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-all" href="/" ><Icon name={'github'} />emireles.rosas@skiff.com</a></li>
+                <li><a class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-all" href="/" ><Icon name={'mail'} />https://github.com/emrosas</a></li>
             </ul>
         </div>
     </div>
-    <div class="wrapper dashed">
+    <div class="flex justify-between dashed">
         <Button href="/" text="Back to top" icon="arrow-up" />
         <div class="outlined-holder">
-            <p id="developed-by">Designed & Developed with ❤️️ by Erick Mireles</p>
+            <p class=" text-center font-medium color-light-1">Designed & Developed with ❤️️ by Erick Mireles</p>
         </div>
     </div>
 </footer>
-
-<style>
-    footer {
-        background-color: #000;
-        padding: 5rem var(--page-padding) 8rem var(--page-padding);
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
-    .wrapper {
-        display: flex;
-        justify-content: space-between;
-    }
-    .main-comp {
-        max-width: 60ch;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .title-holder {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-    .profile-pic {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-    }
-    .profile-pic-holder {
-        position: relative;
-        width: 3.5rem;
-        height: 3.5rem;
-    }
-    .profile-pic-holder::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 1rem;
-        height: 1rem;
-        background-color: #FFF733;
-        border-radius: 50%;
-        z-index: 1;
-    }
-    #developed-by {
-        text-align: center;
-        font-family: var(--display-font);
-        font-weight: 500;
-        color: hsla(var(--light-1), 1);
-    }
-</style>

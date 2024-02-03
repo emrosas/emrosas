@@ -4,13 +4,13 @@ import Button from "./Button.astro"
 import { Icon } from 'astro-icon/components'
 import profilePic from "../images/profile-pic.png"
 ---
-<footer class="bg-black pt-20 pb-24 flex flex-col gap-8 page-padding">
+<footer class="bg-black pt-20 pb-24 flex flex-col gap-8 page-padding overflow-clip">
     <div class="flex justify-between dashed">
         <div class="outlined-holder max-w-prose flex-col flex gap-2">
             <div class="flex items-center gap-4">
                 <div class="relative w-14 h-14">
                     <div id="profile-pic-status" class=" absolute top-0 right-0 w-3 h-3 bg-brand-1 rounded-full" />
-                    <Image src={profilePic} alt="Profile Picture" class="w-full- h-full object-cover rounded-full"/>
+                    <Image src={profilePic} alt="Avatar" class="w-full- h-full object-cover rounded-full"/>
                 </div>
                 <h2>Let's <span class="title-color">Talk</span></h2>
             </div>
@@ -28,7 +28,7 @@ import profilePic from "../images/profile-pic.png"
     <div class="flex justify-between dashed">
         <Button href="/" text="Back to top" icon="arrow-up" />
         <div class="outlined-holder">
-            <p class=" text-center font-medium color-light-1">Designed & Developed with ❤️️ by Erick Mireles</p>
+            <p class="text-center font-medium text-light-1 opacity-100">Designed & Developed with ❤️️ by Erick Mireles</p>
         </div>
     </div>
 </footer>

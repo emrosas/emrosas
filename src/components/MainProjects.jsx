@@ -77,7 +77,7 @@ export const MainProjects = () => {
 							<img
 								src={project.image.src}
 								alt={project.image.alt}
-								className="absolute inset-0 z-10 object-cover object-center"
+								className="absolute inset-0 z-10 h-full w-full object-cover object-center"
 							/>
 						</div>
 					</swiper-slide>

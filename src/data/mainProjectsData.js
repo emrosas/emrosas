@@ -5,12 +5,11 @@ const mainProjectsData = [
 		description:
 			'An established restaurant chain based in Nuevo, León. México. Known for it’s unmatched quality cakes and desserts.',
 		image: {
-			src: '/images/placeholder.png',
+			src: '/images/pasteleria.png',
 			alt: 'Pastelerias website in desktop view.'
 		},
 		links: {
-			project: 'https://lapasteleriadelapostreria77.com',
-			code: 'https://github.com/emorsas/la-pasteleria-de-la-postreria-77'
+			project: 'https://lapasteleriadelapostreria77.com'
 		},
 		technologies: ['Astro', 'React', 'GSAP', 'Tailwind', 'Photoshop']
 	},
@@ -35,7 +34,7 @@ const mainProjectsData = [
 		description:
 			'An established restaurant chain based in Nuevo, León. México. Known for it’s unmatched quality cakes and desserts.',
 		image: {
-			src: '/images/placeholder.png',
+			src: '/images/postreria.png',
 			alt: 'Postreria website and web menu in desktop and mobile view.'
 		},
 		links: {

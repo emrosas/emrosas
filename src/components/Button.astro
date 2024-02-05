@@ -10,7 +10,7 @@ interface Props {
 
 const { text, href, icon, newWindow=false } = Astro.props;
 ---
-<a href={href} target={newWindow ? "_blank" : "_self"} class="flex gap-2 items-center px-4 py-2 hover:px-6 bg-brand-1 bg-opacity-15 text-brand-1 transition-all border border-brand-1 hover:bg-opacity-25 duration-300">
+<a href={href} target={newWindow ? "_blank" : "_self"} class="flex gap-1 items-center px-4 py-2 hover:px-6 bg-brand-1 bg-opacity-15 text-brand-1 transition-all border border-brand-1 hover:bg-opacity-25 duration-300">
     <span>{text}</span>
     {icon && <Icon name={icon} />}
 </a>

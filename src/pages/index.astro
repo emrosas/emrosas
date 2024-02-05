@@ -16,7 +16,7 @@ import redditClient from '../images/sp-reddit.png';
 
 <Layout title="Erick Mireles" description="I'm a self taught front-end developer, combining design, animation and the power of the web to create stunning websites.">
 	<main class="w-full overflow-x-clip">
-		<header class="h-screen flex flex-col">
+		<header class="h-screen flex flex-col" id="hero">
 			<!-- Same height as navbar for spacing -->
 			<div id="nav-spacer"/>
 			<!-- Contains all the header content -->
@@ -24,6 +24,7 @@ import redditClient from '../images/sp-reddit.png';
 				<!-- Contains all the information -->
 				<div class="header-holder">
 					<div class="header-comp-wrapper">
+						<div id="header-content-spacer" />
 						<!-- Main info component -->
 						<div>
 							<div class="fed-tag-wrapper">
@@ -40,7 +41,7 @@ import redditClient from '../images/sp-reddit.png';
 						</div>
 						<!-- Navigation Button -->
 							<div class="dashed header-element">
-								<Button text='See Work' href='/' icon='arrow-down'>
+								<Button text='See Work' href='/#projects' icon='arrow-down'>
 							</div>
 					</div>
 					<div class="avatar-holder">
@@ -52,7 +53,7 @@ import redditClient from '../images/sp-reddit.png';
 			</div>
 		</header>
 		<!-- About section -->
-		<section>
+		<section class="pt-40">
 			<div class="grid-container">
 				<div class=" col-start-3 col-span-8 grid grid-cols-8 gap-8">
 					<div class="flex flex-col gap-8">
@@ -83,18 +84,19 @@ import redditClient from '../images/sp-reddit.png';
 			</div>
 		</section>
 		<!-- Main Projects Section -->
-		<section class="h-screen">
+		<section class="relative" id="projects">
+			<div class="absolute inset-0 pointer-events-none projects-gradient z-50"/>
 			<MainProjects client:visible />
 		</section>
 		<!-- Side Projects Section -->
-		<section>
+		<section class="pb-40 pt-24">
 			<div class="grid-container">
 				<div class="flex flex-col gap-8 col-span-8 col-start-3">
 					<div class="outlined-holder dashed flex gap-4 items-center">
 						<h2 class=" flex-shrink-0">Side <span class="title-color">Projects</span></h2>
 						<p>These are some projects I’ve recently been working on to better hone my design and development skills.</p>
 					</div>
-					<ul class="flex flex-col gap-2 dashed-vertical">
+					<ul class="flex flex-col gap-2">
 						<SideProject image={partyGameCompanion} title='Party Game Companion' description='This app is designed to aid the tedious task of keeping score and provide a fun way to keep the party games going by providing a leaderboard.' href='https://github.com/emrosas/pgc' />
 						<SideProject image={jammming} title='Jammming' description='This app uses the Spotify API to let the user authenticate, search by song, artist or album; and create a playlist to add to their account.' href='https://github.com/emrosas/jammming'  />
 						<SideProject image={redditClient} title='Reddit Client' description='This is an upcoming project that uses the Reddit API.' href='https://github.com/emrosas/' />
@@ -132,6 +134,9 @@ import redditClient from '../images/sp-reddit.png';
 		left: var(--page-padding);
 		right: var(--page-padding);
 		bottom: var(--page-padding);
+		background-image: url('/images/header-bg.png');
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	.header-outline::before, .header-outline::after {
 		content: "";
@@ -141,24 +146,12 @@ import redditClient from '../images/sp-reddit.png';
 		right: 0;
 		bottom: 0;
 	}
-	.header-outline::before {
-		background-image: url('/images/header-bg.png');
-		background-repeat: no-repeat;
-		background-size: cover;
-		mix-blend-mode: color-dodge;
-		z-index: 1;
-	}
-	.header-outline::after {
-		background-image: url('/images/header-bg-grain.png');
-		background-repeat: no-repeat;
-		background-size: cover;
-		mix-blend-mode: multiply;
-		z-index: 2;
-	}
 	.header-comp-wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 15rem;
+		justify-content: space-between;
+		height: 100%;
+		/* gap: 15rem; */
 		padding-bottom: var(--page-padding);
 	}
 	.header-comp {
@@ -175,6 +168,7 @@ import redditClient from '../images/sp-reddit.png';
 		flex-direction: column;
 		position: relative;
 		z-index: 3;
+		height: 100%;
 	}
 	.fed-tag-wrapper {
 		padding-left: calc(var(--page-padding) * 2);
@@ -192,13 +186,13 @@ import redditClient from '../images/sp-reddit.png';
 		align-items: flex-end;
 		max-width: 50%;
 	}
-	section {
-		padding: 8rem 0;
-	}
 	.grid-container {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 		gap: 2rem;
 		padding: 0 var(--page-padding);
+	}
+	.projects-gradient {
+		background: linear-gradient(180deg, hsla(var(--dark-1), 1) 8%, hsla(var(--dark-1), 0) 15%, hsla(var(--dark-1), 0) 85%, hsla(var(--dark-1), 1) 92%);
 	}
 </style>

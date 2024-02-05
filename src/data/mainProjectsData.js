@@ -4,27 +4,44 @@ const mainProjectsData = [
 		title: 'La Pasteleria de La Postreria 77',
 		description:
 			'An established restaurant chain based in Nuevo, León. México. Known for it’s unmatched quality cakes and desserts.',
-		image: 'https://via.placeholder.com/150',
-		link: 'https://www.google.com',
-		technologies: ['Astro', 'React', 'GSAP', 'Tailwind', 'Netlify']
+		image: {
+			src: '/images/placeholder.png',
+			alt: 'Pastelerias website in desktop view.'
+		},
+		links: {
+			project: 'https://lapasteleriadelapostreria77.com',
+			code: 'https://github.com/emorsas/la-pasteleria-de-la-postreria-77'
+		},
+		technologies: ['Astro', 'React', 'GSAP', 'Tailwind', 'Photoshop']
 	},
 	{
 		id: 2,
 		title: 'The Wrap Co.',
 		description:
-			'TA local coffee shop that serves hand made Wraps and specialized, locally sourced coffee beverages.',
-		image: 'https://via.placeholder.com/150',
-		link: 'https://www.google.com',
-		technologies: ['Astro', 'Tailwind', 'Figma', 'Netlify']
+			'A local coffee shop that serves hand made Wraps and specialized, locally sourced coffee beverages.',
+		image: {
+			src: '/images/wraps.png',
+			alt: 'The Wrap Co. website in desktop and mobile view.'
+		},
+		links: {
+			project: 'https://thewrap.co/',
+			code: 'https://github.com/emorsas/the-wrap-co'
+		},
+		technologies: ['Astro', 'Tailwind', 'Figma', 'Illustrator', 'Photoshop']
 	},
 	{
 		id: 3,
 		title: 'La Postreria 77',
 		description:
 			'An established restaurant chain based in Nuevo, León. México. Known for it’s unmatched quality cakes and desserts.',
-		image: 'https://via.placeholder.com/150',
-		link: 'https://www.google.com',
-		technologies: ['Webflow', 'Webflow CMS', 'Figma', 'Lottie']
+		image: {
+			src: '/images/placeholder.png',
+			alt: 'Postreria website and web menu in desktop and mobile view.'
+		},
+		links: {
+			project: 'https://lapostreria77.com/'
+		},
+		technologies: ['Webflow', 'Figma', 'Lottie', 'GSAP']
 	}
 ]
 

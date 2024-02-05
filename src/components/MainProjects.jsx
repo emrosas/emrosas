@@ -21,7 +21,7 @@ export const MainProjects = () => {
 
 	return (
 		<swiper-container
-			class="dashed h-5/6"
+			class="h-[125vh]"
 			// ref={swiperElRef}
 			slides-per-view="auto"
 			space-between="32"
@@ -35,32 +35,50 @@ export const MainProjects = () => {
 				return (
 					<swiper-slide
 						key={index}
-						class="flex w-10/12 flex-col justify-end border border-light-1 bg-dark-2"
+						class="dashed-vertical flex h-full w-10/12 flex-col justify-center"
 					>
-						<div className="flex items-end justify-between gap-16 px-[var(--page-padding)] py-6">
-							<div className="flex max-w-prose flex-col items-start">
-								<h3>{project.title}</h3>
-								<p>{project.description}</p>
-								<a
-									href={project.link}
-									target="_blank"
-									className="mt-4 rounded-full bg-light-1 px-4 py-2 font-display font-medium text-dark-1"
-								>
-									View Project
-								</a>
-							</div>
-							<ul className="flex gap-2">
-								{project.technologies.map((tech, index) => {
-									return (
-										<li
-											key={index}
-											className="rounded-full border border-light-1 bg-dark-1 bg-opacity-10 px-3 py-1 backdrop-blur-sm"
+						<div className="dashed relative flex h-4/6 items-end overflow-clip border border-light-1 bg-dark-2">
+							<div className=" relative z-20 flex flex-grow items-end justify-between gap-16 bg-gradient-to-t from-dark-1 to-transparent px-[var(--page-padding)] pb-6 pt-12">
+								<div className="flex max-w-prose flex-shrink flex-col items-start">
+									<h3>{project.title}</h3>
+									<p className="text-light-1">{project.description}</p>
+									<div className="flex items-end gap-4">
+										<a
+											href={project.link}
+											target="_blank"
+											className="mt-4 flex cursor-pointer items-center gap-2 rounded-full bg-light-1 px-4 py-2 font-display font-medium text-dark-1 transition-all hover:px-6 hover:outline"
 										>
-											{tech}
-										</li>
-									)
-								})}
-							</ul>
+											View Project
+											<img src="/images/info.svg" alt="Information Symbol" />
+										</a>
+										{project.links.code && (
+											<a
+												href={project.links.code}
+												className="italic text-light-2 underline transition-all hover:-translate-y-1 hover:text-light-1"
+											>
+												Source Code
+											</a>
+										)}
+									</div>
+								</div>
+								<ul className="flex flex-wrap justify-end gap-2">
+									{project.technologies.map((tech, index) => {
+										return (
+											<li
+												key={index}
+												className="flex-shrink-0 rounded-full border border-light-1 bg-dark-1 bg-opacity-10 px-3 py-1 backdrop-blur-sm"
+											>
+												{tech}
+											</li>
+										)
+									})}
+								</ul>
+							</div>
+							<img
+								src={project.image.src}
+								alt={project.image.alt}
+								className="absolute inset-0 z-10 object-cover object-center"
+							/>
 						</div>
 					</swiper-slide>
 				)

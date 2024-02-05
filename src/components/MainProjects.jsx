@@ -44,7 +44,7 @@ export const MainProjects = () => {
 									<p className="text-light-1">{project.description}</p>
 									<div className="flex items-end gap-4">
 										<a
-											href={project.link}
+											href={project.links.project}
 											target="_blank"
 											className="mt-4 flex cursor-pointer items-center gap-2 rounded-full bg-light-1 px-4 py-2 font-display font-medium text-dark-1 transition-all hover:px-6 hover:outline"
 										>

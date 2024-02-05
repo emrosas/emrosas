@@ -15,8 +15,8 @@ const { title, description, image, href } = Astro.props;
 <li class="flex items-center gap-4 dashed outlined-holder">
     <Image src={image} alt={title} class=' w-40 h-24 object-cover rounded-2xl' />
     <div class=" flex flex-col gap-2 flex-grow">
-        <h3>{title}</h3>
+        <h4>{title}</h4>
         <p class=" text-xs">{description}</p>
     </div>
-    <Button href={href} text='View' icon='arrow-diagonal' />
+    <Button href={href} text='View' icon='arrow-diagonal' newWindow={true} />
 </li>

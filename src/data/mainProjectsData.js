@@ -1,17 +1,17 @@
 const mainProjectsData = [
 	{
 		id: 1,
-		title: 'La Pasteleria de La Postreria 77',
+		title: 'La Postreria 77',
 		description:
 			'An established restaurant chain based in Nuevo, León. México. Known for it’s unmatched quality cakes and desserts.',
 		image: {
-			src: '/images/pasteleria.png',
-			alt: 'Pastelerias website in desktop view.'
+			src: '/images/postreria.png',
+			alt: 'Postreria website and web menu in desktop and mobile view.'
 		},
 		links: {
-			project: 'https://lapasteleriadelapostreria77.com'
+			project: 'https://lapostreria77.com/'
 		},
-		technologies: ['Astro', 'React', 'GSAP', 'Tailwind', 'Photoshop']
+		technologies: ['Webflow', 'Figma', 'Lottie', 'GSAP']
 	},
 	{
 		id: 2,
@@ -30,17 +30,17 @@ const mainProjectsData = [
 	},
 	{
 		id: 3,
-		title: 'La Postreria 77',
+		title: 'La Pasteleria de La Postreria 77',
 		description:
 			'An established restaurant chain based in Nuevo, León. México. Known for it’s unmatched quality cakes and desserts.',
 		image: {
-			src: '/images/postreria.png',
-			alt: 'Postreria website and web menu in desktop and mobile view.'
+			src: '/images/pasteleria.png',
+			alt: 'Pastelerias website in desktop view.'
 		},
 		links: {
-			project: 'https://lapostreria77.com/'
+			project: 'https://lapasteleriadelapostreria77.com'
 		},
-		technologies: ['Webflow', 'Figma', 'Lottie', 'GSAP']
+		technologies: ['Astro', 'React', 'GSAP', 'Tailwind', 'Photoshop']
 	}
 ]
 

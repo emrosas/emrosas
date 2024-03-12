@@ -1,137 +1,71 @@
 ---
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import { SEO } from 'astro-seo'
+import Navbar from '../components/Navbar.astro'
 interface Props {
-	title: string;
-	description: string;
+	title: string
+	description: string
 }
 
-const { title, description } = Astro.props;
-// Supports weights 300-900
-import '@fontsource-variable/red-hat-display';
-// Poppins Light
-import '@fontsource/poppins/300.css';
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="../global.css" />
 		<meta name="generator" content={Astro.generator} />
-		
-		<title>{title}</title>
+		<SEO
+			title={title}
+			titleDefault="Erick Mireles | Front End Developer"
+			description={description}
+			openGraph={{
+				basic: {
+					title: 'Erick Mireles | Front End Developer',
+					type: 'website',
+					image: 'https://fantom.netlify.app/nnf-og.png',
+					url: 'https://emrosas.github.io/'
+				}
+			}}
+		/>
 	</head>
-	<body class="font-body m-0 p-0 bg-dark-1 text-light-1">
+	<body class="m-0 bg-dark-1 p-0 font-body text-light-1">
 		<Navbar />
 		<slot />
-		<Footer />
+		<style>
+			@font-face {
+				font-family: 'Satoshi-Variable';
+				src:
+					url('../fonts/Satoshi-Variable.woff2') format('woff2'),
+					url('../fonts/Satoshi-Variable.woff') format('woff'),
+					url('../fonts/Satoshi-Variable.ttf') format('truetype');
+				font-weight: 300 900;
+				font-display: swap;
+				font-style: normal;
+			}
+			@font-face {
+				font-family: 'Neue-Regrade-Variable';
+				src: url('../fonts/Neue-Regrade-Variable.ttf') format('truetype');
+				font-weight: 300 800;
+				font-display: swap;
+				font-style: normal;
+			}
+			:root {
+				/* Spacing variables */
+				--page-main: var(--page-desktop);
+				--page-desktop: 1.5rem;
+				--page-tablet: 1.25rem;
+				--page-mobile: 1rem;
+			}
+			.hide-scrollbar::-webkit-scrollbar {
+				display: none;
+			}
+			.hide-scrollbar {
+				-ms-overflow-style: none;
+				scrollbar-width: none;
+			}
+		</style>
 	</body>
 </html>
-<style is:global>
-	:root {
-		/* Color Variables */
-		--dark-1: 0, 0%, 8%;
-		--dark-2: 42, 6%, 31%;
-		--brand-1: 40, 100%, 48%;
-		--brand-2: 42, 100%, 90%;
-		--light-1: 42, 100%, 98%;
-		--light-2: 48, 8%, 75%;
-		/* Spacing Variables */
-		--page-padding: 2rem;
-		--nav-height: 5rem;
-		/* Font Families */
-		--display-font: 'Red Hat Display', sans-serif;
-		--body-font: 'Poppins', sans-serif;
-		/* Borders */
-		--dash-border: 1px dashed hsla(var(--light-2), 0.5)
-
-	}
-	h1, h2, h3, h4, h5, h6 {
-		font-family: var(--display-font);
-		margin: 0;
-		font-weight: 500;
-	}
-	h1 {
-		font-size: 4rem;
-		line-height: 1.25;
-	}
-	h2 {
-		font-size: 3rem;
-	}
-	h3 {
-		font-size: 2rem;
-		font-weight: bold;
-	}
-	h4 {
-        font-size: 1.5rem;
-    }
-	h5 {
-        font-size: 1rem;
-    }
-	p {
-		margin: 0;
-		color: hsla(var(--light-2), 0.8);
-		font-size: 1rem;
-		line-height: 1.5;
-	}
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-	.page-padding {
-		padding-left: var(--page-padding);
-		padding-right: var(--page-padding);
-	}
-	.outlined-holder {
-		border: 1px solid hsla(var(--light-2), 0.25);
-		background-color: hsla(var(--dark-1), 0.5);
-		padding: 1rem;
-	}
-	.dashed {
-		position: relative;
-	}
-	.dashed::before {
-		content: ' ';
-		position: absolute;
-		left: -100vw;
-		top: 0;
-		width: 200vw;
-		border-top: var(--dash-border);
-	}
-	.dashed::after {
-		content: ' ';
-		position: absolute;
-		left: -100vw;
-		bottom: 0;
-		width: 200vw;
-		border-top: var(--dash-border);
-	}
-	.dashed-vertical {
-		position: relative;
-	}
-	.dashed-vertical::before {
-		content: ' ';
-		position: absolute;
-		top: -100%;
-		left: 0;
-		height: 200%;
-		border-left: var(--dash-border);
-	}
-	.dashed-vertical::after {
-		content: ' ';
-		position: absolute;
-		top: -100%;
-		right: 0;
-		height: 200%;
-		border-right: var(--dash-border);
-	}
-	.void-holder {
-		border: none;
-	}
-	span.title-color {
-		color: hsla(var(--brand-1), 1);
-	}
-</style>

@@ -1,35 +1,27 @@
 ---
+
 ---
 
-<nav class="fixed top-0 left-0 right-0 h-[var(--nav-height)] flex items-center px-[var(--page-padding)] bg-dark-1 bg-opacity-50 backdrop-blur z-50">
-	<div class="flex justify-between items-center w-full">
-			<a href="/" class="text-display font-medium text-xl">erick mireles rosas</a>
-			<div class="flex items-center gap-8">
-				<a href="/#contact" class=" px-5 py-1 rounded-full border border-light-1 bg-light-1 bg-opacity-0 transition-all hover:bg-opacity-15 hover:px-6">contact</a>
-				<!-- <div id="nav-menu-placeholder">
-					<div/>
-					<div/>
-				</div> -->
-			</div>
-			
-	</div>
-
+<nav class="p-page flex items-center justify-between">
+	<a href="/">
+		<h1 class="font-display text-2xl font-medium">
+			<span class="text-brand-1">Erick Mireles</span> &gt; Front End Developer
+		</h1>
+	</a>
+	<menu class="flex items-center gap-4">
+		<li>
+			<a
+				href="/"
+				class="rounded-lg border border-light-1 border-opacity-15 bg-light-1 bg-opacity-10 px-4 py-2 backdrop-blur-sm transition duration-300 ease-out hover:bg-opacity-25"
+				>About</a
+			>
+		</li>
+		<li>
+			<a
+				href="/"
+				class="rounded-lg border border-light-1 border-opacity-15 bg-light-1 bg-opacity-0 px-4 py-2 backdrop-blur-sm transition duration-300 ease-out hover:bg-opacity-25"
+				>Projects</a
+			>
+		</li>
+	</menu>
 </nav>
-
-<style>
-	#nav-menu-placeholder {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		width: 2rem;
-		height: 2rem;
-		cursor: not-allowed;
-	}
-	#nav-menu-placeholder div {
-		width: 100%;
-		height: 0.15rem;
-		background-color: hsla(var(--light-1), 1);
-	}
-</style>

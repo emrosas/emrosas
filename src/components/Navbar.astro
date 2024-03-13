@@ -9,22 +9,8 @@ import Link from './Link.astro'
 		</h1>
 	</a>
 	<menu class="flex items-center gap-4">
-		<li>
-			<a
-				href="/"
-				class="rounded-lg border border-light-1 border-opacity-15 bg-light-1 bg-opacity-10 px-4 py-2 backdrop-blur-sm transition duration-300 ease-out hover:bg-opacity-25"
-				>About</a
-			>
-		</li>
-		<li>
-			<a
-				href="/"
-				class="rounded-lg border border-light-1 border-opacity-15 bg-opacity-0 px-4 py-2 backdrop-blur-sm transition duration-300 ease-out hover:bg-opacity-25"
-				>Projects</a
-			>
-		</li>
-		<li>
-			<Link text="Get in Touch" href="/" />
-		</li>
+		<Link text="About" href="/" />
+		<Link text="Projects" href="/" />
+		<Link text="Get in Touch" href="/" mode="secondary" />
 	</menu>
 </nav>

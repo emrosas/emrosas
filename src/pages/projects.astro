@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Link from '../components/Link.astro'
+
+// Astro Database
+import { db, Project } from 'astro:db'
+const projects = await db.select().from(Project)
+---
+
+<Layout
+	title="Recent Projects"
+	description="Here you can find a list of some recent Commercial and Personal projects I have worked on.">
+	<main class="grid grid-cols-2 p-page">
+		<div class="flex flex-col justify-center gap-20">
+			<header class="mt-auto flex flex-col gap-2">
+				<h2 class="font-display text-5xl font-semibold">
+					Recent <span class="text-brand-1">Projects</span>
+				</h2>
+				<p class="max-w-prose text-xl font-light text-light-2">
+					Lorem ipsum dolor sit amet consectetur. Risus cras netus pellentesque convallis ac iaculis
+					lectus dictum. Mi dolor donec ac tellus orci tristique. Scelerisque ac viverra at maecenas
+					egestas facilisis.
+				</p>
+			</header>
+			<ul class="flex flex-wrap gap-8">
+				{
+					projects.map(({ name, ...project }) => (
+						<li class="cursor-pointer text-light-2 transition-all duration-150 hover:-translate-y-[0.10rem] hover:text-light-1">
+							<h4>{name}</h4>
+						</li>
+					))
+				}
+			</ul>
+			<div class="mt-auto flex gap-4">
+				<Link text="Previous" href="/projects" mode="secondary" />
+				<Link text="Next" href="/projects" mode="secondary" />
+			</div>
+		</div>
+	</main>
+</Layout>

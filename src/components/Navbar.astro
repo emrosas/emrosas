@@ -1,8 +1,8 @@
 ---
-
+import Link from './Link.astro'
 ---
 
-<nav class="p-page flex items-center justify-between">
+<nav class="flex items-center justify-between p-page">
 	<a href="/">
 		<h1 class="font-display text-2xl font-medium">
 			<span class="text-brand-1">Erick Mireles</span> &gt; Front End Developer
@@ -19,9 +19,12 @@
 		<li>
 			<a
 				href="/"
-				class="rounded-lg border border-light-1 border-opacity-15 bg-light-1 bg-opacity-0 px-4 py-2 backdrop-blur-sm transition duration-300 ease-out hover:bg-opacity-25"
+				class="rounded-lg border border-light-1 border-opacity-15 bg-opacity-0 px-4 py-2 backdrop-blur-sm transition duration-300 ease-out hover:bg-opacity-25"
 				>Projects</a
 			>
+		</li>
+		<li>
+			<Link text="Get in Touch" href="/" />
 		</li>
 	</menu>
 </nav>

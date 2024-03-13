@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import bg1 from '../assets/bg1.png'
 ---
 
 <Layout
@@ -11,4 +13,5 @@ import Layout from '../layouts/Layout.astro'
 			Building <span class="text-brand-1">creative</span> digital experiences.
 		</h2>
 	</main>
+	<Image class={'mix-blend-color-dodge'} src={bg1} alt={'A grainy texture with a hint of color.'} />
 </Layout>

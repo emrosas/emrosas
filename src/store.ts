@@ -1,3 +1,5 @@
 import { atom } from 'nanostores'
 
-export const counter = atom(0)
+import type { Project } from './components/ProjectListItem'
+
+export const currentProject = atom({} as Project['project'])

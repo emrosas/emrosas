@@ -2,7 +2,6 @@ import { defineDb, defineTable, column } from 'astro:db'
 
 const Project = defineTable({
 	columns: {
-		id: column.number(),
 		name: column.text(),
 		description: column.text(),
 		date: column.date()

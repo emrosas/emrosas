@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import bg1 from '../assets/bg1.png'
+
 import Link from '../components/Link.astro'
 import ProjectCard from '../components/ProjectCard'
 import ProjectListItem from '../components/ProjectListItem'
@@ -7,12 +10,15 @@ import ProjectListItem from '../components/ProjectListItem'
 // Astro Database
 import { db, Project } from 'astro:db'
 const projects = await db.select().from(Project)
+
+import ProjectsScreen from '../components/ProjectsScreen'
 ---
 
 <Layout
 	title="Recent Projects"
 	description="Here you can find a list of some recent Commercial and Personal projects I have worked on.">
-	<main class="grid grid-cols-2 p-page">
+	<ProjectsScreen projects={projects} client:load />
+	<!-- <main class="grid grid-cols-2 p-page">
 		<div class="flex flex-col justify-center gap-20">
 			<header class="mt-auto flex flex-col gap-2">
 				<h2 class="font-display text-5xl font-semibold">
@@ -25,15 +31,21 @@ const projects = await db.select().from(Project)
 				</p>
 			</header>
 			<ul class="flex flex-wrap gap-8">
-				{projects.map((project) => <ProjectListItem client:load project={{ project }} />)}
+				{projects.map((project) => <ProjectListItem name={project.name} client:load />)}
 			</ul>
 			<div class="mt-auto flex gap-4">
 				<Link text="Previous" href="/projects" mode="secondary" />
 				<Link text="Next" href="/projects" mode="secondary" />
 			</div>
 		</div>
-		<div class="flex flex-col items-center justify-center">
-			<ProjectCard client:load />
-		</div>
-	</main>
+		<div class="flex flex-col items-center justify-center"> -->
+	<!-- {projects.map((project) => <ProjectCard client:load name={project.name} />)} -->
+	<!-- <ProjectCard client:load /> -->
+	<!-- </div> -->
+	<!-- </main> -->
+	<Image
+		class={'opacity-50 fixed inset-0 -z-50 object-cover w-full h-full'}
+		src={bg1}
+		alt={'A grainy texture with a hint of color.'}
+	/>
 </Layout>

@@ -1,16 +1,47 @@
 ---
-import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import Link from '../components/Link.astro'
 import bg1 from '../assets/bg1.png'
+import avatar from '../assets/avatar.png'
 ---
 
 <Layout
 	title="Erick Mireles | Portfolio"
 	description="Front End Developer with a background in Design, combining graphic design, animation and development to unleash the full potential of the web.">
-	<main class="p-page">
-		<h2 class="mt-24 max-w-[15ch] font-display text-8xl font-medium">
-			Building <span class="text-brand-1">creative</span> digital experiences.
-		</h2>
+	<main class="grid grid-cols-12 p-page">
+		<div class="col-span-7 col-start-1 row-start-1 flex flex-col justify-end gap-8">
+			<h2 class="mt-auto max-w-[15ch] font-display text-8xl font-medium">
+				Building <span class="text-brand-1">creative</span> digital experiences.
+			</h2>
+			<div class="ml-24 flex flex-col gap-8">
+				<p class="text-xl font-light leading-loose text-light-2">
+					I am a self taught Front End Developer with a background in Design. I love creating
+					interfaces that are simple yet compelling. I combine graphic design, animation and
+					development to unleash the full potential of the web.
+				</p>
+				<div class="flex items-center gap-4">
+					<Link href="/" mode="secondary" text="Get in Touch" />
+					<Link href="/projects" text="See Work" />
+				</div>
+			</div>
+			<div class="mt-auto flex gap-8">
+				<Icon name="logos/figma" class="size-10" />
+				<Icon name="logos/astro" class="size-10" />
+				<Icon name="logos/tailwind" class="size-10" />
+				<Icon name="logos/webflow" class="size-10" />
+				<Icon name="logos/js" class="size-10" />
+				<Icon name="logos/ts" class="size-10" />
+				<Icon name="logos/after-effects" class="size-10" />
+				<Icon name="logos/premiere" class="size-10" />
+				<Icon name="logos/illustrator" class="size-10" />
+				<Icon name="logos/photoshop" class="size-10" />
+			</div>
+		</div>
+		<div class="col-span-6 col-start-7 row-start-1">
+			<Image class="translate-x-page translate-y-page" src={avatar} alt="Erick Mireles" />
+		</div>
 	</main>
 	<Image
 		class={'opacity-50 fixed inset-0 -z-50 object-cover w-full h-full'}

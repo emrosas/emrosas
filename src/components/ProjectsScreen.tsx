@@ -35,7 +35,7 @@ export default function ProjectsScreen({ projects }: ProjectScreenProps) {
 					<h2 className="font-display text-5xl font-semibold">
 						Recent <span className="text-brand-1">Projects</span>
 					</h2>
-					<p className="max-w-prose text-xl font-light text-light-2">
+					<p className="max-w-[45ch] text-xl font-light text-light-2">
 						Lorem ipsum dolor sit amet consectetur. Risus cras netus pellentesque convallis ac
 						iaculis lectus dictum. Mi dolor donec ac tellus orci tristique. Scelerisque ac viverra
 						at maecenas egestas facilisis.

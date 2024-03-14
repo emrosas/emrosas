@@ -18,31 +18,6 @@ import ProjectsScreen from '../components/ProjectsScreen'
 	title="Recent Projects"
 	description="Here you can find a list of some recent Commercial and Personal projects I have worked on.">
 	<ProjectsScreen projects={projects} client:load />
-	<!-- <main class="grid grid-cols-2 p-page">
-		<div class="flex flex-col justify-center gap-20">
-			<header class="mt-auto flex flex-col gap-2">
-				<h2 class="font-display text-5xl font-semibold">
-					Recent <span class="text-brand-1">Projects</span>
-				</h2>
-				<p class="max-w-prose text-xl font-light text-light-2">
-					Lorem ipsum dolor sit amet consectetur. Risus cras netus pellentesque convallis ac iaculis
-					lectus dictum. Mi dolor donec ac tellus orci tristique. Scelerisque ac viverra at maecenas
-					egestas facilisis.
-				</p>
-			</header>
-			<ul class="flex flex-wrap gap-8">
-				{projects.map((project) => <ProjectListItem name={project.name} client:load />)}
-			</ul>
-			<div class="mt-auto flex gap-4">
-				<Link text="Previous" href="/projects" mode="secondary" />
-				<Link text="Next" href="/projects" mode="secondary" />
-			</div>
-		</div>
-		<div class="flex flex-col items-center justify-center"> -->
-	<!-- {projects.map((project) => <ProjectCard client:load name={project.name} />)} -->
-	<!-- <ProjectCard client:load /> -->
-	<!-- </div> -->
-	<!-- </main> -->
 	<Image
 		class={'opacity-50 fixed inset-0 -z-50 object-cover w-full h-full'}
 		src={bg2}

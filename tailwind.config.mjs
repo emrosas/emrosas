@@ -17,6 +17,9 @@ export default {
 			},
 			spacing: {
 				page: 'var(--page-main)'
+			},
+			dropShadow: {
+				'brand-1': '0 4px 16px hsla(240, 70%, 34%, 0.25)'
 			}
 		}
 	},

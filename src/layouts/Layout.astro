@@ -1,5 +1,6 @@
 ---
 import { SEO } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
 import Navbar from '../components/Navbar.astro'
 interface Props {
 	title: string
@@ -29,6 +30,7 @@ const { title, description } = Astro.props
 				}
 			}}
 		/>
+		<ViewTransitions />
 	</head>
 	<body class="m-0 grid min-h-screen grid-rows-[auto,1fr] bg-dark-1 p-0 font-body text-light-1">
 		<Navbar />

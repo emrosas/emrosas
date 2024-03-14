@@ -13,8 +13,20 @@ interface ProjectScreenProps {
 	projects: Project[]
 }
 export default function ProjectsScreen({ projects }: ProjectScreenProps) {
-	console.log('Projects Screen Rendered!')
 	currentProject.set(projects[0])
+
+	const handleNext = () => {
+		const currentProjectName = (currentProject.get() as Project).name
+		const currentIndex = projects.findIndex((project) => project.name === currentProjectName)
+		if (currentIndex === projects.length - 1) return
+		currentProject.set(projects[currentIndex + 1])
+	}
+	const handlePrevious = () => {
+		const currentProjectName = (currentProject.get() as Project).name
+		const currentIndex = projects.findIndex((project) => project.name === currentProjectName)
+		if (currentIndex === 0) return
+		currentProject.set(projects[currentIndex - 1])
+	}
 
 	return (
 		<main className="grid grid-cols-2 p-page">
@@ -35,8 +47,18 @@ export default function ProjectsScreen({ projects }: ProjectScreenProps) {
 					))}
 				</ul>
 				<div className="mt-auto flex gap-4">
-					{/* <Link text="Previous" href="/projects" mode="secondary" /> */}
-					{/* <Link text="Next" href="/projects" mode="secondary" /> */}
+					<button
+						onClick={handlePrevious}
+						className="relative flex items-center overflow-clip rounded-lg border border-brand-1 bg-gradient-to-br from-brand-2 to-brand-1 px-4 py-2 transition duration-300 ease-out hover:-translate-y-[0.15rem]"
+					>
+						Previous
+					</button>
+					<button
+						onClick={handleNext}
+						className="relative flex items-center overflow-clip rounded-lg border border-brand-1 bg-gradient-to-br from-brand-2 to-brand-1 px-4 py-2 transition duration-300 ease-out hover:-translate-y-[0.15rem]"
+					>
+						Next
+					</button>
 				</div>
 			</div>
 			<ProjectCard />

@@ -3,8 +3,6 @@ import { currentProject } from '../store'
 import type { Project } from './ProjectsScreen'
 
 export default function ProjectListItem({ project }: { project: Project }) {
-	console.log('Project List Item Rendered!')
-
 	const handleClick = () => {
 		currentProject.set(project)
 	}

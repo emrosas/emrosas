@@ -1,0 +1,10 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { href, icon } = Astro.props; 
+---
+
+<a href={href} class="mt-auto border border-opacity-25 border-light-1 rounded-md bg-light-1 bg-opacity-5 px-3 py-2 text-xs">
+  {icon && <Icon name={icon} class="inline-block mr-1"/>}
+  <slot/>
+</a>

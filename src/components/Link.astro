@@ -9,13 +9,13 @@ interface Props {
 	mode?: 'primary' | 'secondary'
 }
 
-const { text, href, icon, newWindow = false, mode = 'primary' } = Astro.props
+const { href, icon, newWindow = false, mode = 'primary' } = Astro.props
 ---
 
 <li
 	class=`${mode === 'primary' ? 'border-light-1 border-opacity-15 bg-light-1 bg-opacity-5 hover:bg-opacity-25' :'border-brand-1'} relative flex items-center overflow-clip rounded-lg border transition duration-300 ease-out hover:-translate-y-[0.15rem]`>
 	<a href={href} target={newWindow ? '_blank' : '_self'} class="px-4 py-2">
-		<span>{text}</span>
+		<slot />
 		{icon && <Icon name={icon} />}
 	</a>
 	<div

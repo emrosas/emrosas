@@ -2,32 +2,49 @@
 import Layout from '../layouts/Layout.astro'
 import Navigation from '../components/Navigation.astro'
 import Card from '../components/Card.astro'
+import CardLink from '../components/CardLink.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import avatar from '../assets/avatar.png'
 ---
 
 <Layout title="Home" description="This is the home page">
-  <div class="px-page py-8 flex-grow flex">
+  <div class="px-page py-8 flex-grow flex w-full">
     <div class="grid grid-cols-2 grid-rows-2 flex-grow gap-8">
       <Card>
-        <div class="flex items-end relative">
-          <div class="p-4 flex flex-col gap-4">
-            <div class="text-brand-1 flex items-center gap-2">
-              <span>Front end developer</span>
-              <Icon name="arrow-down" class="size-4" />
+        <div class="flex">
+          <div class="p-4 flex flex-col items-start gap-4">
+            <div class="text-brand-1 flex items-center gap-2 mb-6">
+              <span>Front end developer</span> <Icon name="arrow-down" class="size-4" />
             </div>
-            <h2 class="text-4xl">Building <span class="text-brand-1">Creative</span> digital experiences</h2>
-            <p class="opacity-50">
+            <h2 class="text-4xl font-display max-w-[60%] font-medium">Building <span class="text-brand-1">Creative</span> digital experiences</h2>
+            <p class="opacity-50 font-light text-xs leading-relaxed max-w-[40ch]">
               Self Taught Front End Developer with a background in Design. I build creative interfaces by combining design, animation and the power of the web.
             </p>
+            <CardLink href="/about" icon="mail" >More About Me</CardLink>
           </div>
           <Image src={avatar} alt="Hero image" class="w-1/2 h-full absolute bottom-0 right-0 object-cover" />
         </div>
-      </Card classes="bg-white">
-      <Card>
+      </Card>
+      <Card classes="row-span-2">
+        <div class="p-4">
+          <CardLink href="/about" icon="mail" >More About Me</CardLink>
+        </div>
       </Card>
       <Card>
+        <div class="flex">
+          <div class="p-4 flex flex-col items-start gap-4">
+            <div class="text-brand-1 flex items-center gap-2 mb-6">
+              <span>Front end developer</span> <Icon name="arrow-down" class="size-4" />
+            </div>
+            <h2 class="text-4xl font-display max-w-[60%] font-medium">Building <span class="text-brand-1">Creative</span> digital experiences</h2>
+            <p class="opacity-50 font-light text-xs leading-relaxed max-w-[40ch]">
+              Self Taught Front End Developer with a background in Design. I build creative interfaces by combining design, animation and the power of the web.
+            </p>
+            <CardLink href="/about" icon="mail" >More About Me</CardLink>
+          </div>
+          <Image src={avatar} alt="Hero image" class="w-1/2 h-full absolute bottom-0 right-0 object-cover" />
+        </div>
       </Card>
     </div>
   </div>

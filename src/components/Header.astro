@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import emrosas from '../assets/emrosas.svg'
+---
+
+<header class="flex items-center px-page py-4 justify-between">
+  <a href="/" class="flex flex-col gap-1">
+    <Image src={emrosas} alt="Logo" class="w-40"/>
+    <h1 class="font-regular text-xs">Erick Mireles Rosas</h1>
+  </a>
+  <ul class="flex gap-4 items-center">
+    <li><a href="https://www.linkedin.com/in/emrosas/" target="_blank" class="flex items-center gap-2"><Icon name="linkedIn"/>Erick Mireles</a></li>
+    <li><a href="https://github.com/emrosas" target="_blank" class="flex items-center gap-2"><Icon name="github"/>emrosas</a></li>
+  </ul>
+</header>

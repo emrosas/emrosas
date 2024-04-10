@@ -9,14 +9,19 @@ export default {
 				'brand-1': '#D64A04',
 				'brand-2': 'hsl(42, 100%, 90%)',
 				'light-1': 'hsl(42, 100%, 98%)',
-				'light-2': 'hsl(48, 8%, 75%)'
+				'light-2': 'hsl(48, 8%, 75%)',
+        'gradient-1': '#fb8556',
+        'gradient-2': '#932c00',
 			},
 			fontFamily: {
         display: ['Neue-Regrade-Variable', 'sans-serif'],
-				body: ['Poppins', 'sans-serif']
+				body: ['Satoshi-variable', 'sans-serif']
 			},
       spacing: {
         page: 'var(--page-main)',
+      },
+      boxShadow: {
+        border: 'inset 0px 0px 0px 10px #f00',
       },
 		}
 	},

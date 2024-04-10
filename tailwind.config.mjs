@@ -5,7 +5,7 @@ export default {
 		extend: {
 			colors: {
 				'dark-1': '#151515',
-				'dark-2': 'hsl(42, 6%, 31%)',
+				'dark-2': '#121212',
 				'brand-1': '#D64A04',
 				'brand-2': 'hsl(42, 100%, 90%)',
 				'light-1': 'hsl(42, 100%, 98%)',

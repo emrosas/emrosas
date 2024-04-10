@@ -1,11 +1,22 @@
 ---
 ---
 
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const navLinks = document.querySelectorAll('nav li')
+    navLinks.forEach((link) => {
+      if (link.querySelector('a')?.href === window.location.href) {
+        link.classList.add('bg-light-1', 'bg-opacity-5', 'border', 'border-light-1', 'border-opacity-15')
+      }
+    })
+  })
+</script>
+
 <nav class="fixed bottom-8 left-1/2 -translate-x-1/2">
-    <ul class="flex">
-      <li><a href="/" class="px-4 py-3">Home</a></li>
-      <li><a href="/about" class="px-4 py-3">About</a></li>
-      <li><a href="/projects" class="px-4 py-3">Projects</a></li>
-      <li><a href="/contact" class="px-4 py-3">Contact</a></li>
-    </ul>
+	<ul class="flex rounded-lg border border-light-1 border-opacity-25 bg-light-1 bg-opacity-[2%] backdrop-blur">
+		<li class="px-4 py-3 rounded-lg"><a href="/">Home</a></li>
+		<li class="px-4 py-3 rounded-lg"><a href="/about">About</a></li>
+		<li class="px-4 py-3 rounded-lg"><a href="/projects">Projects</a></li>
+		<li class="px-4 py-3 rounded-lg"><a href="/contact">Contact</a></li>
+	</ul>
 </nav>

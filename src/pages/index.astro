@@ -2,48 +2,88 @@
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
 import CardLink from '../components/CardLink.astro'
+import Button from '../components/Button.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import avatar from '../assets/avatar.png'
 import codeForm from '../assets/code-form.png'
+import projectsData from '../data/projectsData.js'
 ---
 
 <Layout title="Home" description="This is the home page">
-  <div class="px-page py-8 flex-grow flex w-full">
-    <div class="grid grid-cols-2 grid-rows-2 flex-grow gap-8">
-      <Card>
-        <div class="flex">
-          <div class="p-4 flex flex-col items-start">
-            <div class="text-brand-1 flex items-center gap-2 mb-12">
-              <span>Front end developer</span> <Icon name="arrow-down" class="size-4" />
+	<div class="flex w-full flex-grow px-page py-8">
+		<div class="grid flex-grow grid-cols-2 grid-rows-2 gap-8">
+			<Card>
+					<div class="flex flex-col items-start px-4 py-[18px]">
+						<div class="mb-12 flex items-center gap-2 text-brand-1">
+							<span>Front end developer</span>
+							<Icon name="arrow-down" class="size-4" />
+						</div>
+						<h2 class="mb-2 max-w-[60%] font-display text-4xl font-medium">
+							Building <span class="text-brand-1">Creative</span> digital experiences
+						</h2>
+						<p class="max-w-[50%] text-xs font-light leading-relaxed opacity-50">
+							Front End Developer with a background in Design. I build creative interfaces by
+							combining design, animation and the power of the web.
+						</p>
+						<CardLink href="/about" icon="user">More About Me</CardLink>
+					</div>
+					<Image
+						src={avatar}
+						alt="Hero image"
+						class="absolute bottom-0 right-0 h-full w-1/2 object-cover transition-all duration-500 ease-out group-hover:scale-105"
+					/>
+			</Card>
+
+			<!-- Project Switcher Card -->
+			<Card classes="row-span-2">
+				<div class="px-4 py-[18px] flex-grow flex flex-col">
+          <div>
+            <div class="flex flex-col">
+              <div class="overflow-clip w-full aspect-video rounded-md">
+                <Image
+                  src={projectsData[2].image.src}
+                  alt={projectsData[2].image.alt}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ease-out"
+                  width="600px"
+                  height="360px"
+                />
+              </div>
+              <h3 class="text-3xl font-display font-medium mt-6 mb-2">{projectsData[2].title}</h3>
+              <p class="font-light leading-relaxed opacity-50">{projectsData[2].description}</p>
             </div>
-            <h2 class="text-4xl font-display max-w-[60%] font-medium mb-2">Building <span class="text-brand-1">Creative</span> digital experiences</h2>
-            <p class="opacity-50 font-light text-xs leading-relaxed max-w-[40ch]">
-              Front End Developer with a background in Design. I build creative interfaces by combining design, animation and the power of the web.
-            </p>
-            <CardLink href="/about" icon="user" >More About Me</CardLink>
           </div>
-          <Image src={avatar} alt="Hero image" class="w-1/2 h-full absolute bottom-0 right-0 object-cover group-hover:scale-105 transition-all duration-500 ease-out" />
-        </div>
-      </Card>
-      <Card classes="row-span-2">
-        <div class="p-4">
-          <CardLink href="/projects" icon="portfolio" >View All Projects</CardLink>
-        </div>
-      </Card>
-      <Card>
-        <div class="flex">
-          <div class="p-4 flex flex-col items-start">
-            <div class="text-brand-1 flex items-center gap-2 mb-12">
-              <span>Get in Touch</span> <Icon name="arrow-down" class="size-4" />
+          <div class="flex justify-between mt-auto">
+            <CardLink href="/projects" icon="portfolio">View All Projects</CardLink>
+            <div class="flex items-center gap-4">
+              <Button href="/">Previous</Button>
+              <Button href="/">Next</Button>
             </div>
-            <h2 class="text-4xl font-display font-medium">Available for <span class="text-brand-1">Work</span></h2>
-            <p class="opacity-50 font-light text-xs leading-relaxed max-w-[40ch]">Currently looking for a full-time job opportunity as a Front End Developer.</p>
-            <CardLink href="/contact" icon="form" >Fill Contact Form</CardLink>
-            <Image src={codeForm} alt="Program Window showing a React Contact form" class="w-1/2 absolute bottom-0 -right-4 object-cover group-hover:scale-105 transition-all duration-500 ease-out" />
           </div>
-        </div>
-      </Card>
-    </div>
-  </div>
+				</div>
+			</Card>
+
+      <!-- Contact Form Card -->
+			<Card>
+					<div class="flex flex-col flex-grow items-start px-4 py-[18px]">
+						<div class="mb-12 flex items-center gap-2 text-brand-1">
+							<span>Get in Touch</span>
+							<Icon name="arrow-down" class="size-4" />
+						</div>
+						<h2 class="font-display text-4xl font-medium">
+							Available for <span class="text-brand-1">Work</span>
+						</h2>
+						<p class="max-w-[50%] text-xs font-light leading-relaxed opacity-50">
+							Currently looking for a full-time job opportunity as a Front End Developer.
+						</p>
+						<CardLink href="/contact" icon="form">Fill Contact Form</CardLink>
+					</div>
+						<Image
+							src={codeForm}
+							alt="Program Window showing a React Contact form"
+							class="absolute -right-4 bottom-0 w-1/2 object-cover transition-all duration-500 ease-out group-hover:scale-105"
+						/>
+			</Card>
+		</div>
+	</div>
 </Layout>

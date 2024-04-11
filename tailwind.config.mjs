@@ -6,6 +6,7 @@ export default {
 			colors: {
 				'dark-1': '#151515',
 				'dark-2': '#121212',
+        'dark-3': '#0D0D0D',
 				'brand-1': '#D64A04',
 				'brand-2': 'hsl(42, 100%, 90%)',
 				'light-1': 'hsl(42, 100%, 98%)',
@@ -21,7 +22,7 @@ export default {
         page: 'var(--page-main)',
       },
       boxShadow: {
-        border: 'inset 0px 0px 0px 10px #f00',
+        highlight: '0px 0px 16px 0px hsla(20, 96%, 43%, 0.25)',
       },
 		}
 	},

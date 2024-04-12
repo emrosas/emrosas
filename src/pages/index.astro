@@ -6,6 +6,7 @@ import Button from '../components/Button.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import avatar from '../assets/avatar.png'
+import avatarHover from '../assets/avatar-hover.png'
 import codeForm from '../assets/code-form.png'
 import projectsData from '../data/projectsData.js'
 ---
@@ -28,11 +29,18 @@ import projectsData from '../data/projectsData.js'
 						</p>
 						<CardLink href="/about" icon="user">More About Me</CardLink>
 					</div>
-					<Image
-						src={avatar}
-						alt="Hero image"
-						class="absolute bottom-0 right-0 h-full w-1/2 object-cover transition-all duration-500 ease-out group-hover:scale-105"
-					/>
+        <div class="absolute bottom-0 right-0 h-full w-1/2 transition-all duration-500 ease-out group-hover:scale-105">
+          <Image
+            src={avatar}
+            alt="Hero image"
+            class="absolute bottom-0 right-0 size-full object-cover"
+          />
+          <Image
+            src={avatarHover}
+            alt="Hero image"
+            class="absolute bottom-0 right-0 size-full object-cover opacity-0 transition-all duration-500 ease-out group-hover:opacity-100"
+          />
+        </div>
 			</Card>
 
 			<!-- Project Switcher Card -->

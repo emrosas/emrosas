@@ -7,9 +7,11 @@ import emrosas from '../assets/emrosas.svg'
 
 <script>
 	document.addEventListener('astro:page-load', () => {
-		const links = document.querySelector('ul')
+		const socialLinks = document.querySelector('ul')
+    const contactLink = document.querySelector('a[href="/contact"]')
 		if (window.location.pathname === '/contact') {
-			links?.classList.add('hidden')
+			socialLinks?.classList.add('hidden')
+      contactLink?.classList.add('hidden')
 		}
 	})
 </script>

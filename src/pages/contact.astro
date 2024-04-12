@@ -2,20 +2,53 @@
 import Layout from '../layouts/Layout.astro'
 import Navigation from '../components/Navigation.astro'
 import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 ---
 
-<Layout title="Contact" description="Get in touch with me to inquiry about a project or full time work opportunity">
-  <div class="px-page py-8 flex-grow grid grid-cols-12 gap-8 items-center pb-24">
-    <div class="flex flex-col gap-2 col-span-7">
-      <div class="text-brand-1 text-xl flex items-center gap-2 mb-4">
-        <span>Reach out</span> <Icon name="arrow-down" class="size-4" />
-      </div>
-      <h2 class="text-6xl font-display font-semibold">Fill out the <span class="text-brand-1">Form</span></h2>
-      <p class="opacity-50 font-light text-lg leading-relaxed max-w-prose">Or get in touch with me via any of the links below.</p>
-    </div>
-    <div class="col-span-5 rounded-xl overflow-clip group shadow-md hover:shadow-lg">
-    </div>
-  </div>
-  <Navigation />
+<Layout
+	title="Contact"
+	description="Get in touch with me to inquiry about a project or full time work opportunity"
+>
+	<div class="grid flex-grow grid-cols-12 items-center gap-8 px-page py-8 pb-24">
+		<div class="col-span-7 flex flex-col gap-2">
+			<div class="mb-4 flex items-center gap-2 text-xl text-brand-1">
+				<span>Reach out</span>
+				<Icon name="arrow-down" class="size-4" />
+			</div>
+			<h2 class="font-display text-6xl font-semibold">
+				Fill out the <span class="text-brand-1">Form</span>
+			</h2>
+			<p class="max-w-prose text-lg font-light leading-relaxed opacity-50">
+				Or get in touch with me via any of the links below.
+			</p>
+			<ul class="flex flex-col gap-4 mt-8">
+				<li>
+					<a
+						href="https://www.linkedin.com/in/emrosas/"
+						target="_blank"
+						class="flex items-center gap-4 text-2xl font-light opacity-80 transition-all duration-200 hover:-translate-y-[2px] hover:opacity-100"
+						><Icon name="linkedIn" class="size-8" />Erick Mireles</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://github.com/emrosas"
+						target="_blank"
+						class="flex items-center gap-4 text-2xl font-light opacity-80 transition-all duration-200 hover:-translate-y-[2px] hover:opacity-100"
+						><Icon name="github" class="size-6" />emrosas</a
+					>
+				</li>
+				<li>
+					<a
+						href="mailto:emireles.rosas@gmail.com"
+						target="_blank"
+						class="flex items-center gap-4 text-2xl font-light opacity-80 transition-all duration-200 hover:-translate-y-[2px] hover:opacity-100"
+						><Icon name="mail" class="size-6" />emireles.rosas@gmail.com</a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="group col-span-5 overflow-clip rounded-xl shadow-md hover:shadow-lg"></div>
+	</div>
+	<Navigation />
 </Layout>

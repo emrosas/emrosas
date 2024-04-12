@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Navigation from '../components/Navigation.astro'
 import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
+import ContactForm from '../components/ContactForm.astro'
 ---
 
 <Layout
@@ -10,7 +10,7 @@ import { Image } from 'astro:assets'
 	description="Get in touch with me to inquiry about a project or full time work opportunity"
 >
 	<div class="grid flex-grow grid-cols-12 items-center gap-8 px-page py-8 pb-24">
-		<div class="col-span-7 flex flex-col gap-2">
+		<div class="col-span-6 flex flex-col gap-2">
 			<div class="mb-4 flex items-center gap-2 text-xl text-brand-1">
 				<span>Reach out</span>
 				<Icon name="arrow-down" class="size-4" />
@@ -48,7 +48,9 @@ import { Image } from 'astro:assets'
 				</li>
 			</ul>
 		</div>
-		<div class="group col-span-5 overflow-clip rounded-xl shadow-md hover:shadow-lg"></div>
+		<div class="col-span-6">
+      <ContactForm />
+    </div>
 	</div>
 	<Navigation />
 </Layout>

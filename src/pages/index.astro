@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
 import CardLink from '../components/CardLink.astro'
-import Button from '../components/Button.astro'
+import ProjectSwitcher from '../components/react/ProjectSwitcher'
+import CardLink from '../components/CardLink.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import avatar from '../assets/avatar.png'
 import avatarHover from '../assets/avatar-hover.png'
 import codeForm from '../assets/code-form.png'
-import projectsData from '../data/projectsData.js'
 ---
 
 <Layout title="Home" description="This is the home page">
@@ -45,30 +45,8 @@ import projectsData from '../data/projectsData.js'
 
 			<!-- Project Switcher Card -->
 			<Card classes="row-span-2">
-				<div class="px-4 py-[18px] flex-grow flex flex-col">
-          <div>
-            <div class="flex flex-col">
-              <div class="overflow-clip w-full aspect-video rounded-md">
-                <Image
-                  src={projectsData[2].image.src}
-                  alt={projectsData[2].image.alt}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ease-out"
-                  width="600px"
-                  height="360px"
-                />
-              </div>
-              <h3 class="text-3xl font-display font-medium mt-6 mb-2">{projectsData[2].title}</h3>
-              <p class="font-light leading-relaxed opacity-50">{projectsData[2].description}</p>
-            </div>
-          </div>
-          <div class="flex justify-between mt-auto">
-            <CardLink href="/projects" icon="portfolio">View All Projects</CardLink>
-            <div class="flex items-center gap-4">
-              <Button href="/">Previous</Button>
-              <Button href="/">Next</Button>
-            </div>
-          </div>
-				</div>
+        <ProjectSwitcher client:load />
+        <CardLink href="/projects" classes="absolute bottom-[18px] left-4" icon="portfolio">View All Projects</CardLink>
 			</Card>
 
       <!-- Contact Form Card -->

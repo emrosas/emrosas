@@ -41,7 +41,7 @@ const mainProjectsData = [
 			project: 'https://lapasteleriadelapostreria77.com'
 		},
 		technologies: ['Astro', 'React', 'GSAP', 'Tailwind', 'Photoshop']
-	}
+	},
 ]
 
 export default mainProjectsData

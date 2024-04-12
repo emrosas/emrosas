@@ -1,11 +1,14 @@
 ---
+// Component Imports
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
-import CardLink from '../components/CardLink.astro'
+import CardWrapper from '../components/CardWrapper.astro'
 import ProjectSwitcher from '../components/react/ProjectSwitcher'
 import CardLink from '../components/CardLink.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
+
+// Asset Imports
 import avatar from '../assets/avatar.png'
 import avatarHover from '../assets/avatar-hover.png'
 import codeForm from '../assets/code-form.png'
@@ -13,70 +16,81 @@ import codeForm from '../assets/code-form.png'
 
 <Layout title="Home" description="This is the home page">
 	<div class="flex w-full flex-grow px-page py-8">
-		<div class="grid flex-grow grid-cols-2 grid-rows-2 gap-8">
-			<Card>
-				<div class="flex flex-col items-start px-4 py-[18px]">
-					<div class="mb-12 flex items-center gap-2 text-brand-1">
-						<span>Front end developer</span>
-						<Icon name="arrow-down" class="size-4" />
+		<div class="grid flex-grow grid-cols-2 grid-rows-2 gap-8" id="cards-grid">
+			<CardWrapper>
+				<Card>
+					<div class="flex flex-col items-start px-4 py-[18px]">
+						<div class="mb-12 flex items-center gap-2 text-brand-1">
+							<span>Front end developer</span>
+							<Icon name="arrow-down" class="size-4" />
+						</div>
+						<h2 class="mb-2 max-w-[60%] font-display text-4xl font-medium">
+							Building <span class="text-brand-1">Creative</span> digital experiences
+						</h2>
+						<p class="max-w-[50%] text-xs font-light leading-relaxed opacity-50">
+							Front End Developer with a background in Design. I build creative interfaces by
+							combining design, animation and the power of the web.
+						</p>
+						<CardLink href="/about" icon="user">More About Me</CardLink>
 					</div>
-					<h2 class="mb-2 max-w-[60%] font-display text-4xl font-medium">
-						Building <span class="text-brand-1">Creative</span> digital experiences
-					</h2>
-					<p class="max-w-[50%] text-xs font-light leading-relaxed opacity-50">
-						Front End Developer with a background in Design. I build creative interfaces by
-						combining design, animation and the power of the web.
-					</p>
-					<CardLink href="/about" icon="user">More About Me</CardLink>
-				</div>
-				<div
-					class="absolute bottom-0 right-0 h-full w-1/2 transition-all duration-500 ease-out group-hover:scale-105"
-				>
-					<Image
-						src={avatar}
-						alt="Hero image"
-						class="absolute bottom-0 right-0 size-full object-cover"
-					/>
-					<Image
-						src={avatarHover}
-						alt="Hero image"
-						class="absolute bottom-0 right-0 size-full object-cover opacity-0 transition-all duration-500 ease-out group-hover:opacity-100"
-					/>
-				</div>
-			</Card>
+					<div
+						class="absolute bottom-0 right-0 h-full w-1/2 transition-all duration-500 ease-out group-hover:scale-105"
+					>
+						<Image
+							src={avatar}
+							alt="Hero image"
+							class="absolute bottom-0 right-0 size-full object-cover"
+						/>
+						<Image
+							src={avatarHover}
+							alt="Hero image"
+							class="absolute bottom-0 right-0 size-full object-cover opacity-0 transition-all duration-500 ease-out group-hover:opacity-100"
+						/>
+					</div>
+				</Card>
+			</CardWrapper>
 
 			<!-- Project Switcher Card -->
-			<Card classes="row-span-2">
-				<ProjectSwitcher client:load />
-				<div class="absolute bottom-[18px] left-4 cursor-not-allowed group/tool">
-					<CardLink href="/projects" classes="pointer-events-none opacity-50" icon="portfolio"
-						>View All Projects</CardLink
-					>
-          <span class="absolute -top-[125%] left-0 opacity-0 group-hover/tool:opacity-100 group-hover/tool:-translate-y-2 duration-150 ease-out transition-all text-xs py-1 px-3 bg-yellow-500 rounded-sm bg-opacity-25 border border-light-1 border-opacity-25">Work in progress</span>
-				</div>
-			</Card>
+			<CardWrapper extraClasses="row-span-2">
+				<Card>
+					<ProjectSwitcher client:load />
+					<div class="group/tool absolute bottom-[18px] left-4 cursor-not-allowed">
+						<CardLink href="/projects" classes="pointer-events-none opacity-50" icon="portfolio"
+							>View All Projects</CardLink
+						>
+						<span
+							class="absolute -top-[125%] left-0 rounded-sm border border-light-1 border-opacity-25 bg-yellow-500 bg-opacity-25 px-3 py-1 text-xs opacity-0 transition-all duration-150 ease-out group-hover/tool:-translate-y-2 group-hover/tool:opacity-100"
+							>Work in progress</span
+						>
+					</div>
+				</Card>
+			</CardWrapper>
 
 			<!-- Contact Form Card -->
-			<Card>
-				<div class="flex flex-grow flex-col items-start px-4 py-[18px]">
-					<div class="mb-12 flex items-center gap-2 text-brand-1">
-						<span>Get in Touch</span>
-						<Icon name="arrow-down" class="size-4" />
+			<CardWrapper>
+				<Card>
+					<div class="flex flex-grow flex-col items-start px-4 py-[18px]">
+						<div class="mb-12 flex items-center gap-2 text-brand-1">
+							<span>Get in Touch</span>
+							<Icon name="arrow-down" class="size-4" />
+						</div>
+						<h2 class="font-display text-4xl font-medium">
+							Available for <span class="text-brand-1">Work</span>
+						</h2>
+						<p class="max-w-[50%] text-xs font-light leading-relaxed opacity-50">
+							Currently looking for a full-time job opportunity as a Front End Developer.
+						</p>
+						<CardLink href="/contact" icon="form">Fill Contact Form</CardLink>
 					</div>
-					<h2 class="font-display text-4xl font-medium">
-						Available for <span class="text-brand-1">Work</span>
-					</h2>
-					<p class="max-w-[50%] text-xs font-light leading-relaxed opacity-50">
-						Currently looking for a full-time job opportunity as a Front End Developer.
-					</p>
-					<CardLink href="/contact" icon="form">Fill Contact Form</CardLink>
-				</div>
-				<Image
-					src={codeForm}
-					alt="Program Window showing a React Contact form"
-					class="absolute -right-4 bottom-0 w-1/2 object-cover transition-all duration-500 ease-out group-hover:scale-105"
-				/>
-			</Card>
+					<Image
+						src={codeForm}
+						alt="Program Window showing a React Contact form"
+						class="absolute -right-4 bottom-0 w-1/2 object-cover transition-all duration-500 ease-out group-hover:scale-105"
+					/>
+				</Card>
+			</CardWrapper>
 		</div>
 	</div>
 </Layout>
+
+<script src="../lib/cardAnimation.js"></script>

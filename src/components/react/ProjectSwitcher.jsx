@@ -27,12 +27,12 @@ function ProjectSwitcher() {
 
 	return (
 		<>
-			<div className="flex-grow px-4 py-[18px] transition-all duration-300" id="card">
-				<div className="overflow-clip rounded-lg">
+			<div className="flex-grow px-4 py-[18px] transition-all duration-300 ease-out relative" id="card">
+				<div className="overflow-clip rounded-lg relative">
 					<img
 						src={projectsData[selectedProject].image.src}
 						alt={projectsData[selectedProject].image.alt}
-						className="aspect-video object-cover transition-all duration-500 ease-out group-hover:scale-105"
+						className="aspect-video object-cover transition-all duration-500 ease-out group-hover:scale-105 z-10"
 					/>
 				</div>
 				<div className="my-4 flex flex-col gap-1">

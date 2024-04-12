@@ -5,16 +5,39 @@ import { Image } from 'astro:assets'
 import emrosas from '../assets/emrosas.svg'
 ---
 
-<header class="flex items-center px-page py-4 justify-between">
-  <a href="/" class="flex flex-col gap-1">
-    <Image src={emrosas} alt="Logo" class="w-40"/>
-    <h1 class="font-regular text-xs">Erick Mireles Rosas</h1>
-  </a>
-  <div class="flex gap-6 items-center">
-    <ul class="flex gap-4 items-center">
-      <li><a href="https://www.linkedin.com/in/emrosas/" target="_blank" class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:-translate-y-[2px] transition-all duration-200"><Icon name="linkedIn" class="size-6"/>Erick Mireles</a></li>
-      <li><a href="https://github.com/emrosas" target="_blank" class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:-translate-y-[2px] transition-all duration-200"><Icon name="github" class="size-6"/>emrosas</a></li>
-    </ul>
-    <Button href="/contact">Get in Touch</Button>
-  </div>
+<script>
+	document.addEventListener('astro:page-load', () => {
+		const links = document.querySelector('ul')
+		if (window.location.pathname === '/contact') {
+			links?.classList.add('hidden')
+		}
+	})
+</script>
+
+<header class="flex items-center justify-between px-page py-4">
+	<a href="/" class="flex flex-col gap-1">
+		<Image src={emrosas} alt="Logo" class="w-40" />
+		<h1 class="font-regular text-xs">Erick Mireles Rosas</h1>
+	</a>
+	<div class="flex items-center gap-6">
+		<ul class="flex items-center gap-4">
+			<li>
+				<a
+					href="https://www.linkedin.com/in/emrosas/"
+					target="_blank"
+					class="flex items-center gap-2 opacity-80 transition-all duration-200 hover:-translate-y-[2px] hover:opacity-100"
+					><Icon name="linkedIn" class="size-6" />Erick Mireles</a
+				>
+			</li>
+			<li>
+				<a
+					href="https://github.com/emrosas"
+					target="_blank"
+					class="flex items-center gap-2 opacity-80 transition-all duration-200 hover:-translate-y-[2px] hover:opacity-100"
+					><Icon name="github" class="size-6" />emrosas</a
+				>
+			</li>
+		</ul>
+		<Button href="/contact">Get in Touch</Button>
+	</div>
 </header>

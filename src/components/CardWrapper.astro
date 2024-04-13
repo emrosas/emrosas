@@ -5,3 +5,9 @@ const { extraClasses } = Astro.props;
 <div class={`card flex relative ${extraClasses}`}>
   <slot />
 </div>
+<style>
+  div {
+    transform: perspective(1000px);
+  }
+</style>
+

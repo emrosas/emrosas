@@ -1,10 +1,14 @@
 ---
 import Radio from './Radio.astro'
-import Button from './Button.astro'
 ---
 
-<form action="https://api.web3forms.com/submit" method="POST">
+<form action="https://api.web3forms.com/submit" method="POST" redirect="http://localhost:4321/">
 	<input type="hidden" name="access_key" value="4119a2a2-86c9-4537-b0fc-35d9ba4c9a29" />
+	<input type="hidden" name="subject" value="New Form Submission" />
+	<input type="hidden" name="from_name" value="Emrosas Portfolio" />
+	<input type="hidden" name="replyto" />
+  <input type="hidden" name="redirect" value="http://localhost:4321/submission-complete">
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 	<div class="mb-12 flex flex-col gap-4">
 		<label for="service" class="text-xl"
 			>What kind of inquiry is your message about?<span class="text-red-600">*</span></label

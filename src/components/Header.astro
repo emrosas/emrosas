@@ -4,12 +4,12 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <script>
+import { hideNav } from "../lib/hideNav"
+
 	document.addEventListener('astro:page-load', () => {
-		const socialLinks = document.querySelector('ul')
-    const contactLink = document.querySelector('a[href="/contact"]')
+    const headerLinks = document.querySelector('div')
 		if (window.location.pathname === '/contact') {
-			socialLinks?.classList.add('hidden')
-      contactLink?.classList.add('hidden')
+      hideNav(headerLinks)
 		}
 	})
 </script>
@@ -19,7 +19,7 @@ import { Icon } from 'astro-icon/components'
     <Icon name="emrosas" class="h-8 w-44" />
 		<h1 class="font-regular text-xs opacity-80 group-hover:opacity-100 transition-all duration-200">Erick Mireles Rosas</h1>
 	</a>
-	<div class="flex items-center gap-6">
+	<div class="flex items-center gap-6" id="header-links">
 		<ul class="flex items-center gap-4">
 			<li>
 				<a

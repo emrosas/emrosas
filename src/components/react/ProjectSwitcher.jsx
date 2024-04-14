@@ -28,6 +28,7 @@ function ProjectSwitcher() {
 	return (
 		<>
 			<div className="flex-grow px-4 py-[18px] transition-all duration-300 ease-out relative" id="card">
+        <a href={projectsData[selectedProject].links.project} target="_blank" rel="noreferrer" className="absolute top-[26px] right-6 z-20 bg-brand-1 size-8 rounded-md flex items-center justify-center font-semibold shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-110">↗</a>
 				<div className="overflow-clip rounded-lg relative">
 					<img
 						src={projectsData[selectedProject].image.src}
@@ -37,7 +38,7 @@ function ProjectSwitcher() {
 				</div>
 				<div className="my-4 flex flex-col gap-1">
 					<h3 className="text-3xl font-medium">{projectsData[selectedProject].title}</h3>
-					<p className="text-sm font-light text-light-1 opacity-50">
+					<p className="text-sm leading-loose font-light text-light-1 opacity-50">
 						{projectsData[selectedProject].description}
 					</p>
 				</div>

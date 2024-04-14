@@ -8,7 +8,7 @@ import { hideNav } from "../lib/hideNav"
 
 	document.addEventListener('astro:page-load', () => {
     const headerLinks = document.querySelector('div')
-		if (window.location.pathname === '/contact') {
+		if (window.location.pathname === '/contact/') {
       hideNav(headerLinks)
 		}
 	})

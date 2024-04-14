@@ -13,7 +13,6 @@ I'm a Front End Developer with a background in Graphic Design and Marketing wher
 - **Freelance Web Designer/Developer (2022 - Present)**
     - Successfully completed over 12 freelance projects for various clients.
     - Focused on building user-friendly interfaces and simple web applications.
-    - 
 
 **Looking For**
 

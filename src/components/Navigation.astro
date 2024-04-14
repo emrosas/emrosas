@@ -5,7 +5,7 @@
   document.addEventListener('astro:page-load', () => {
     const navLinks = document.querySelectorAll('nav a')
     navLinks.forEach((link) => {
-      if (link.href === window.location.href) {
+      if ((link as HTMLAnchorElement)?.href === window.location.href) {
         link.classList.add('bg-light-1', 'bg-opacity-10', 'border-light-1', 'border-opacity-15')
       }
     })

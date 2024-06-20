@@ -1,13 +1,7 @@
 ---
-const { extraClasses } = Astro.props;
+
 ---
 
-<div class={`card flex relative ${extraClasses}`}>
-  <slot />
+<div class="relative border-light rounded-md border border-opacity-5 bg-dark-2 px-6 py-8">
+	<slot />
 </div>
-<style>
-  div {
-    transform: perspective(1000px);
-  }
-</style>
-

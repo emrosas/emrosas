@@ -1,7 +1,7 @@
 ---
 import { SEO } from 'astro-seo'
 import { ViewTransitions } from 'astro:transitions'
-import Header from '../components/Header.astro'
+import Sidebar from '../components/Sidebar.astro'
 interface Props {
 	title: string
 	description: string
@@ -32,10 +32,11 @@ const { title, description } = Astro.props
 		/>
 		<ViewTransitions />
 	</head>
-	<body
-		class="min-h-screen bg-dark-1 text-light-1 font-body flex flex-col overscroll-none">
-		<Header />
-		<slot class="relative" />
+	<body class="bg-dark text-light flex min-h-screen flex-col overscroll-none font-body">
+		<div class="grid-cols-main grid">
+			<Sidebar />
+			<slot class="relative" />
+		</div>
 		<style>
 			@font-face {
 				font-family: 'Satoshi-Variable';
@@ -47,17 +48,10 @@ const { title, description } = Astro.props
 				font-display: swap;
 				font-style: normal;
 			}
-			@font-face {
-				font-family: 'Neue-Regrade-Variable';
-				src: url('../fonts/Neue-Regrade-Variable.ttf') format('truetype');
-				font-weight: 300 800;
-				font-display: swap;
-				font-style: normal;
-			}
 			:root {
 				/* Spacing variables */
 				--page-main: var(--page-desktop);
-				--page-desktop: 5rem;
+				--page-desktop: 1rem;
 				--page-tablet: 1.25rem;
 				--page-mobile: 1rem;
 			}

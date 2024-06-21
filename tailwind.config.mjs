@@ -6,11 +6,10 @@ export default {
       colors: {
         dark: 'hsl(0,0,4)',
         'dark-2': 'hsl(0,0,6)',
-        'dark-3': '#0D0D0D',
-        'brand-1': '#D64A04',
+        brand: '#D64A04',
         'brand-2': 'hsl(42, 100%, 90%)',
         light: '#F0F0FF',
-        'light-2': 'hsl(48, 8%, 75%)',
+        'light-2': '#999',
         'gradient-1': '#fb8556',
         'gradient-2': '#932c00'
       },

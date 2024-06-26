@@ -4,7 +4,7 @@ import CardWrapper from './CardWrapper.astro'
 import SidebarProject from './SidebarProject.astro'
 ---
 
-<nav class="grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
+<nav class="sticky top-0 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
 	<CardWrapper>
 		<div class="flex flex-col gap-2">
 			<Icon name="emrosas" class="aspect-[10/2] h-full w-40" />
@@ -12,9 +12,14 @@ import SidebarProject from './SidebarProject.astro'
 		</div>
 	</CardWrapper>
 	<div
-		class="border-light flex flex-col gap-8 overflow-scroll rounded-md border border-opacity-5 bg-dark-2 px-6 pb-8"
+		class="flex flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8"
 	>
-		<h2 class="sticky top-0 -translate-x-[1px] -translate-y-[1px] bg-dark-2 pb-2 pt-8">Projects</h2>
+		<div
+			class="sticky top-0 flex -translate-x-[1px] -translate-y-[1px] items-center gap-2 bg-dark-2 pb-2 pt-8"
+		>
+			<Icon name="portfolio" class="size-4" />
+			<h2 class="">Projects</h2>
+		</div>
 		<SidebarProject />
 		<SidebarProject />
 		<SidebarProject />
@@ -26,7 +31,10 @@ import SidebarProject from './SidebarProject.astro'
 	</div>
 	<CardWrapper>
 		<div class="flex flex-col gap-4">
-			<h2>Contacts</h2>
+			<div class="flex gap-2 items-center">
+				<Icon name="user" class="size-4" />
+				<h2>Contacts</h2>
+			</div>
 			<menu class="flex gap-4">
 				<li class="text-xs"><a href="/">emireles.rosas@gmail.com</a></li>
 				<li class="text-xs"><a href="/">Erick Mireles</a></li>

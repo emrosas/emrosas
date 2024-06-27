@@ -1,21 +1,21 @@
 ---
 import { Icon } from 'astro-icon/components'
-import CardWrapper from './CardWrapper.astro'
+import Modal from './Modal.astro'
 import SidebarProject from './SidebarProject.astro'
 ---
 
 <nav class="sticky top-0 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
-	<CardWrapper>
+	<Modal>
 		<div class="flex flex-col gap-2">
 			<Icon name="emrosas" class="aspect-[10/2] h-full w-40" />
 			<span class="text-xs">Front End Developer Portfolio</span>
 		</div>
-	</CardWrapper>
+	</Modal>
 	<div
 		class="flex flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8"
 	>
 		<div
-			class="sticky top-0 flex -translate-x-[1px] -translate-y-[1px] items-center gap-2 bg-dark-2 pb-2 pt-8"
+			class="sticky top-0 z-20 flex -translate-x-[1px] -translate-y-[1px] items-center gap-2 bg-dark-2 pb-2 pt-8"
 		>
 			<Icon name="portfolio" class="size-4" />
 			<h2 class="">Projects</h2>
@@ -29,9 +29,9 @@ import SidebarProject from './SidebarProject.astro'
 		<SidebarProject />
 		<SidebarProject />
 	</div>
-	<CardWrapper>
+	<Modal>
 		<div class="flex flex-col gap-4">
-			<div class="flex gap-2 items-center">
+			<div class="flex items-center gap-2">
 				<Icon name="user" class="size-4" />
 				<h2>Contacts</h2>
 			</div>
@@ -41,5 +41,5 @@ import SidebarProject from './SidebarProject.astro'
 				<li class="text-xs"><a href="/">emrosas</a></li>
 			</menu>
 		</div>
-	</CardWrapper>
+	</Modal>
 </nav>

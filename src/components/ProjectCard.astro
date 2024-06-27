@@ -1,0 +1,23 @@
+---
+interface Props {
+	title: string
+	description: string
+	projectType: 'Landing Page' | 'Web App' | 'Website'
+}
+
+const { title, description, projectType } = Astro.props
+---
+
+<div class="flex flex-col gap-4">
+	<div class="aspect-square w-full bg-light bg-opacity-15 rounded-sm"></div>
+	<div class="flex flex-col gap-1">
+		<div class="flex items-center justify-between">
+			<h3 class="font-medium">{title}</h3>
+			<span
+				class="border border-brand bg-brand bg-opacity-10 px-3 py-[2px] text-brand text-[8px] uppercase rounded-full"
+				>{projectType}</span
+			>
+		</div>
+		<p class="text-xs font-light text-light-2">{description}</p>
+	</div>
+</div>

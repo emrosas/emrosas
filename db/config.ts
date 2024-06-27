@@ -2,9 +2,9 @@ import { column, defineTable, defineDb } from 'astro:db';
 
 const Projects = defineTable({
   columns: {
-    id: column.number(),
+    id: column.text({primaryKey: true}),
     name: column.text(),
-    description: column.text(),
+    desccription: column.text(),
     src: column.text(),
     alt: column.text(),
     projectLink: column.text(),

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ProjectWrapper from '../components/ProjectWrapper.astro'
+import ProjectCard from '../components/ProjectCard.astro'
 ---
 
 <Layout
@@ -10,10 +12,10 @@ import Layout from '../layouts/Layout.astro'
 		<div
 			class="flex items-center gap-8 border-b border-dashed border-light border-opacity-15 pb-16"
 		>
-			<div class="size-60 flex-shrink-0 bg-light opacity-25 rounded-md"></div>
+			<div class="size-60 flex-shrink-0 rounded-sm bg-light opacity-25"></div>
 			<div class="flex flex-col items-start gap-2">
 				<span
-					class="bg-brand text-brand border-brand mb-4 rounded-full border bg-opacity-10 px-4 py-1 text-xs"
+					class="mb-4 rounded-full border border-brand bg-brand bg-opacity-10 px-4 py-1 text-xs text-brand"
 					>Front End Developer / UX Designer</span
 				>
 				<h1 class="text-6xl font-medium">Erick Mireles</h1>
@@ -24,6 +26,49 @@ import Layout from '../layouts/Layout.astro'
 				</p>
 			</div>
 		</div>
-    <div class=""></div>
+		<div class="grid grid-cols-3 gap-8 pt-16">
+			<ProjectWrapper>
+				<ProjectCard
+					title="La Pastelería de La Postreria 77"
+					description="Here is a simple description for the project."
+					projectType="Landing Page"
+				/>
+			</ProjectWrapper>
+			<ProjectWrapper>
+				<ProjectCard
+					title="La Pastelería de La Postreria 77"
+					description="Here is a simple description for the project."
+					projectType="Landing Page"
+				/>
+			</ProjectWrapper>
+			<ProjectWrapper>
+				<ProjectCard
+					title="La Pastelería de La Postreria 77"
+					description="Here is a simple description for the project."
+					projectType="Landing Page"
+				/>
+			</ProjectWrapper>
+			<ProjectWrapper>
+				<ProjectCard
+					title="La Pastelería de La Postreria 77"
+					description="Here is a simple description for the project."
+					projectType="Landing Page"
+				/>
+			</ProjectWrapper>
+			<ProjectWrapper>
+				<ProjectCard
+					title="La Pastelería de La Postreria 77"
+					description="Here is a simple description for the project."
+					projectType="Landing Page"
+				/>
+			</ProjectWrapper>
+			<ProjectWrapper>
+				<ProjectCard
+					title="La Pastelería de La Postreria 77"
+					description="Here is a simple description for the project."
+					projectType="Landing Page"
+				/>
+			</ProjectWrapper>
+		</div>
 	</main>
 </Layout>

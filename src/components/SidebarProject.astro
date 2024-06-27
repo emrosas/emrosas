@@ -1,11 +1,13 @@
 ---
-
+import ProjectWrapper from './ProjectWrapper.astro'
 ---
 
-<li class="flex items-center gap-4">
-	<div class="size-20 rounded-sm bg-light bg-opacity-25"></div>
-	<div class="flex flex-col gap-1">
-		<h3 class="">Project title</h3>
-		<p class="text-xs text-light-2 font-light">Project description goes here</p>
+<ProjectWrapper>
+	<div class="flex gap-2 items-center">
+		<div class="size-20 rounded-sm bg-light bg-opacity-25"></div>
+		<div class="flex flex-col gap-1">
+			<h3 class="">Project title</h3>
+			<p class="text-xs font-light text-light-2">Project description goes here</p>
+		</div>
 	</div>
-</li>
+</ProjectWrapper>

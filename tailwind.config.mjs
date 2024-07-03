@@ -6,7 +6,7 @@ export default {
       colors: {
         dark: 'hsl(0,0,4)',
         'dark-2': 'hsl(0,0,6)',
-        brand: '#D64A04',
+        brand: '#FF8000',
         'brand-2': 'hsl(42, 100%, 90%)',
         light: '#F0F0FF',
         'light-2': '#999',

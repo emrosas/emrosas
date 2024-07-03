@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import ProjectWrapper from '../components/ProjectWrapper.astro'
 import ProjectCard from '../components/ProjectCard.astro'
+
+import { db, Projects, ProjectType } from 'astro:db'
+const projects = await db.select().from(Projects)
+const projectTypes = await db.select().from(ProjectType)
 ---
 
 <Layout
@@ -26,49 +30,18 @@ import ProjectCard from '../components/ProjectCard.astro'
 				</p>
 			</div>
 		</div>
-		<div class="grid grid-cols-3 gap-8 pt-16">
-			<ProjectWrapper>
-				<ProjectCard
-					title="La Pastelería de La Postreria 77"
-					description="Here is a simple description for the project."
-					projectType="Landing Page"
-				/>
-			</ProjectWrapper>
-			<ProjectWrapper>
-				<ProjectCard
-					title="La Pastelería de La Postreria 77"
-					description="Here is a simple description for the project."
-					projectType="Landing Page"
-				/>
-			</ProjectWrapper>
-			<ProjectWrapper>
-				<ProjectCard
-					title="La Pastelería de La Postreria 77"
-					description="Here is a simple description for the project."
-					projectType="Landing Page"
-				/>
-			</ProjectWrapper>
-			<ProjectWrapper>
-				<ProjectCard
-					title="La Pastelería de La Postreria 77"
-					description="Here is a simple description for the project."
-					projectType="Landing Page"
-				/>
-			</ProjectWrapper>
-			<ProjectWrapper>
-				<ProjectCard
-					title="La Pastelería de La Postreria 77"
-					description="Here is a simple description for the project."
-					projectType="Landing Page"
-				/>
-			</ProjectWrapper>
-			<ProjectWrapper>
-				<ProjectCard
-					title="La Pastelería de La Postreria 77"
-					description="Here is a simple description for the project."
-					projectType="Landing Page"
-				/>
-			</ProjectWrapper>
-		</div>
+		<ul class="grid grid-cols-3 gap-8 pt-16">
+			{
+				projects.map((project) => (
+					<ProjectWrapper>
+						<ProjectCard
+							title={project.name}
+							description={project.description}
+							projectType={projectTypes.filter((type) => type.id === project.projectTypeId)[0].name}
+						/>
+					</ProjectWrapper>
+				))
+			}
+		</ul>
 	</main>
 </Layout>

@@ -3,19 +3,19 @@ import { Icon } from 'astro-icon/components'
 import Modal from './Modal.astro'
 import SidebarProject from './SidebarProject.astro'
 
-import { db, Projects, ProjectType } from 'astro:db'
+import { db, Projects } from 'astro:db'
 const projects = await db.select().from(Projects)
 ---
 
 <nav class="sticky top-0 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
 	<Modal>
-		<div class="flex flex-col gap-2">
-			<Icon name="emrosas" class="aspect-[10/2] h-full w-40" />
-			<span class="text-xs">Front End Developer Portfolio</span>
+		<div class="flex flex-col gap-1">
+			<Icon name="emrosas" class="aspect-[10/2] h-full w-56" />
+			<span class="">Front End Developer / UX Designer</span>
 		</div>
 	</Modal>
 	<div
-		class="flex flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8"
+		class="flex transition duration-150 ease-out hover:border-opacity-10 flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8"
 	>
 		<div
 			class="sticky top-0 z-20 flex -translate-x-[1px] -translate-y-[1px] items-center gap-2 bg-dark-2 pb-2 pt-8"
@@ -23,7 +23,7 @@ const projects = await db.select().from(Projects)
 			<Icon name="portfolio" class="size-4" />
 			<h2 class="">Projects</h2>
 		</div>
-		{projects.map((project) => <SidebarProject />)}
+		{projects.map((project) => <SidebarProject {...project}/>)}
 	</div>
 	<Modal>
 		<div class="flex flex-col gap-4">
@@ -31,10 +31,10 @@ const projects = await db.select().from(Projects)
 				<Icon name="user" class="size-4" />
 				<h2>Contacts</h2>
 			</div>
-			<menu class="flex gap-4">
-				<li class="text-xs"><a href="/">emireles.rosas@gmail.com</a></li>
-				<li class="text-xs"><a href="/">Erick Mireles</a></li>
-				<li class="text-xs"><a href="/">emrosas</a></li>
+			<menu class="flex gap-4 flex-wrap">
+				<li class="text-xs"><a href="/" class="flex gap-[6px] items-center"><Icon name="mail" class="size-4" /> emireles.rosas@gmail.com</a></li>
+				<li class="text-xs"><a href="/" class="flex gap-[6px] items-center"><Icon name="linkedIn" class="size-4" />Erick Mireles</a></li>
+				<li class="text-xs"><a href="/" class="flex gap-[6px] items-center"><Icon name="github" class="size-4" />emrosas</a></li>
 			</menu>
 		</div>
 	</Modal>

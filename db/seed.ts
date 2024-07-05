@@ -30,7 +30,7 @@ export default async function() {
       name: 'Party Game Companion',
       description: 'This is the short description for this project.',
       projectTypeId: 3,
-      src: '/images/pasteleria.png',
+      src: '/images/pgco.png',
       alt: 'An image of the La Pastelería de La Postreria 77 website.',
       projectLink: 'https://lapasteleriadelapostreria.com/',
       codeLink: 'https://github.com/emrosas/pasteleria'
@@ -39,7 +39,16 @@ export default async function() {
       name: 'La Postreria 77',
       description: 'This is the short description for this project.',
       projectTypeId: 2,
-      src: '/images/pasteleria.png',
+      src: '/images/postreria.png',
+      alt: 'An image of the La Pastelería de La Postreria 77 website.',
+      projectLink: 'https://lapasteleriadelapostreria.com/',
+      codeLink: 'https://github.com/emrosas/pasteleria'
+    },
+    {
+      name: 'The Wrap Co.',
+      description: 'This is the short description for this project.',
+      projectTypeId: 1,
+      src: '/images/wraps.png',
       alt: 'An image of the La Pastelería de La Postreria 77 website.',
       projectLink: 'https://lapasteleriadelapostreria.com/',
       codeLink: 'https://github.com/emrosas/pasteleria'
@@ -57,7 +66,7 @@ export default async function() {
       name: 'Party Game Companion',
       description: 'This is the short description for this project.',
       projectTypeId: 3,
-      src: '/images/pasteleria.png',
+      src: '/images/pgco.png',
       alt: 'An image of the La Pastelería de La Postreria 77 website.',
       projectLink: 'https://lapasteleriadelapostreria.com/',
       codeLink: 'https://github.com/emrosas/pasteleria'
@@ -66,10 +75,19 @@ export default async function() {
       name: 'La Postreria 77',
       description: 'This is the short description for this project.',
       projectTypeId: 2,
-      src: '/images/pasteleria.png',
+      src: '/images/postreria.png',
       alt: 'An image of the La Pastelería de La Postreria 77 website.',
       projectLink: 'https://lapasteleriadelapostreria.com/',
       codeLink: 'https://github.com/emrosas/pasteleria'
-    }
+    },
+    {
+      name: 'The Wrap Co.',
+      description: 'This is the short description for this project.',
+      projectTypeId: 1,
+      src: '/images/wraps.png',
+      alt: 'An image of the La Pastelería de La Postreria 77 website.',
+      projectLink: 'https://lapasteleriadelapostreria.com/',
+      codeLink: 'https://github.com/emrosas/pasteleria'
+    },
   ])
 }

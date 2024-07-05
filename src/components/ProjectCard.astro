@@ -1,20 +1,29 @@
 ---
+import { Image } from 'astro:assets'
+
 interface Props {
-	title: string
+	name: string
 	description: string
-	projectType: string 
+	src: string
+	projectType: string
 }
 
-const { title, description, projectType } = Astro.props
+const { name, description, src, projectType } = Astro.props
 ---
 
 <div class="flex flex-col gap-4">
-	<div class="aspect-square w-full bg-light bg-opacity-15 rounded-sm"></div>
+	<Image
+		src={src}
+		alt={name}
+		class="aspect-square w-full rounded-sm object-cover"
+		width={320}
+		height={320}
+	/>
 	<div class="flex flex-col gap-1">
 		<div class="flex items-center justify-between">
-			<h3 class="font-medium">{title}</h3>
+			<h3 class="font-medium">{name}</h3>
 			<span
-				class="border border-brand bg-brand bg-opacity-10 px-3 py-[2px] text-brand text-[8px] uppercase rounded-full"
+				class="rounded-full border border-brand bg-brand bg-opacity-10 px-3 py-[2px] text-[8px] uppercase text-brand"
 				>{projectType}</span
 			>
 		</div>

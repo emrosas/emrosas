@@ -1,16 +1,23 @@
 ---
-import ProjectWrapper from './ProjectWrapper.astro'
 import { Image } from 'astro:assets'
 
-const { name, description, src } = Astro.props
+const { name, description, src, id } = Astro.props
 ---
 
-<ProjectWrapper>
-	<div class="flex items-center gap-2">
-    <Image src={src} alt={name} class="size-20 rounded-sm object-cover" width={120} height={120}/>
+<li class="group relative flex-grow cursor-pointer list-none">
+	<a
+		href={`/projects/${id}`}
+		class="peer relative z-10 flex items-center gap-2"
+		data-navproject
+	>
+		<Image src={src} alt={name} class="size-20 rounded-sm object-cover" width={120} height={120} />
 		<div class="flex flex-col gap-1">
 			<h3 class="text-sm">{name}</h3>
 			<p class="text-xs font-light text-light-2">{description}</p>
 		</div>
-	</div>
-</ProjectWrapper>
+	</a>
+	<span
+		aria-hidden="true"
+		class="peer-aria-current:bg-opacity-10 peer-aria-current:bg-brand absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
+	></span>
+</li>

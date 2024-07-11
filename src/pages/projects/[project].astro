@@ -1,0 +1,25 @@
+---
+import { db, Projects } from 'astro:db'
+import Layout from '../../layouts/Layout.astro'
+
+export async function getStaticPaths() {
+const projects = await db.select().from(Projects)
+const projectArray = projects.map(project => project.id)
+  console.log(projectArray)
+  return projects.map(project => ({
+    params: { project: project.id },
+    props: { name: project.name, description: project.description, image: project.src }
+    }))
+};
+
+const { project } = Astro.params;
+const { name, description, image } = Astro.props
+---
+<Layout title={name} description={description}>
+<div>
+  <h1>{name}</h1>
+  <h2 class="text-brand">{project}</h2>
+  <p>{description}</p>
+  <img src={image} alt={name} />
+</div>
+</Layout>

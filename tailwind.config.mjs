@@ -25,6 +25,9 @@ export default {
       },
       gridTemplateColumns: {
         main: 'auto 1fr'
+      },
+      aria: {
+        current: 'current=page'
       }
     }
   },

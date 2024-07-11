@@ -1,7 +1,6 @@
 ---
 // Component imports
 import Layout from '../layouts/Layout.astro'
-import ProjectWrapper from '../components/ProjectWrapper.astro'
 import ProjectCard from '../components/ProjectCard.astro'
 import { Image } from 'astro:assets'
 
@@ -42,15 +41,13 @@ import me from '../assets/me.png'
 				</p>
 			</div>
 		</div>
-		<ul class="grid grid-cols-3 gap-8 pt-16">
+		<ul class="grid grid-cols-3 gap-8 pt-16 pb-2">
 			{
 				projects.map((project) => (
-					<ProjectWrapper>
 						<ProjectCard
 							{...project}
 							projectType={projectTypes.filter((type) => type.id === project.projectTypeId)[0].name}
 						/>
-					</ProjectWrapper>
 				))
 			}
 		</ul>

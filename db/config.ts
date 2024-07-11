@@ -9,6 +9,7 @@ const ProjectType = defineTable({
 
 const Projects = defineTable({
   columns: {
+    id: column.text({ primaryKey: true }),
     name: column.text(),
     description: column.text(),
     projectTypeId: column.number({ references: () => ProjectType.columns.id }),

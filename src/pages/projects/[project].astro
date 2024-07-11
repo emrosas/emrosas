@@ -1,25 +1,33 @@
 ---
-import { db, Projects } from 'astro:db'
+import { db, Projects, ProjectType } from 'astro:db'
 import Layout from '../../layouts/Layout.astro'
+import Pill from '../../components/Pill.astro'
 
 export async function getStaticPaths() {
 const projects = await db.select().from(Projects)
+const projectTypes = await db.select().from(ProjectType)
 const projectArray = projects.map(project => project.id)
   console.log(projectArray)
   return projects.map(project => ({
     params: { project: project.id },
-    props: { name: project.name, description: project.description, image: project.src }
+    props: { name: project.name, description: project.description, image: project.src, typeId: projectTypes.find(type => type.id === project.projectTypeId).name }
     }))
 };
 
 const { project } = Astro.params;
-const { name, description, image } = Astro.props
+const { name, description, image, typeId } = Astro.props
 ---
 <Layout title={name} description={description}>
-<div>
+<main class="p-page pt-16 relative">
+  <img src={image} alt={name} class="absolute top-0 left-0 z-10 w-full translate-y-[-35%] object-cover blur-[100px] opacity-25" aria-hidden="true" />
+  <div class="flex justify-between gap-8 relative z-20">
+  <div>
+  <Pill name={typeId} />
   <h1>{name}</h1>
   <h2 class="text-brand">{project}</h2>
   <p>{description}</p>
-  <img src={image} alt={name} />
-</div>
+  </div>
+  <img src={image} alt={name} class="w-3/5 rounded-lg" />
+  </div>
+</main>
 </Layout>

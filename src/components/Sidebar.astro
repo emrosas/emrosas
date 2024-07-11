@@ -7,11 +7,17 @@ import { db, Projects } from 'astro:db'
 const projects = await db.select().from(Projects)
 ---
 
-<nav class="sticky top-0 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
+<nav class="sticky top-0 z-20 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
 	<Modal>
-		<a href="/" class="group relative flex flex-col gap-1">
-			<Icon name="emrosas" class="aspect-[10/2] h-full w-56" />
-			<span class="">Front End Developer / UX Designer</span>
+		<a href="/" class="group group relative flex items-center gap-1" data-navlink>
+			<div class="flex origin-left scale-75 flex-col group-aria-current:scale-100">
+				<Icon name="emrosas" class="aspect-[10/2] h-full w-56" />
+				<span>Front End Developer / UX Designer</span>
+			</div>
+			<div class="flex items-center gap-1 group-aria-current:hidden">
+				<span>Back Home</span>
+				<Icon name="arrow-back" class="size-5" />
+			</div>
 			<span
 				aria-hidden="true"
 				class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
@@ -37,7 +43,7 @@ const projects = await db.select().from(Projects)
 			</div>
 			<menu class="flex flex-wrap gap-4">
 				<li class="text-xs">
-					<a href="/" class="group relative flex items-center gap-[6px]"
+					<a href="mailto:emireles.rosas@gmail.com" type="email" class="group relative flex items-center gap-[6px]"
 						><Icon name="mail" class="size-4" />emireles.rosas@gmail.com
 						<span
 							aria-hidden="true"
@@ -46,7 +52,10 @@ const projects = await db.select().from(Projects)
 					</a>
 				</li>
 				<li class="text-xs">
-					<a href="/" class="group relative flex items-center gap-[6px]"
+					<a
+						href="https://www.linkedin.com/in/emrosas/"
+						target="_blank"
+						class="group relative flex items-center gap-[6px]"
 						><Icon name="linkedIn" class="size-4" />Erick Mireles
 						<span
 							aria-hidden="true"
@@ -55,7 +64,10 @@ const projects = await db.select().from(Projects)
 					</a>
 				</li>
 				<li class="text-xs">
-					<a href="/" class="group relative flex items-center gap-[6px]"
+					<a
+						href="https://github.com/emrosas"
+						target="_blank"
+						class="group relative flex items-center gap-[6px]"
 						><Icon name="github" class="size-4" />emrosas
 						<span
 							aria-hidden="true"
@@ -70,9 +82,7 @@ const projects = await db.select().from(Projects)
 
 <script>
 	document.addEventListener('astro:page-load', () => {
-		const navProjects = document.querySelectorAll(
-			'[data-navproject]'
-		) as NodeListOf<HTMLAnchorElement>
+		const navProjects = document.querySelectorAll('[data-navlink]') as NodeListOf<HTMLAnchorElement>
 
 		navProjects.forEach((project) => {
 			if (window.location.href === project.href) {

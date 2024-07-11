@@ -17,9 +17,10 @@ import me from '../assets/me.png'
 	title="Erick Mireles | Front End Developer"
 	description="I'm a front end developer who strives to make digital experiences that resonate with people in the right ways."
 >
-	<main class="p-page pt-16">
+	<main class="p-page pt-16 relative">
+  <Image src={me} alt="A picturr of me" aaria-hidden="true" class="absolute top-0 left-0 z-10 w-full translate-y-[-35%] object-cover blur-[100px] opacity-15" />
 		<div
-			class="flex items-center gap-8 border-b border-dashed border-light border-opacity-15 pb-16"
+			class="flex items-center gap-8 relative z-20 border-b border-dashed border-light border-opacity-15 pb-16"
 		>
 			<Image src={me} alt="Erick Mireles" class="size-60 flex-shrink-0 rounded-sm object-cover" />
 			<div class="flex flex-col items-start gap-2">

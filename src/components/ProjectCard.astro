@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import Pill from './Pill.astro'
 
 const { name, description, src, projectType, id } = Astro.props
 ---
@@ -17,15 +18,12 @@ const { name, description, src, projectType, id } = Astro.props
 	<div class="relative z-10 flex flex-col gap-1">
 		<div class="flex items-center justify-between">
 			<h3 class="font-medium">{name}</h3>
-			<span
-				class="rounded-full border border-brand bg-brand bg-opacity-10 px-3 py-[2px] text-[8px] uppercase text-brand"
-				>{projectType}</span
-			>
+			<Pill name={projectType} />
 		</div>
 		<p class="text-xs font-light text-light-2">{description}</p>
 	</div>
 	<span
 		aria-hidden="true"
-		class="peer-aria-current:bg-opacity-10 peer-aria-current:bg-brand absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
+		class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5 peer-aria-current:bg-brand peer-aria-current:bg-opacity-10"
 	></span>
 </a>

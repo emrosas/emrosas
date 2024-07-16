@@ -5,7 +5,7 @@ import Pill from '../../components/Pill.astro'
 import Button from '../../components/Button.astro'
 
 export async function getStaticPaths() {
-	const projects = await getCollection('projects')
+	const projects = await getCollection('projects', (({data}) => !data.draft))
 	return projects.map((project) => ({
 		params: { project: project.slug },
 		props: { ...project.data }

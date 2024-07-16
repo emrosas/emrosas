@@ -6,7 +6,7 @@ import { Image } from 'astro:assets'
 
 // Content Collection Imports
 import { getCollection } from 'astro:content'
-const projects = await getCollection('projects')
+const projects = await getCollection('projects', ({ data }) => !data.draft)
 
 // Asset imports
 import me from '../assets/me.png'
@@ -47,7 +47,7 @@ import me from '../assets/me.png'
 			</div>
 		</div>
 		<ul class="grid grid-cols-3 gap-8 pb-2 pt-16">
-			{projects.map((project) => <ProjectCard {...project as Object} />)}
+			{projects.map((project) => <ProjectCard {...(project as Object)} />)}
 		</ul>
 	</main>
 </Layout>

@@ -1,8 +1,9 @@
 ---
 slug: postreria
+draft: false
 name: 'La Postreria 77'
-description: 'Lorem ipsum dolor sit amet consectetur. Etiam bibendum morbi aliquet quis consequat maecenas. Mollis elementum massa lectus blandit vivamus in. Rutrum lacus amet sem vel eu mauris risus. Eget cras dignissim urna egestas. Velit pharetra sed adipiscing imperdiet. Nisi orci dolor at id semper pharetra.'
-shortDescription: "A landing page that promotes the brand's desserts and branches."
+description: 'An established restaurant chain based in Nuevo, León. México. Known for it’s unmatched quality cakes and desserts. The website features static pages that display different information in a unique way and a dynamic web menu conected to a CMS to manage different menu variants for branches and products.'
+shortDescription: 'A website that serves as an info hub and a CMS powered QR menu.'
 type: 'Website'
 image:
   {

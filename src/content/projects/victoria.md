@@ -1,5 +1,6 @@
 ---
 slug: 'victoria'
+draft: true
 name: 'Instituto Victoria'
 description: 'Lorem ipsum dolor sit amet consectetur. Etiam bibendum morbi aliquet quis consequat maecenas. Mollis elementum massa lectus blandit vivamus in. Rutrum lacus amet sem vel eu mauris risus. Eget cras dignissim urna egestas. Velit pharetra sed adipiscing imperdiet. Nisi orci dolor at id semper pharetra.'
 shortDescription: "A landing page that promotes the brand's desserts and branches."

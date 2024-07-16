@@ -6,10 +6,7 @@ import SidebarProject from './SidebarProject.astro'
 
 // Content Collection Imports
 import { getCollection } from 'astro:content'
-const projects = await getCollection('projects')
-
-//import { db, Projects } from 'astro:db'
-//const projects = await db.select().from(Projects)
+const projects = await getCollection('projects', ({data}) => !data.draft)
 ---
 
 <nav class="sticky top-0 z-20 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">

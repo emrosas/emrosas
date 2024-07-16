@@ -7,7 +7,7 @@ export default {
         dark: 'hsl(0,0,4)',
         'dark-2': 'hsl(0,0,6)',
         brand: '#FF8000',
-        'brand-2': 'hsl(42, 100%, 90%)',
+        'brand-2': '#D64A04',
         light: '#F0F0FF',
         'light-2': '#999',
         'gradient-1': '#fb8556',
@@ -24,7 +24,7 @@ export default {
         highlight: '0px 0px 16px 0px hsla(20, 96%, 43%, 0.25)'
       },
       gridTemplateColumns: {
-        main: 'auto 1fr'
+        main: '1fr 3fr'
       },
       aria: {
         current: 'current=page'

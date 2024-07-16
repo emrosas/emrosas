@@ -1,10 +1,17 @@
 ---
-const { href } = Astro.props;
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  href: string
+  text: string
+  newWindow?: boolean
+  icon?: string
+}
+
+const { text, newWindow = false, icon, href } = Astro.props;
 ---
 
-<a href={href} class="relative overflow-clip px-4 py-2 text-light-1 rounded-lg group shadow-md hover:shadow-highlight transition-all hover:-translate-y-[2px] duration-200">
-  <div class="relative z-10">
-    <slot/>
-  </div>
-  <div class="absolute top-0 bottom-0 left-0 z-0 w-[300%] bg-gradient-to-tr from-gradient-2 to-gradient-1 group-hover:-translate-x-1/2 transition duration-300" />
+<a href={href} target={newWindow ? '_blank' : '_self'} class="flex items-center gap-2 hover:bg-opacity-50 hover:shadow-highlight transition duration-200 px-4 py-2 border border-brand-2 rounded-md bg-brand-2 bg-opacity-25">
+  <Icon name={icon} class="size-4" />
+  <p class="font-medium text-sm">{text}</p>
 </a>

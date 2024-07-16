@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 
-const { name, description, src, id } = Astro.props
+const { name, shortDescription, src, id } = Astro.props
 ---
 
 <li class="group relative flex-grow cursor-pointer list-none">
@@ -13,11 +13,11 @@ const { name, description, src, id } = Astro.props
 		<Image src={src} alt={name} class="size-20 rounded-sm object-cover" width={120} height={120} />
 		<div class="flex flex-col gap-1">
 			<h3 class="text-sm">{name}</h3>
-			<p class="text-xs font-light text-light-2">{description}</p>
+			<p class="text-xs font-light text-light-2 line-clamp-2">{shortDescription}</p>
 		</div>
 	</a>
 	<span
 		aria-hidden="true"
-		class="peer-aria-current:bg-opacity-15 peer-aria-current:bg-brand absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
+		class="peer-aria-current:bg-opacity-5 group-hover:peer-aria-current:bg-opacity-10  absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
 	></span>
 </li>

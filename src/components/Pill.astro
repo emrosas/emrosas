@@ -1,12 +1,27 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+const pill = cva(
+	'rounded-full border border-brand bg-brand bg-opacity-10 uppercase text-brand',
+	{
+		variants: {
+			intent: {
+        primary: [''],
+			},
+			size: {
+				small: ['text-[8px]', 'py-[2px]', 'px-3'],
+				medium: ['text-xs', 'py-[4px]', 'px-4']
+			}
+		}
+	}
+)
+
+export interface Props extends HTMLAttributes<'button'>, VariantProps<typeof pill> {
 	name: string
 }
 
-const { name } = Astro.props
+const { name, intent = 'primary', size = 'small' } = Astro.props
 ---
 
-<span
-	class="rounded-full border border-brand bg-brand bg-opacity-10 px-3 py-[2px] text-[8px] uppercase text-brand"
-	>{name}</span
->
+<span class={pill({ intent, size })}>{name}</span>

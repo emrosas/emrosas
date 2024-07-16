@@ -20,7 +20,7 @@ const { name, description, src, projectType, id } = Astro.props
 			<h3 class="font-medium">{name}</h3>
 			<Pill name={projectType} />
 		</div>
-		<p class="text-xs font-light text-light-2">{description}</p>
+		<p class="text-xs font-light text-light-2 line-clamp-2">{description}</p>
 	</div>
 	<span
 		aria-hidden="true"

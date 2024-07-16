@@ -1,10 +1,15 @@
 ---
+// Component imports
 import { Icon } from 'astro-icon/components'
 import Modal from './Modal.astro'
 import SidebarProject from './SidebarProject.astro'
 
-import { db, Projects } from 'astro:db'
-const projects = await db.select().from(Projects)
+// Content Collection Imports
+import { getCollection } from 'astro:content'
+const projects = await getCollection('projects')
+
+//import { db, Projects } from 'astro:db'
+//const projects = await db.select().from(Projects)
 ---
 
 <nav class="sticky top-0 z-20 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
@@ -34,7 +39,7 @@ const projects = await db.select().from(Projects)
 			<Icon name="portfolio" class="size-4" />
 			<h2 class="">Projects</h2>
 		</div>
-		{projects.map((project) => <SidebarProject {...project} />)}
+    {projects.map((project) => <SidebarProject {...project} />)}
 	</div>
 	<Modal>
 		<div class="flex flex-col gap-4">

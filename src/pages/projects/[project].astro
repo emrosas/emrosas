@@ -1,36 +1,87 @@
 ---
-import { db, Projects, ProjectType } from 'astro:db'
+import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import Pill from '../../components/Pill.astro'
 import Button from '../../components/Button.astro'
 
 export async function getStaticPaths() {
-const projects = await db.select().from(Projects)
-const projectTypes = await db.select().from(ProjectType)
-  return projects.map(project => ({
-    params: { project: project.id },
-    props: { name: project.name, description: project.description, image: project.src, typeId: projectTypes.find(type => type.id === project.projectTypeId).name }
-    }))
-};
+	const projects = await getCollection('projects')
+	return projects.map((project) => ({
+		params: { project: project.slug },
+		props: { ...project.data }
+	}))
+}
 
-const { name, description, image, typeId } = Astro.props
+const { name, description, image, type, services, tech, timeframe } = Astro.props
 ---
+
 <Layout title={name} description={description}>
-<main class="p-page pt-16 relative">
-  <img src={image} alt={name} class="absolute top-0 left-0 z-10 w-full translate-y-[-35%] object-cover blur-[100px] opacity-25" aria-hidden="true" />
-  <div class="grid grid-cols-2 items-center justify-between gap-8 relative z-20">
-    <div class="flex flex-col gap-6 items-start">
-      <Pill name={typeId} size="medium" />
-      <div class="flex flex-col gap-2">
-        <h1 class="font-medium text-3xl">{name}</h1>
-        <p class="opacity-60 font-light leading-relaxed">{description}</p>
-      </div>
-      <div class="flex gap-4">
-        <Button href="/" text="View Live" icon="web" />
-        <Button href="/" text="View Source" icon="github" />
-      </div>
-    </div>
-    <img src={image} alt={name} class="w-full aspect-16/10 rounded-lg" />
-  </div>
-</main>
+	<main class="relative flex flex-col gap-16 p-page pt-16">
+		<img
+			src={image.src}
+			alt={image.alt}
+			class="absolute left-0 top-0 z-10 w-full translate-y-[-35%] object-cover opacity-25 blur-[100px]"
+			aria-hidden="true"
+		/>
+		<!--Upper Section-->
+		<div class="flex flex-col gap-8">
+			<!--Main Section with Image-->
+			<div class="relative z-20 grid grid-cols-2 items-center justify-between gap-8">
+				<div class="flex flex-col items-start gap-6">
+					<Pill name={type} size="medium" />
+					<div class="flex flex-col gap-2">
+						<h1 class="text-3xl font-medium">{name}</h1>
+						<p class="font-light leading-relaxed opacity-60">{description}</p>
+					</div>
+					<div class="flex gap-4">
+						<Button href="/" text="View Live" icon="web" newWindow />
+						<Button href="/" text="View Source" icon="github" newWindow />
+					</div>
+				</div>
+				<img src={image.src} alt={image.alt} class="aspect-16/10 w-full rounded-lg" />
+			</div>
+			<!--Extra Details Section-->
+			<div class="grid grid-cols-3 gap-8">
+				<div id="services" class="flex flex-col gap-2">
+					<h2 class="font-medium">Services</h2>
+					<ul class="flex flex-wrap gap-x-3 gap-y-1">
+						{
+							services.map((service) => (
+								<li class="flex items-center gap-2 font-light opacity-60">
+									<span aria-hidden="true" class="size-1 rounded-full bg-light" />
+									{service}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div id="tech" class="flex flex-col gap-2">
+					<h2 class="font-medium">Technologies</h2>
+					<ul class="flex flex-wrap gap-x-3 gap-y-1">
+						{
+							tech.map((tech) => (
+								<li class="flex items-center gap-2 font-light opacity-60">
+									<span aria-hidden="true" class="size-1 rounded-full bg-light" />
+									{tech}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div id="timeframe" class="flex flex-col gap-2">
+					<h2 class="font-medium">Timeframe</h2>
+					<ul class="flex flex-col gap-x-3 gap-y-1">
+						<li class="flex items-center gap-2 font-light opacity-60">
+							<span aria-hidden="true" class="size-1 rounded-full bg-light"></span>
+              Launched {timeframe.launched}
+						</li>
+						<li class="flex items-center gap-2 font-light opacity-60">
+							<span aria-hidden="true" class="size-1 rounded-full bg-light"></span>
+							Completed in {timeframe.weeks} weeks
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
 </Layout>

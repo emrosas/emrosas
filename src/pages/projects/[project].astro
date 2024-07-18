@@ -1,22 +1,67 @@
 ---
+// Functional imports
 import { getCollection } from 'astro:content'
+
+// Component imports
 import Layout from '../../layouts/Layout.astro'
 import Pill from '../../components/Pill.astro'
 import Button from '../../components/Button.astro'
+import { Image } from 'astro:assets'
 
+// Rendering helpers
 export async function getStaticPaths() {
-	const projects = await getCollection('projects', (({data}) => !data.draft))
+	const projects = await getCollection('projects', ({ data }) => !data.draft)
 	return projects.map((project) => ({
 		params: { project: project.slug },
 		props: { ...project.data }
 	}))
 }
 
-const { name, description, image, type, services, tech, timeframe } = Astro.props
+// Image filtering by folder
+const imageImports = import.meta.glob<{ default: string }>(
+	'/src/assets/projects/**/*.{jpeg,jpg,png,gif}'
+)
+
+type ImageMetadata = {
+	src: string
+	folder: string
+}
+
+async function loadImagesByFolder(folderName: string): Promise<ImageMetadata[]> {
+	const imagePaths = Object.keys(imageImports)
+	const images: ImageMetadata[] = await Promise.all(
+		imagePaths.map(async (path) => {
+			const module = await imageImports[path]()
+			return {
+				src: module.default,
+				folder: extractFolderFromPath(path)
+			}
+		})
+	)
+
+	return images.filter((image) => image.folder === folderName)
+}
+
+// Helper function to extract folder name from path
+function extractFolderFromPath(path: string): string {
+	const match = path.match(/\/projects\/([^/]+)\//) // Adjust the regex to match your folder structure
+	return match ? match[1] : ''
+}
+
+async function displayProjectImages(projectName: string) {
+	const images = await loadImagesByFolder(projectName)
+	console.log(images) // This will log the filtered images for the project
+	// Now you can render the images in your component
+	return images
+}
+
+const { project } = Astro.params
+const { name, description, links, image, type, services, tech, timeframe } = Astro.props
+const images = await displayProjectImages(project)
 ---
 
 <Layout title={name} description={description}>
-	<main class="relative flex flex-col gap-16 p-page pt-16">
+	<main class="relative flex flex-col justify-between gap-8 p-page pt-12">
 		<img
 			src={image.src}
 			alt={image.alt}
@@ -34,8 +79,8 @@ const { name, description, image, type, services, tech, timeframe } = Astro.prop
 						<p class="font-light leading-relaxed opacity-60">{description}</p>
 					</div>
 					<div class="flex gap-4">
-						<Button href="/" text="View Live" icon="web" newWindow />
-						<Button href="/" text="View Source" icon="github" newWindow />
+						{links.live && <Button href={links.live} text="View Live" icon="web" newWindow />}
+						{links.code && <Button href={links.code} text="View Source" icon="github" newWindow />}
 					</div>
 				</div>
 				<img src={image.src} alt={image.alt} class="aspect-16/10 w-full rounded-lg" />
@@ -43,7 +88,7 @@ const { name, description, image, type, services, tech, timeframe } = Astro.prop
 			<!--Extra Details Section-->
 			<div class="grid grid-cols-3 gap-8">
 				<div id="services" class="flex flex-col gap-2">
-					<h2 class="font-medium">Services</h2>
+					<h3 class="font-medium">Services</h3>
 					<ul class="flex flex-wrap gap-x-3 gap-y-1">
 						{
 							services.map((service) => (
@@ -56,7 +101,7 @@ const { name, description, image, type, services, tech, timeframe } = Astro.prop
 					</ul>
 				</div>
 				<div id="tech" class="flex flex-col gap-2">
-					<h2 class="font-medium">Technologies</h2>
+					<h3 class="font-medium">Technologies</h3>
 					<ul class="flex flex-wrap gap-x-3 gap-y-1">
 						{
 							tech.map((tech) => (
@@ -69,11 +114,11 @@ const { name, description, image, type, services, tech, timeframe } = Astro.prop
 					</ul>
 				</div>
 				<div id="timeframe" class="flex flex-col gap-2">
-					<h2 class="font-medium">Timeframe</h2>
+					<h3 class="font-medium">Timeframe</h3>
 					<ul class="flex flex-col gap-x-3 gap-y-1">
 						<li class="flex items-center gap-2 font-light opacity-60">
 							<span aria-hidden="true" class="size-1 rounded-full bg-light"></span>
-              Launched {timeframe.launched}
+							Launched {timeframe.launched}
 						</li>
 						<li class="flex items-center gap-2 font-light opacity-60">
 							<span aria-hidden="true" class="size-1 rounded-full bg-light"></span>
@@ -83,5 +128,20 @@ const { name, description, image, type, services, tech, timeframe } = Astro.prop
 				</div>
 			</div>
 		</div>
+		<!--Lower Section-->
+		{
+			images.length > 0 && (
+				<div class="flex flex-col gap-4">
+					<h3>Project Highlights</h3>
+					<ul class="flex gap-4">
+						{images.map((image) => (
+							<li class="aspect-16/10 flex-shrink-0">
+								<Image src={image.src} alt="Image alt" class="w-96 rounded-md" />
+							</li>
+						))}
+					</ul>
+				</div>
+			)
+		}
 	</main>
 </Layout>

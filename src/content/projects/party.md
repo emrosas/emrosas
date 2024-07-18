@@ -8,10 +8,10 @@ type: 'Web App'
 image: { src: '/images/pgco.png', alt: "Website mockup of Party Game Companion's web app" }
 links:
   {
-    live: 'https://lapasteleriadelaposterria.com/',
-    code: 'https://github.com/emrosas/pasteleria-77'
+    live: 'https://partygamecompanion.netlify.app/',
+    code: 'https://github.com/emrosas/pgc'
   }
-services: ['UX Design', 'Wev Development', 'Database Management', 'Asset Creation']
-tech: ['Astro', 'React', 'Tailwind', 'Typescript', 'Astro DB', 'GSAP', 'Rive', 'Vercel']
+services: ['UX Design', 'Front End Development', 'Asset Creation']
+tech: ['React', 'Vite', 'Tailwind', 'Zustand', 'Figma', 'Netlify']
 timeframe: { weeks: 5, launched: '07-2024' }
 ---

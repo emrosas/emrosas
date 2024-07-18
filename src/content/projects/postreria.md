@@ -8,14 +8,13 @@ type: 'Website'
 image:
   {
     src: '/images/postreria.png',
-    alt: "Website mockup of La Pastelería de La Postreria's landing page"
+    alt: "Website mockup of Postreria's home page"
   }
 links:
   {
-    live: 'https://lapasteleriadelaposterria.com/',
-    code: 'https://github.com/emrosas/pasteleria-77'
+    live: 'https://lapostreria77.com/',
   }
-services: ['UX Design', 'Wev Development', 'Database Management', 'Asset Creation']
-tech: ['Astro', 'React', 'Tailwind', 'Typescript', 'Astro DB', 'GSAP', 'Rive', 'Vercel']
-timeframe: { weeks: 5, launched: '07-2024' }
+services: ['UX Design', 'Wev Development', 'CMS Management', 'Asset Creation']
+tech: ['Webflow', 'Webflow CMS', 'Figma', 'Lottie']
+timeframe: { weeks: 12, launched: '08-2021' }
 ---

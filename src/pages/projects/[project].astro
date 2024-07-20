@@ -1,6 +1,7 @@
 ---
 // Functional imports
 import { getCollection } from 'astro:content'
+import type { ImageMetadata } from 'astro'
 
 // Component imports
 import Layout from '../../layouts/Layout.astro'
@@ -18,28 +19,18 @@ export async function getStaticPaths() {
 }
 
 // Image filtering by folder
-const imageImports = import.meta.glob<{ default: string }>(
+const imageImports = import.meta.glob<{ default: ImageMetadata }>(
 	'/src/assets/projects/**/*.{jpeg,jpg,png,gif}'
 )
 
-type ImageMetadata = {
-	src: string
-	folder: string
-}
-
-async function loadImagesByFolder(folderName: string): Promise<ImageMetadata[]> {
+async function getProjectImages(folderName: string) {
 	const imagePaths = Object.keys(imageImports)
-	const images: ImageMetadata[] = await Promise.all(
+	const projectFolder = await Promise.all(
 		imagePaths.map(async (path) => {
-			const module = await imageImports[path]()
-			return {
-				src: module.default,
-				folder: extractFolderFromPath(path)
-			}
+			return extractFolderFromPath(path)
 		})
 	)
-
-	return images.filter((image) => image.folder === folderName)
+	return projectFolder.filter((folder) => folder === folderName)
 }
 
 // Helper function to extract folder name from path
@@ -48,16 +39,10 @@ function extractFolderFromPath(path: string): string {
 	return match ? match[1] : ''
 }
 
-async function displayProjectImages(projectName: string) {
-	const images = await loadImagesByFolder(projectName)
-	console.log(images) // This will log the filtered images for the project
-	// Now you can render the images in your component
-	return images
-}
-
 const { project } = Astro.params
 const { name, description, links, image, type, services, tech, timeframe } = Astro.props
-const images = await displayProjectImages(project)
+const images = await getProjectImages(project)
+// const images = await displayProjectImages(project)
 ---
 
 <Layout title={name} description={description}>
@@ -134,9 +119,13 @@ const images = await displayProjectImages(project)
 				<div class="flex flex-col gap-4">
 					<h3>Project Highlights</h3>
 					<ul class="scroll flex snap-x snap-proximity gap-4 overflow-y-hidden overflow-x-scroll">
-						{images.map((image) => (
+						{images.map((image, i) => (
 							<li class="aspect-16/10 flex-shrink-0 snap-start">
-								<Image src={image.src} alt="Image alt" class="w-96 rounded-md" />
+								<Image
+									src={imageImports[`/src/assets/projects/${image}/${i + 1}.png`]()}
+									alt={name}
+									class="w-96 rounded-md"
+								/>
 							</li>
 						))}
 					</ul>
@@ -144,14 +133,14 @@ const images = await displayProjectImages(project)
 			)
 		}
 	</main>
-</Layout>
 
-<style>
-	.scroll::-webkit-scrollbar {
-		display: none;
-	}
-	.scroll {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
-	}
-</style>
+	<style>
+		.scroll::-webkit-scrollbar {
+			display: none;
+		}
+		.scroll {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
+	</style>
+</Layout>

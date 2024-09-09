@@ -46,7 +46,7 @@ const images = await getProjectImages(project)
 ---
 
 <Layout title={name} description={description}>
-	<main class="relative flex flex-col justify-between gap-8 p-page pt-12">
+	<main class="relative flex flex-col justify-between gap-8 p-page pb-32 pt-12">
 		<img
 			src={image.src}
 			alt={image.alt}
@@ -56,7 +56,9 @@ const images = await getProjectImages(project)
 		<!--Upper Section-->
 		<div class="flex flex-col gap-8">
 			<!--Main Section with Image-->
-			<div class="relative z-20 grid grid-cols-2 items-center justify-between gap-8">
+			<div
+				class="relative z-20 grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center justify-between gap-8"
+			>
 				<div class="flex flex-col items-start gap-6">
 					<Pill name={type} size="medium" />
 					<div class="flex flex-col gap-2">
@@ -71,7 +73,7 @@ const images = await getProjectImages(project)
 				<img src={image.src} alt={image.alt} class="aspect-16/10 w-full rounded-lg" />
 			</div>
 			<!--Extra Details Section-->
-			<div class="grid grid-cols-3 gap-8">
+			<div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
 				<div id="services" class="flex flex-col gap-2">
 					<h3 class="font-medium">Services</h3>
 					<ul class="flex flex-wrap gap-x-3 gap-y-1">
@@ -120,7 +122,7 @@ const images = await getProjectImages(project)
 					<h3>Project Highlights</h3>
 					<ul class="scroll flex snap-x snap-proximity gap-4 overflow-y-hidden overflow-x-scroll">
 						{images.map((image, i) => (
-							<li class="aspect-16/10 flex-shrink-0 snap-start">
+							<li class="aspect-16/10 w-4/5 flex-shrink-0 snap-start sm:w-auto">
 								<Image
 									src={imageImports[`/src/assets/projects/${image}/${i + 1}.png`]()}
 									alt={name}

@@ -19,15 +19,15 @@ import me from '../assets/me.png'
 	<main class="relative p-page pt-16">
 		<Image
 			src={me}
-			alt="A picturr of me"
-			aaria-hidden="true"
-			class="absolute left-0 top-0 z-10 w-full translate-y-[-35%] object-cover opacity-15 blur-[100px]"
+			alt="A picture of me"
+			aria-hidden="true"
+			class="absolute left-0 top-0 z-10 w-full object-cover opacity-30 blur-[100px] sm:translate-y-[-35%] sm:opacity-15"
 		/>
 		<div
-			class="relative z-20 flex items-center gap-8 border-b border-dashed border-light border-opacity-15 pb-16"
+			class="relative z-20 flex flex-col items-center gap-8 border-b border-dashed border-light border-opacity-15 pb-16 text-center sm:items-start sm:text-left md:flex-row md:items-center"
 		>
 			<Image src={me} alt="Erick Mireles" class="size-60 flex-shrink-0 rounded-sm object-cover" />
-			<div class="flex flex-col items-start gap-2">
+			<div class="flex flex-col items-center gap-2 sm:items-start">
 				<div
 					class="mb-4 flex items-center gap-2 rounded-full border border-brand bg-brand bg-opacity-10 py-1 pl-3 pr-4 text-xs text-brand"
 				>
@@ -38,15 +38,19 @@ import me from '../assets/me.png'
 					</div>
 					<span>Available for work</span>
 				</div>
-				<h1 class="text-6xl font-medium">Erick Mireles</h1>
-				<p class="text-balance font-light leading-relaxed text-light-2">
+				<h1 class="text-[clamp(2.5rem,5vw+0.75rem,4rem);] font-medium leading-tight">
+					Erick Mireles
+				</h1>
+				<p
+					class="clamp(0.75rem,1vw+0.35rem,1rem); text-balance font-light leading-relaxed text-light-2"
+				>
 					Hello There! I'm Erick, a 24 y/o developer who's been refining his skills for the past 3
 					years. I enjoy building cool web applications that serve a purpose by leveraging my UX
 					design, animation and problem solving skills.
 				</p>
 			</div>
 		</div>
-		<ul class="grid grid-cols-3 gap-8 pb-2 pt-16">
+		<ul class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-8 pb-32 pt-16 sm:pb-0">
 			{projects.map((project) => <ProjectCard {...(project as Object)} />)}
 		</ul>
 	</main>

@@ -6,20 +6,34 @@ import SidebarProject from './SidebarProject.astro'
 
 // Content Collection Imports
 import { getCollection } from 'astro:content'
-const projects = await getCollection('projects', ({data}) => !data.draft)
+const projects = await getCollection('projects', ({ data }) => !data.draft)
 ---
 
-<nav class="sticky top-0 z-20 grid h-screen grid-rows-[auto_1fr_auto] gap-4 p-page">
+<nav
+	class="pointer-events-none fixed bottom-0 left-0 right-0 top-auto z-50 grid min-w-80 grid-cols-2 gap-4 px-page pb-page pt-24 sm:sticky sm:top-0 sm:h-screen sm:grid-cols-1 sm:grid-rows-[auto_1fr_auto] sm:p-page"
+>
+	<span
+		class="pointer-events-none absolute inset-0 block bg-gradient-to-t from-black to-transparent sm:hidden"
+	></span>
 	<Modal>
-		<a href="/" class="group relative flex items-center justify-between gap-1" data-navlink>
-			<div class="flex origin-left flex-col">
-				<Icon name="emrosas" class="aspect-[10/2] h-full w-40" />
-				<span class="text-[10px]">Front End Developer / UX Designer</span
+		<a
+			href="/"
+			class="group relative flex flex-grow items-center justify-between gap-1"
+			data-navlink
+		>
+			<div class="sm:items-left flex origin-left flex-col">
+				<Icon
+					name="emrosas"
+					class="aspect-[10/2] h-full w-16 group-aria-current:w-28 sm:w-32 group-aria-current:sm:w-40"
+				/>
+				<span
+					class="text-[4px] group-aria-current:text-[6px] sm:text-[8px] group-aria-current:sm:text-[10px]"
+					>Front End Developer / UX Designer</span
 				>
 			</div>
 			<div class="flex flex-shrink-0 items-center gap-1 group-aria-current:hidden">
-				<span>Back Home</span>
-				<Icon name="arrow-back" class="size-5" />
+				<span class="text-[10px] sm:text-lg">Back Home</span>
+				<Icon name="arrow-back" class="size-3 sm:size-5" />
 			</div>
 			<span
 				aria-hidden="true"
@@ -28,7 +42,7 @@ const projects = await getCollection('projects', ({data}) => !data.draft)
 		</a>
 	</Modal>
 	<div
-		class="flex flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8 transition duration-150 ease-out hover:border-opacity-10"
+		class="pointer-events-auto hidden flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8 transition duration-150 ease-out hover:border-opacity-10 sm:flex"
 	>
 		<div
 			class="sticky top-0 z-20 flex -translate-x-[1px] -translate-y-[1px] items-center gap-2 bg-dark-2 pb-2 pt-8"
@@ -36,10 +50,10 @@ const projects = await getCollection('projects', ({data}) => !data.draft)
 			<Icon name="portfolio" class="size-4" />
 			<h2 class="">Projects</h2>
 		</div>
-    {projects.map((project) => <SidebarProject {...project} />)}
+		{projects.map((project) => <SidebarProject {...project} />)}
 	</div>
 	<Modal>
-		<div class="flex flex-col gap-4">
+		<div class="hidden flex-col gap-4 sm:flex">
 			<div class="flex items-center gap-2">
 				<Icon name="user" class="size-4" />
 				<h2>Contacts</h2>

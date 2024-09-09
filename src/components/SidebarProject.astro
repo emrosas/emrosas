@@ -6,19 +6,21 @@ const { name, shortDescription, image } = data
 ---
 
 <li class="group relative cursor-pointer list-none">
-	<a
-		href={`/projects/${slug}`}
-		class="peer relative z-10 flex items-center gap-2"
-		data-navlink
-	>
-		<Image src={image.src} alt={image.alt} class="size-20 rounded-sm object-cover" width={120} height={120} />
+	<a href={`/projects/${slug}`} class="peer relative z-10 flex items-center gap-2" data-navlink>
+		<Image
+			src={image.src}
+			alt={image.alt}
+			class="size-20 rounded-sm object-cover"
+			width={120}
+			height={120}
+		/>
 		<div class="flex flex-col gap-1">
 			<h3 class="text-sm">{name}</h3>
-			<p class="text-xs font-light text-light-2 line-clamp-2">{shortDescription}</p>
+			<p class="line-clamp-2 text-xs font-light text-light-2">{shortDescription}</p>
 		</div>
 	</a>
 	<span
 		aria-hidden="true"
-		class="peer-aria-current:bg-opacity-5 group-hover:peer-aria-current:bg-opacity-10  absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
+		class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5 peer-aria-current:bg-opacity-5 group-hover:peer-aria-current:bg-opacity-10"
 	></span>
 </li>

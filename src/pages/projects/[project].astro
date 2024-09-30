@@ -46,7 +46,7 @@ const images = await getProjectImages(project)
 ---
 
 <Layout title={name} description={description}>
-	<main class="relative flex flex-col justify-between gap-8 p-page pb-32 pt-12">
+	<main class="relative flex flex-col justify-between gap-8 p-page pb-32 pt-12 sm:pb-page">
 		<img
 			src={image.src}
 			alt={image.alt}
@@ -70,7 +70,13 @@ const images = await getProjectImages(project)
 						{links.code && <Button href={links.code} text="View Source" icon="github" newWindow />}
 					</div>
 				</div>
-				<img src={image.src} alt={image.alt} class="aspect-16/10 w-full rounded-lg" />
+				<Image
+					src={image.src}
+					alt={image.alt}
+					width={1200}
+					height={720}
+					class="aspect-16/10 w-full rounded-lg"
+				/>
 			</div>
 			<!--Extra Details Section-->
 			<div class="grid grid-cols-1 gap-8 sm:grid-cols-3">

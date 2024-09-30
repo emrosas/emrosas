@@ -7,6 +7,7 @@ import SidebarProject from './SidebarProject.astro'
 // Content Collection Imports
 import { getCollection } from 'astro:content'
 const projects = await getCollection('projects', ({ data }) => !data.draft)
+const sortedProjects = projects.sort((a, b) => a.data.sortOrder - b.data.sortOrder)
 ---
 
 <nav
@@ -50,7 +51,7 @@ const projects = await getCollection('projects', ({ data }) => !data.draft)
 			<Icon name="portfolio" class="size-4" />
 			<h2 class="">Projects</h2>
 		</div>
-		{projects.map((project) => <SidebarProject {...project} />)}
+		{sortedProjects.map((project) => <SidebarProject {...project} />)}
 	</div>
 	<Modal>
 		<div class="hidden flex-col gap-4 sm:flex">

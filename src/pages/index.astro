@@ -7,6 +7,7 @@ import { Image } from 'astro:assets'
 // Content Collection Imports
 import { getCollection } from 'astro:content'
 const projects = await getCollection('projects', ({ data }) => !data.draft)
+const sortedProjects = projects.sort((a, b) => a.data.sortOrder - b.data.sortOrder)
 
 // Asset imports
 import me from '../assets/me.png'
@@ -31,10 +32,10 @@ import me from '../assets/me.png'
 				<div
 					class="mb-4 flex items-center gap-2 rounded-full border border-brand bg-brand bg-opacity-10 py-1 pl-3 pr-4 text-xs text-brand"
 				>
-					<div
-						class="flex animate-pulse items-center justify-center rounded-full bg-brand bg-opacity-50 p-[2px]"
-					>
-						<div class="size-1 rounded-full bg-brand"></div>
+					<!-- Ping Dot Animation -->
+					<div class="relative size-2">
+						<div class="absolute inset-[1px] rounded-full bg-brand"></div>
+						<div class="absolute inset-0 animate-ping rounded-full bg-brand opacity-50"></div>
 					</div>
 					<span>Available for work</span>
 				</div>
@@ -51,7 +52,7 @@ import me from '../assets/me.png'
 			</div>
 		</div>
 		<ul class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-8 pb-32 pt-16 sm:pb-0">
-			{projects.map((project) => <ProjectCard {...(project as Object)} />)}
+			{sortedProjects.map((project) => <ProjectCard {...(project as Object)} />)}
 		</ul>
 	</main>
 </Layout>

@@ -33,9 +33,11 @@ const { title, description } = Astro.props
 		<ViewTransitions />
 	</head>
 	<body class="flex min-h-screen flex-col overscroll-none bg-dark font-body text-light">
-		<div class="grid sm:grid-cols-main">
+		<div class="sm:grid sm:grid-cols-main">
 			<Sidebar />
-			<slot class="relative" />
+			<main class="z-0 mt-32 flex flex-col p-page sm:mt-16">
+				<slot />
+			</main>
 		</div>
 		<style>
 			@font-face {

@@ -46,11 +46,11 @@ const images = await getProjectImages(project)
 ---
 
 <Layout title={name} description={description}>
-	<main class="relative flex flex-col justify-between gap-8 p-page pb-32 pt-12 sm:pb-page">
+	<div class="flex flex-grow flex-col justify-between gap-8">
 		<img
 			src={image.src}
 			alt={image.alt}
-			class="absolute left-0 top-0 z-10 w-full translate-y-[-35%] object-cover opacity-25 blur-[100px]"
+			class="pointer-events-none absolute left-0 top-0 -z-10 w-full translate-y-[-35%] object-cover opacity-25 blur-[100px]"
 			aria-hidden="true"
 		/>
 		<!--Upper Section-->
@@ -67,7 +67,11 @@ const images = await getProjectImages(project)
 					</div>
 					<div class="flex gap-4">
 						{links.live && <Button href={links.live} text="View Live" icon="web" newWindow />}
-						{links.code && <Button href={links.code} text="View Source" icon="github" newWindow />}
+						{
+							links.code && (
+								<Button href={links.code} text="View Source" icon="logos/github" newWindow />
+							)
+						}
 					</div>
 				</div>
 				<Image
@@ -140,7 +144,7 @@ const images = await getProjectImages(project)
 				</div>
 			)
 		}
-	</main>
+	</div>
 
 	<style>
 		.scroll::-webkit-scrollbar {

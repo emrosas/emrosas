@@ -7,15 +7,17 @@ import SidebarProject from './SidebarProject.astro'
 // Content Collection Imports
 import { getCollection } from 'astro:content'
 const projects = await getCollection('projects', ({ data }) => !data.draft)
-const sortedProjects = projects.sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+const sortedProjects = projects.sort(
+	(a: { data: { sortOrder: number } }, b: { data: { sortOrder: number } }) =>
+		a.data.sortOrder - b.data.sortOrder
+)
 ---
 
 <nav
-	class="pointer-events-none fixed bottom-0 left-0 right-0 top-auto z-50 grid min-w-80 grid-cols-2 gap-4 px-page pb-page pt-24 sm:sticky sm:top-0 sm:h-screen sm:grid-cols-1 sm:grid-rows-[auto_1fr_auto] sm:p-page"
+	class="fixed left-0 right-0 top-0 z-50 flex min-w-80 gap-4 bg-dark p-page sm:sticky sm:top-0 sm:grid sm:h-screen sm:grid-cols-1 sm:grid-rows-[auto_1fr_auto] sm:bg-opacity-0"
 >
-	<span
-		class="pointer-events-none absolute inset-0 block bg-gradient-to-t from-black to-transparent sm:hidden"
-	></span>
+	<!-- Logo link-->
+
 	<Modal>
 		<a
 			href="/"
@@ -23,16 +25,12 @@ const sortedProjects = projects.sort((a, b) => a.data.sortOrder - b.data.sortOrd
 			data-navlink
 		>
 			<div class="sm:items-left flex origin-left flex-col">
-				<Icon
-					name="emrosas"
-					class="aspect-[10/2] h-full w-16 group-aria-current:w-28 sm:w-32 group-aria-current:sm:w-40"
-				/>
-				<span
-					class="text-[4px] group-aria-current:text-[6px] sm:text-[8px] group-aria-current:sm:text-[10px]"
+				<Icon name="emrosas" class="aspect-[10/2] h-full w-32 group-aria-current:sm:w-40" />
+				<span class="text-[8px] group-aria-current:sm:text-[10px]"
 					>Front End Developer / UX Designer</span
 				>
 			</div>
-			<div class="flex flex-shrink-0 items-center gap-1 group-aria-current:hidden">
+			<div class="hidden flex-shrink-0 items-center gap-1 group-aria-current:hidden sm:flex">
 				<span class="text-[10px] sm:text-lg">Back Home</span>
 				<Icon name="arrow-back" class="size-3 sm:size-5" />
 			</div>
@@ -42,63 +40,68 @@ const sortedProjects = projects.sort((a, b) => a.data.sortOrder - b.data.sortOrd
 			></span>
 		</a>
 	</Modal>
-	<div
-		class="pointer-events-auto hidden flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8 transition duration-150 ease-out hover:border-opacity-10 sm:flex"
-	>
+	<button id="mobile-menu-button" class="sm:hidden"><Icon name="menu" class="size-10" /></button>
+	<!--Project Cards-->
+	<div id="mobile-menu-wrapper" class="fixed inset-0 hidden p-page sm:contents sm:p-0">
 		<div
-			class="sticky top-0 z-20 flex -translate-x-[1px] -translate-y-[1px] items-center gap-2 bg-dark-2 pb-2 pt-8"
+			class="pointer-events-auto hidden flex-col gap-8 overflow-scroll rounded-md border border-light border-opacity-5 bg-dark-2 px-6 pb-8 transition duration-150 ease-out hover:border-opacity-10 sm:flex"
 		>
-			<Icon name="portfolio" class="size-4" />
-			<h2 class="">Projects</h2>
-		</div>
-		{sortedProjects.map((project) => <SidebarProject {...project} />)}
-	</div>
-	<Modal>
-		<div class="hidden flex-col gap-4 sm:flex">
-			<div class="flex items-center gap-2">
-				<Icon name="user" class="size-4" />
-				<h2>Contacts</h2>
+			<div
+				class="sticky top-0 z-20 flex -translate-x-[1px] -translate-y-[1px] items-center gap-2 bg-dark-2 pb-2 pt-8"
+			>
+				<Icon name="portfolio" class="size-4" />
+				<h2 class="">Projects</h2>
 			</div>
-			<menu class="flex flex-wrap gap-4">
-				<li class="text-xs">
-					<a
-						href="mailto:emireles.rosas@gmail.com"
-						type="email"
-						class="group relative flex items-center gap-[6px]"
-						><Icon name="mail" class="size-4" />emireles.rosas@gmail.com
-						<span
-							aria-hidden="true"
-							class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
-						></span>
-					</a>
-				</li>
-				<li class="text-xs">
-					<a
-						href="https://www.linkedin.com/in/emrosas/"
-						target="_blank"
-						class="group relative flex items-center gap-[6px]"
-						><Icon name="linkedIn" class="size-4" />Erick Mireles
-						<span
-							aria-hidden="true"
-							class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
-						></span>
-					</a>
-				</li>
-				<li class="text-xs">
-					<a
-						href="https://github.com/emrosas"
-						target="_blank"
-						class="group relative flex items-center gap-[6px]"
-						><Icon name="github" class="size-4" />emrosas
-						<span
-							aria-hidden="true"
-							class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
-						></span>
-					</a>
-				</li>
-			</menu>
+			{sortedProjects.map((project) => <SidebarProject {...project} />)}
 		</div>
-	</Modal>
+		<!-- Contact Information -->
+		<Modal mobileBg>
+			<div class="flex flex-col gap-4">
+				<div class="flex items-center gap-2">
+					<Icon name="user" class="size-4" />
+					<h2>Contacts</h2>
+				</div>
+				<menu class="flex flex-wrap gap-4">
+					<li class="text-xs">
+						<a
+							href="mailto:emireles.rosas@gmail.com"
+							type="email"
+							class="group relative flex items-center gap-[6px]"
+							><Icon name="mail" class="size-4" />emireles.rosas@gmail.com
+							<span
+								aria-hidden="true"
+								class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
+							></span>
+						</a>
+					</li>
+					<li class="text-xs">
+						<a
+							href="https://www.linkedin.com/in/emrosas/"
+							target="_blank"
+							class="group relative flex items-center gap-[6px]"
+							><Icon name="linkedIn" class="size-4" />Erick Mireles
+							<span
+								aria-hidden="true"
+								class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
+							></span>
+						</a>
+					</li>
+					<li class="text-xs">
+						<a
+							href="https://github.com/emrosas"
+							target="_blank"
+							class="group relative flex items-center gap-[6px]"
+							><Icon name="logos/github" class="size-4" />emrosas
+							<span
+								aria-hidden="true"
+								class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5"
+							></span>
+						</a>
+					</li>
+				</menu>
+			</div>
+		</Modal>
+	</div>
 </nav>
 
 <script>
@@ -109,6 +112,12 @@ const sortedProjects = projects.sort((a, b) => a.data.sortOrder - b.data.sortOrd
 			if (window.location.href === project.href) {
 				project.setAttribute('aria-current', 'page')
 			}
+		})
+
+		const mobileMenuButton = document.getElementById('mobile-menu-button') as HTMLButtonElement
+		const mobileMenuWrapper = document.getElementById('mobile-menu-wrapper') as HTMLDivElement
+		mobileMenuButton.addEventListener('click', () => {
+			console.log(mobileMenuWrapper)
 		})
 	})
 </script>

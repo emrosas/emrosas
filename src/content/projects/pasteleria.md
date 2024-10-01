@@ -13,7 +13,7 @@ image:
   }
 links:
   {
-    live: 'https://lapasteleriadelaposterria.com/',
+    live: 'https://lapasteleriadelapostreria.com/',
     code: 'https://github.com/emrosas/pasteleria-77'
   }
 services: ['UX Design', 'Wev Development', 'Database Management', 'Asset Creation']

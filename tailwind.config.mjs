@@ -18,7 +18,8 @@ export default {
 				body: ['Satoshi-variable', 'sans-serif']
 			},
 			spacing: {
-				page: 'var(--page-main)'
+				page: 'var(--page-main)',
+				double: 'var(--page-double)'
 			},
 			boxShadow: {
 				highlight: '0px 0px 16px 0px hsla(20, 96%, 43%, 0.25)'

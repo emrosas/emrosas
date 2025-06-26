@@ -7,7 +7,11 @@ const { mobileBg = false } = Astro.props
 ---
 
 <div
-	class=`${mobileBg ? 'border border-light border-opacity-5 bg-dark-2 px-6 py-8 flex-shrink' : 'sm:border sm:border-light sm:border-opacity-5 sm:bg-dark-2'} pointer-events-auto relative rounded-md transition duration-150 ease-out hover:border-opacity-10 sm:px-6 sm:py-8`
+	class={`${
+		mobileBg
+			? 'border border-light border-opacity-5 bg-dark-2 px-6 py-8 flex-shrink'
+			: 'md:border md:border-light md:border-opacity-5 md:bg-dark-2'
+	} pointer-events-auto relative rounded-md transition duration-150 ease-out hover:border-opacity-10 md:px-6 md:py-8`}
 >
 	<slot />
 </div>

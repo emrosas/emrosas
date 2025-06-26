@@ -14,7 +14,7 @@ const sortedProjects = projects.sort(
 ---
 
 <nav
-	class="fixed left-0 right-0 top-0 z-50 flex min-w-80 justify-between gap-4 bg-dark p-page sm:sticky sm:top-0 sm:grid sm:h-screen sm:grid-cols-1 sm:grid-rows-[auto_1fr_auto] sm:bg-opacity-0"
+	class="fixed left-0 right-0 top-0 z-50 flex min-w-80 justify-between gap-4 bg-dark p-page md:sticky md:top-0 md:grid md:h-screen md:grid-cols-1 md:grid-rows-[auto_1fr_auto] md:bg-opacity-0"
 >
 	<!-- Logo link-->
 
@@ -24,13 +24,11 @@ const sortedProjects = projects.sort(
 			class="group relative flex flex-grow items-center justify-between gap-1"
 			data-navlink
 		>
-			<div class="sm:items-left flex origin-left flex-col">
-				<Icon name="emrosas" class="aspect-[10/2] h-full w-32 group-aria-current:sm:w-40" />
-				<span class="text-[8px] group-aria-current:sm:text-[10px]"
-					>Front End Developer / UX Designer</span
-				>
+			<div class="md:items-left flex origin-left flex-col">
+				<Icon name="emrosas" class="aspect-[10/2] h-full w-32 group-aria-current:md:w-40" />
+				<span class="text-[8px] group-aria-current:md:text-[10px]">Web Designer / Developer</span>
 			</div>
-			<div class="hidden flex-shrink-0 items-center gap-1 group-aria-current:hidden sm:flex">
+			<div class="hidden flex-shrink-0 items-center gap-1 group-aria-current:hidden md:flex">
 				<span class="text-[10px] sm:text-lg">Back Home</span>
 				<Icon name="arrow-back" class="size-3 sm:size-5" />
 			</div>
@@ -40,12 +38,12 @@ const sortedProjects = projects.sort(
 			></span>
 		</a>
 	</Modal>
-	<button id="mobile-menu-button" class="sm:hidden"><Icon name="menu" class="size-10" /></button>
+	<button id="mobile-menu-button" class="md:hidden"><Icon name="menu" class="size-10" /></button>
 	<!-- Mobile Menu -->
 	<div
 		menu-open
 		id="mobile-menu-wrapper"
-		class="fixed inset-0 -z-10 hidden flex-col gap-4 bg-dark p-page pt-24 sm:contents sm:p-0"
+		class="fixed inset-0 -z-10 hidden flex-col gap-4 bg-dark p-page pt-24 md:contents md:p-0"
 	>
 		<!--Project Cards-->
 		<div

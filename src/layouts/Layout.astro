@@ -20,26 +20,26 @@ const { title, description } = Astro.props
 		<ClientRouter />
 		<SEO
 			title={title}
-			titleDefault="Erick Mireles | Front End Developer"
+			titleDefault="Erick Mireles | Web Designer & Developer"
 			description={description}
 			openGraph={{
 				basic: {
-					title: 'Erick Mireles | Front End Developer',
+					title: 'Erick Mireles | Web Designer & Developer',
 					type: 'website',
 					image: 'https://emrosas.vercel.app/og.png',
-					url: 'https://emrosas.github.io/'
+					url: 'https://emrosas.vercel.app/'
 				}
 			}}
 		/>
 	</head>
-	<body class="flex min-h-screen flex-col overscroll-none bg-dark font-body text-light">
-		<div class="sm:grid sm:grid-cols-main">
+	<body class="flex min-h-screen overscroll-none bg-dark font-body text-light">
+		<div class="md:grid md:grid-cols-main">
 			<Sidebar />
-			<main class="z-0 mt-32 flex flex-col p-page sm:mt-16">
+			<main class="z-0 mt-32 flex flex-col md:mt-16">
 				<slot />
 			</main>
 		</div>
-		<style>
+		<style is:global>
 			@font-face {
 				font-family: 'Satoshi-Variable';
 				src:
@@ -53,6 +53,7 @@ const { title, description } = Astro.props
 			:root {
 				/* Spacing variables */
 				--page-main: var(--page-desktop);
+				--page-double: calc(var(--page-main) * 2);
 				--page-desktop: 1rem;
 				--page-tablet: 1.25rem;
 				--page-mobile: 1rem;

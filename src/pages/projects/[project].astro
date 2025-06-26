@@ -46,7 +46,7 @@ const images = await getProjectImages(project)
 ---
 
 <Layout title={name} description={description}>
-	<div class="flex flex-grow flex-col justify-between gap-8 pb-8 sm:pb-0">
+	<div class="flex flex-grow flex-col justify-between gap-8 pb-page">
 		<img
 			src={image.src}
 			alt={image.alt}
@@ -54,7 +54,7 @@ const images = await getProjectImages(project)
 			aria-hidden="true"
 		/>
 		<!--Upper Section-->
-		<div class="flex flex-col gap-8">
+		<div class="flex flex-col gap-8 px-page md:pr-double">
 			<!--Main Section with Image-->
 			<div
 				class="relative z-20 grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center justify-between gap-8"
@@ -128,9 +128,9 @@ const images = await getProjectImages(project)
 		<!--Lower Section-->
 		{
 			images.length > 0 && (
-				<div class="flex flex-col gap-4">
+				<div class="flex flex-col gap-4 pl-page">
 					<h3>Project Highlights</h3>
-					<ul class="scroll flex snap-x snap-proximity gap-4 overflow-y-hidden overflow-x-scroll">
+					<ul class="hide-scrollbar flex snap-x snap-proximity gap-4 overflow-y-hidden overflow-x-scroll last:pr-page md:last:pr-double">
 						{images.map((image, i) => (
 							<li class="aspect-16/10 w-4/5 flex-shrink-0 snap-start sm:w-auto">
 								<Image
@@ -140,19 +140,10 @@ const images = await getProjectImages(project)
 								/>
 							</li>
 						))}
+						<!-- <li aria-hidden="true" class="w-page" /> -->
 					</ul>
 				</div>
 			)
 		}
 	</div>
-
-	<style>
-		.scroll::-webkit-scrollbar {
-			display: none;
-		}
-		.scroll {
-			-ms-overflow-style: none; /* IE and Edge */
-			scrollbar-width: none; /* Firefox */
-		}
-	</style>
 </Layout>

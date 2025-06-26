@@ -10,7 +10,7 @@ const { name, shortDescription, image } = data
 		<Image
 			src={image.src}
 			alt={image.alt}
-			class="size-20 rounded-sm object-cover"
+			class="size-20 rounded-md object-cover"
 			width={120}
 			height={120}
 		/>
@@ -21,6 +21,6 @@ const { name, shortDescription, image } = data
 	</a>
 	<span
 		aria-hidden="true"
-		class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5 peer-aria-current:bg-opacity-5 group-hover:peer-aria-current:bg-opacity-10"
+		class="absolute -inset-2 z-0 rounded-lg border border-transparent bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5 peer-aria-current:border-brand/50 peer-aria-current:bg-brand/15 group-hover:peer-aria-current:bg-brand/20"
 	></span>
 </li>

@@ -7,7 +7,7 @@ const { name, description, image, type } = data
 ---
 
 <a href={`/projects/${slug}`} class="group relative flex flex-col gap-4">
-	<div class="group relative z-10 aspect-square w-full overflow-clip rounded-sm">
+	<div class="group relative z-10 aspect-square w-full overflow-clip rounded-xl">
 		<Image
 			src={image.src}
 			alt={image.alt}
@@ -16,7 +16,7 @@ const { name, description, image, type } = data
 			class="absolute inset-0 h-full w-full object-cover transition duration-300 ease-out group-hover:scale-[1.02]"
 		/>
 	</div>
-	<div class="relative z-10 flex flex-col gap-1">
+	<div class="relative z-10 flex flex-col gap-1 px-1">
 		<div class="flex items-center justify-between gap-4">
 			<h3 class="font-medium">{name}</h3>
 			<Pill name={type} />
@@ -25,6 +25,6 @@ const { name, description, image, type } = data
 	</div>
 	<span
 		aria-hidden="true"
-		class="absolute -inset-2 z-0 rounded-md bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5 peer-aria-current:bg-brand peer-aria-current:bg-opacity-10"
+		class="absolute -inset-2 z-0 rounded-2xl bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5 peer-aria-current:bg-brand peer-aria-current:bg-opacity-10"
 	></span>
 </a>

@@ -13,6 +13,6 @@ image:
   }
 links: { code: 'https://github.com/emrosas/thewrapco.' }
 services: ['UX Design', 'Wev Development', 'Asset Creation']
-tech: ['Astro', 'Tailwind', 'Figma']
+tech: ['Astro', 'Tailwind', 'Figma', 'Photoshop', 'Illustrator']
 timeframe: { weeks: 5, launched: '01-2024' }
 ---

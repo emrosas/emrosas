@@ -8,7 +8,7 @@ shortDescription: 'A website that serves as an info hub and a CMS powered QR men
 type: 'Website'
 image: { src: '/images/postreria.png', alt: "Website mockup of Postreria's home page" }
 links: { live: 'https://lapostreria77.com/' }
-services: ['UX Design', 'Wev Development', 'CMS Management', 'Asset Creation']
-tech: ['Webflow', 'Webflow CMS', 'Figma', 'Lottie']
+services: ['UI/UX Design', 'Web Development', 'CMS Management', 'Asset Creation', 'SEO']
+tech: ['Webflow', 'Webflow CMS', 'Webflow Animations', 'Figma', 'Lottie', 'Photoshop']
 timeframe: { weeks: 12, launched: '08-2021' }
 ---

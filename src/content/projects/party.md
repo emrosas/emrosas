@@ -8,7 +8,7 @@ shortDescription: 'A web app that lets you manage players and scores in a leader
 type: 'Web App'
 image: { src: '/images/pgco.png', alt: "Website mockup of Party Game Companion's web app" }
 links: { live: 'https://partygamecompanion.netlify.app/', code: 'https://github.com/emrosas/pgc' }
-services: ['UX Design', 'Front End Development', 'Asset Creation']
-tech: ['React', 'Vite', 'Tailwind', 'Zustand', 'Figma', 'Netlify']
-timeframe: { weeks: 5, launched: '07-2024' }
+services: ['UX/UI Design', 'Front End Development', 'Back End Development', 'Asset Creation']
+tech: ['React', 'Vite', 'Tailwind', 'Zustand', 'Figma']
+timeframe: { weeks: 3, launched: '12-2023' }
 ---

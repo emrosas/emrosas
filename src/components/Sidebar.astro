@@ -5,10 +5,10 @@ import Modal from './Modal.astro'
 import SidebarProject from './SidebarProject.astro'
 
 // Content Collection Imports
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 const projects = await getCollection('projects', ({ data }) => !data.draft)
 const sortedProjects = projects.sort(
-	(a: { data: { sortOrder: number } }, b: { data: { sortOrder: number } }) =>
+	(a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
 		a.data.sortOrder - b.data.sortOrder
 )
 ---
@@ -24,9 +24,11 @@ const sortedProjects = projects.sort(
 			class="group relative flex flex-grow items-center justify-between gap-1"
 			data-navlink
 		>
-			<div class="md:items-left flex origin-left flex-col">
-				<Icon name="emrosas" class="aspect-[10/2] h-full w-32 group-aria-current:md:w-40" />
-				<span class="text-[8px] group-aria-current:md:text-[10px]">Web Designer / Developer</span>
+			<div
+				class="md:items-left origin-l flex origin-left flex-col transition group-aria-current:md:scale-105"
+			>
+				<Icon name="emrosas" class="aspect-[10/2] h-full w-32" />
+				<span class="text-[8px]">Web Designer / Developer</span>
 			</div>
 			<div class="hidden flex-shrink-0 items-center gap-1 group-aria-current:hidden md:flex">
 				<span class="text-[10px] sm:text-lg">Back Home</span>

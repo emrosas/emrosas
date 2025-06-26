@@ -1,7 +1,10 @@
 ---
 import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
 
-const { slug, data } = Astro.props
+interface Props extends CollectionEntry<'projects'> {}
+
+const { slug, data }: Props = Astro.props
 const { name, shortDescription, image } = data
 ---
 

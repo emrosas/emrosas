@@ -16,7 +16,7 @@ links:
     live: 'https://lapasteleriadelapostreria.com/',
     code: 'https://github.com/emrosas/pasteleria-77'
   }
-services: ['UX Design', 'Wev Development', 'Database Management', 'Asset Creation']
-tech: ['Astro', 'React', 'Tailwind', 'Typescript', 'Astro DB', 'GSAP', 'Rive', 'Vercel']
-timeframe: { weeks: 5, launched: '07-2024' }
+services: ['UI/UX Design', 'Web Development', 'Database Management', 'Asset Creation']
+tech: ['Astro', 'React', 'Tailwind', 'Typescript', 'SQLite', 'GSAP', "Figma", "Photoshop"]
+timeframe: { weeks: 4, launched: '07-2024' }
 ---

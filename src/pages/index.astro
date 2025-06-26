@@ -6,9 +6,12 @@ import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
 
 // Content Collection Imports
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 const projects = await getCollection('projects', ({ data }) => !data.draft)
-const sortedProjects = projects.sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+const sortedProjects = projects.sort(
+	(a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
+		a.data.sortOrder - b.data.sortOrder
+)
 
 // Asset imports
 import me from '../assets/me.png'
@@ -47,9 +50,9 @@ import me from '../assets/me.png'
 				<p
 					class="clamp(0.75rem,1vw+0.35rem,1rem); max-w-prose font-light leading-relaxed text-light-2"
 				>
-					Hello There! I'm Erick, a 24 y/o developer who's been refining his skills for the past 3
-					years. I enjoy building cool web applications that serve a purpose by leveraging my UX
-					design, animation and problem solving skills.
+					With 5 years of experience in graphic design, web design, and front-end development, I am
+					a 25-year-old professional combining technical and problem solving skills to craft
+					compelling web applications that solve real-world problems.
 				</p>
 				<!-- Technology logos -->
 				<div class="mt-4 flex flex-wrap justify-center gap-4 md:justify-start">
@@ -64,8 +67,8 @@ import me from '../assets/me.png'
 				</div>
 			</div>
 		</div>
-		<ul class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-page py-16 md:pb-0">
-			{sortedProjects.map((project) => <ProjectCard {...(project as Object)} />)}
+		<ul class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-page py-16 md:pb-0">
+			{sortedProjects.map((project: CollectionEntry<'projects'>) => <ProjectCard {...project} />)}
 		</ul>
 	</div>
 </Layout>

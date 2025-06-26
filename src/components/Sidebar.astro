@@ -122,6 +122,7 @@ const sortedProjects = projects.sort(
 		function toggleMenu(el: HTMLDivElement) {
 			el.classList.toggle('hidden')
 			el.classList.toggle('flex')
+			document.body.classList.toggle('overflow-hidden')
 		}
 		mobileMenuButton.addEventListener('click', () => {
 			toggleMenu(mobileMenuWrapper)

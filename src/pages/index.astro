@@ -23,7 +23,7 @@ import me from '../assets/me.png'
 			src={me}
 			alt="A picture of me"
 			aria-hidden="true"
-			class="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full translate-y-[-35%] object-cover opacity-30 blur-[100px] md:opacity-15"
+			class="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full object-cover opacity-30 blur-[100px] md:translate-y-[-35%] md:opacity-15"
 		/>
 		<div
 			class="relative z-20 flex flex-col items-center gap-8 border-b border-dashed border-light border-opacity-15 pb-16 text-center md:flex-row md:items-start md:text-left"
@@ -32,7 +32,7 @@ import me from '../assets/me.png'
 			<Image src={me} alt="Erick Mireles" class="size-60 flex-shrink-0 rounded-xl object-cover" />
 			<div class="flex flex-col items-center gap-2 md:items-start">
 				<div
-					class="mb-4 flex items-center gap-2 rounded-full border border-brand bg-brand bg-opacity-10 py-1 pl-3 pr-4 text-xs text-brand"
+					class="flex items-center gap-2 rounded-full border border-brand bg-brand bg-opacity-10 py-1 pl-3 pr-4 text-xs text-brand"
 				>
 					<!-- Ping Dot Animation -->
 					<div class="relative size-2">
@@ -45,14 +45,14 @@ import me from '../assets/me.png'
 					Erick Mireles
 				</h1>
 				<p
-					class="clamp(0.75rem,1vw+0.35rem,1rem); text-balance font-light leading-relaxed text-light-2"
+					class="clamp(0.75rem,1vw+0.35rem,1rem); max-w-prose font-light leading-relaxed text-light-2"
 				>
 					Hello There! I'm Erick, a 24 y/o developer who's been refining his skills for the past 3
 					years. I enjoy building cool web applications that serve a purpose by leveraging my UX
 					design, animation and problem solving skills.
 				</p>
 				<!-- Technology logos -->
-				<div class="flex flex-wrap justify-center gap-4 md:justify-start">
+				<div class="mt-4 flex flex-wrap justify-center gap-4 md:justify-start">
 					<Icon name="logos/figma" class="size-8" />
 					<Icon name="logos/astro" class="size-8" />
 					<Icon name="logos/react" class="size-8" />

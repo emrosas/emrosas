@@ -24,10 +24,10 @@ const { name, description, image, type } = data
 			<h3 class="font-medium">{name}</h3>
 			<Pill name={type} />
 		</div>
-		<p class="line-clamp-2 text-xs font-light text-light-2">{description}</p>
+		<p class="text-light-2 line-clamp-2 text-xs font-light">{description}</p>
 	</div>
 	<span
 		aria-hidden="true"
-		class="absolute -inset-2 z-0 rounded-2xl bg-light bg-opacity-0 transition duration-200 ease-out group-hover:bg-opacity-5 peer-aria-current:bg-brand peer-aria-current:bg-opacity-10"
+		class="group-hover:bg-light/5 peer-aria-current:bg-brand peer-aria-current:bg-opacity-10 absolute -inset-2 z-0 rounded-2xl bg-transparent transition duration-200 ease-out"
 	></span>
 </a>

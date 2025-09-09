@@ -26,29 +26,27 @@ import me from '../assets/me.png'
 			src={me}
 			alt="A picture of me"
 			aria-hidden="true"
-			class="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full object-cover opacity-30 blur-[100px] md:translate-y-[-35%] md:opacity-15"
+			class="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full object-cover opacity-30 blur-[100px] md:translate-y-[-35%] md:opacity-15"
 		/>
 		<div
-			class="relative z-20 flex flex-col items-center gap-8 border-b border-dashed border-light border-opacity-15 pb-16 text-center md:flex-row md:items-start md:text-left"
+			class="border-light/15 relative z-20 flex flex-col items-center gap-8 border-b border-dashed pb-16 text-center md:flex-row md:items-start md:text-left"
 		>
 			<!-- Profile Image -->
-			<Image src={me} alt="Erick Mireles" class="size-60 flex-shrink-0 rounded-xl object-cover" />
+			<Image src={me} alt="Erick Mireles" class="size-60 shrink-0 rounded-xl object-cover" />
 			<div class="flex flex-col items-center gap-2 md:items-start">
 				<div
-					class="flex items-center gap-2 rounded-full border border-brand bg-brand bg-opacity-10 py-1 pl-3 pr-4 text-xs text-brand"
+					class="border-brand bg-brand/10 text-brand flex items-center gap-2 rounded-full border py-1 pr-4 pl-3 text-xs"
 				>
 					<!-- Ping Dot Animation -->
 					<div class="relative size-2">
-						<div class="absolute inset-[1px] rounded-full bg-brand"></div>
-						<div class="absolute inset-0 animate-ping rounded-full bg-brand opacity-50"></div>
+						<div class="bg-brand absolute inset-px rounded-full"></div>
+						<div class="bg-brand absolute inset-0 animate-ping rounded-full opacity-50"></div>
 					</div>
 					<span>Available for work</span>
 				</div>
-				<h1 class="text-[clamp(2.5rem,5vw+0.75rem,4rem);] font-medium leading-tight">
-					Erick Mireles
-				</h1>
+				<h1 class="text-title leading-tight font-medium">Erick Mireles</h1>
 				<p
-					class="clamp(0.75rem,1vw+0.35rem,1rem); max-w-prose font-light leading-relaxed text-light-2"
+					class="clamp(0.75rem,1vw+0.35rem,1rem); text-light-2 max-w-prose leading-relaxed font-light"
 				>
 					With 5 years of experience in graphic design, web design, and front-end development, I am
 					a 25-year-old professional combining technical and problem solving skills to craft
@@ -67,7 +65,7 @@ import me from '../assets/me.png'
 				</div>
 			</div>
 		</div>
-		<ul class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-page py-16 md:pb-0">
+		<ul class="gap-page grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] py-16 md:pb-0">
 			{sortedProjects.map((project: CollectionEntry<'projects'>) => <ProjectCard {...project} />)}
 		</ul>
 	</div>

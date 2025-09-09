@@ -2,16 +2,20 @@
 import { Icon } from 'astro-icon/components'
 
 interface Props {
-  href: string
-  text: string
-  newWindow?: boolean
-  icon?: string
+	href: string
+	text: string
+	newWindow?: boolean
+	icon?: string
 }
 
-const { text, newWindow = false, icon, href } = Astro.props;
+const { text, newWindow = false, icon, href } = Astro.props
 ---
 
-<a href={href} target={newWindow ? '_blank' : '_self'} class="flex items-center gap-2 hover:bg-opacity-50 hover:shadow-highlight transition duration-200 px-4 py-2 border border-brand-2 rounded-md bg-brand-2 bg-opacity-25">
-  <Icon name={icon} class="size-4" />
-  <p class="font-medium text-sm">{text}</p>
+<a
+	href={href}
+	target={newWindow ? '_blank' : '_self'}
+	class="hover:bg-brand-2/50 hover:shadow-highlight border-brand-2 bg-brand-2/25 flex items-center gap-2 rounded-md border px-4 py-2 transition duration-200"
+>
+	<Icon name={icon} class="size-4" />
+	<p class="text-sm font-medium">{text}</p>
 </a>

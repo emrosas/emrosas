@@ -1,16 +1,30 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-dark: '#0A0A0A';
-	--color-dark-2: '#0F0F0F';
-	--color-brand: '#FF8000';
-	--color-brand-2: '#D64A04';
-	--color-light: '#F0F0FF';
-	--color-light-2: '#999';
-	--color-gradient-1: '#fb8556';
-	--color-gradient-2: '#932c00';
+	/* Color variables */
+	--color-dark: #0a0a0a;
+	--color-dark-2: #0f0f0f;
+	--color-brand: #ff8000;
+	--color-brand-2: #d64a04;
+	--color-light: #f0f0ff;
+	--color-light-2: #999;
+	--color-gradient-1: #fb8556;
+	--color-gradient-2: #932c00;
+
+	/* Font variables*/
+	--font-body: [ 'Satoshi-variable', 'sans-serif'];
+	--font-display: [ 'Neue-Regrade-Variable', 'sans-serif'];
+
+	--text-title: clamp(2.5rem, 1.3rem + 3vw, 4rem);
+
+	/* Spacing variables */
+	--spacing-page: clamp(1rem, 0.6rem + 1vw, 1.5rem);
+	--spacing-gutter: clamp(1rem, -0.6rem + 4vw, 3rem);
+	--spacing-double: calc(var(--spacing-page) * 2);
 }
 
+@custom-variant aria-current (&[aria-current="page"]);
+
 body {
-	@apply bg-dark;
+	@apply bg-dark text-light tracking-tight;
 }

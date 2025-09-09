@@ -46,7 +46,7 @@ const images = await getProjectImages(project)
 ---
 
 <Layout title={name} description={description}>
-	<div class="flex flex-grow flex-col justify-between gap-8 pb-page">
+	<div class="flex grow flex-col justify-between gap-8 pb-page">
 		<img
 			src={image.src}
 			alt={image.alt}
@@ -79,7 +79,7 @@ const images = await getProjectImages(project)
 					alt={image.alt}
 					width={1200}
 					height={720}
-					class="aspect-[16/10] w-full rounded-xl"
+					class="aspect-16/10 w-full rounded-xl"
 				/>
 			</div>
 			<!--Extra Details Section-->
@@ -132,7 +132,7 @@ const images = await getProjectImages(project)
 					<h3>Project Highlights</h3>
 					<ul class="hide-scrollbar flex snap-x snap-proximity gap-4 overflow-y-hidden overflow-x-scroll last:pr-page md:last:pr-double">
 						{images.map((image, i) => (
-							<li class="aspect-16/10 w-4/5 flex-shrink-0 snap-start sm:w-auto">
+							<li class="aspect-16/10 w-4/5 shrink-0 snap-start sm:w-auto">
 								<Image
 									src={imageImports[`/src/assets/projects/${image}/${i + 1}.png`]()}
 									alt={name}

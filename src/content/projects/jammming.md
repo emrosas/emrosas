@@ -8,7 +8,7 @@ shortDescription: 'An app that allows users to easily manage their Spotify playl
 type: 'Web App'
 image: { src: '/images/jam.png', alt: 'Website mockup of Jammming web app' }
 links: { live: 'https://partygamecompanion.netlify.app/', code: 'https://github.com/emrosas/pgc' }
-services: ['UX Design', 'Front End Development', 'Asset Creation']
+skills: ['UX Design', 'Front End Development', 'Asset Creation']
 tech: ['React', 'Vite', 'Tailwind', 'Figma', 'Netlify']
 timeframe: { weeks: 5, launched: '07-2024' }
 ---

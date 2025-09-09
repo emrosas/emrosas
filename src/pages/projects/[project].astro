@@ -8,6 +8,7 @@ import Layout from '../../layouts/Layout.astro'
 import Pill from '../../components/Pill.astro'
 import Button from '../../components/Button.astro'
 import { Image } from 'astro:assets'
+import { skipPartiallyEmittedExpressions } from 'typescript'
 
 // Rendering helpers
 export async function getStaticPaths() {
@@ -40,7 +41,7 @@ function extractFolderFromPath(path: string): string {
 }
 
 const { project } = Astro.params
-const { name, description, links, image, type, services, tech, timeframe } = Astro.props
+const { name, description, links, image, type, skills, tech, timeframe } = Astro.props
 const images = await getProjectImages(project)
 // const images = await displayProjectImages(project)
 ---
@@ -85,20 +86,20 @@ const images = await getProjectImages(project)
 			<!--Extra Details Section-->
 			<div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
 				<div id="services" class="flex flex-col gap-2">
-					<h3 class="font-medium">Services</h3>
+					<h3 class="font-medium">Skills Used</h3>
 					<ul class="flex flex-wrap gap-x-3 gap-y-1">
 						{
-							services.map((service) => (
+							skills.map((skill) => (
 								<li class="flex items-center gap-2 font-light opacity-60">
 									<span aria-hidden="true" class="size-1 rounded-full bg-light" />
-									{service}
+									{skill}
 								</li>
 							))
 						}
 					</ul>
 				</div>
 				<div id="tech" class="flex flex-col gap-2">
-					<h3 class="font-medium">Technologies</h3>
+					<h3 class="font-medium">Tech Stack</h3>
 					<ul class="flex flex-wrap gap-x-3 gap-y-1">
 						{
 							tech.map((tech) => (

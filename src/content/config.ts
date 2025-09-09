@@ -17,7 +17,7 @@ const projects = defineCollection({
 			live: z.string().url().optional(),
 			code: z.string().url().optional()
 		}),
-		services: z.array(z.string()),
+		skills: z.array(z.string()),
 		tech: z.array(z.string()),
 		timeframe: z.object({
 			weeks: z.number(),

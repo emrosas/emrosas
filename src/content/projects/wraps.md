@@ -8,11 +8,11 @@ shortDescription: "A Landing Page that features a dynamic menu to showcase it's 
 type: 'Landing Page'
 image:
   {
-    src: '/images/wraps.png',
+    src: '/images/projects/wraps.png',
     alt: "Website mockup of La Pastelería de La Postreria's landing page"
   }
 links: { code: 'https://github.com/emrosas/thewrapco.' }
-services: ['UX Design', 'Wev Development', 'Asset Creation']
+skills: ['UX Design', 'Wev Development', 'Asset Creation']
 tech: ['Astro', 'Tailwind', 'Figma', 'Photoshop', 'Illustrator']
 timeframe: { weeks: 5, launched: '01-2024' }
 ---
